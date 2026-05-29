@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# IDE
+.codeflicker/
+.vscode/
+.idea/
+
+# 临时
+*.tmp
+*.log
+node_modules/
+
+# 原始素材备份（不部署）
+assets/pdf/_orig/
+raw/
+
+# 中间产物
+i18n.zip

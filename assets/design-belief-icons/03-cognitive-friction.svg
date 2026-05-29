@@ -1,0 +1,14 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">好的体验设计，本质是降低认知摩擦</title>
+  <desc id="desc">A simple geometric smooth path icon for reducing cognitive friction.</desc>
+  <rect width="240" height="240" rx="32" fill="#F4F1EA"/>
+  <path d="M60 60H180M60 120H180M60 180H180M60 60V180M120 60V180M180 60V180" stroke="#DED9CE" stroke-width="1" opacity="0.45"/>
+  <path d="M54 150C76 112 102 104 122 124C142 144 166 136 186 92" stroke="#202225" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="54" cy="150" r="9" fill="#F9F7F1" stroke="#202225" stroke-width="4"/>
+  <circle cx="186" cy="92" r="9" fill="#3F73F6" stroke="#202225" stroke-width="4"/>
+  <rect x="83" y="107" width="28" height="28" rx="7" fill="#F9F7F1" stroke="#202225" stroke-width="4" transform="rotate(45 97 121)"/>
+  <rect x="138" y="107" width="28" height="28" rx="7" fill="#F9F7F1" stroke="#202225" stroke-width="4" opacity="0.28" transform="rotate(45 152 121)"/>
+  <path d="M78 78H142" stroke="#202225" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 94H118" stroke="#202225" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="169" cy="76" r="7" fill="#F6D75C"/>
+</svg>

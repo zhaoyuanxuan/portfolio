@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f5f1ea" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Zhao Yuanxuan — Designer · 赵元轩 作品集</title>
+    <meta
+      name="description"
+      content="Senior product designer · 10+ years across AI, data, mobility and platform systems. Selected work and case studies."
+    />
+    <meta name="author" content="Zhao Yuanxuan · 赵元轩" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Zhao Yuanxuan — Designer Portfolio 2026" />
+    <meta property="og:description" content="From clutter to clarity. Selected work across AI, data, mobility and platform systems." />
+    <meta property="og:image" content="assets/hero/hero-clarity.png" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23f5f1ea'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%234a5a8a' stroke-width='1.2'/%3E%3C/svg%3E"
+    />
+
+    <!-- Critical resource priority hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/hero/hero-clarity.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Ambient light layer -->
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__grid"></div>
+      <div class="ambient__halo ambient__halo--a"></div>
+      <div class="ambient__halo ambient__halo--b"></div>
+      <div class="ambient__grain"></div>
+    </div>
+
+    <!-- Top navigation -->
+    <header class="nav" id="nav">
+      <a href="#top" class="nav__brand" aria-label="Home">
+        <span class="nav__brand-mark">◌</span>
+        <span class="nav__brand-name">Zhao Yuanxuan</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" data-num="02" data-i18n="nav.about">About</a>
+        <a href="#career" data-num="03" data-i18n="nav.career">Career</a>
+        <a href="#work" data-num="04" data-i18n="nav.work">Work</a>
+        <a href="#contact" data-num="05" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__meta">
+        <button class="nav__lang" id="lang-toggle" aria-label="Toggle language" type="button">
+          <span data-lang-active="zh">EN</span>
+          <span data-lang-active="en" hidden>中</span>
+        </button>
+        <span class="nav__time" id="nav-time" aria-hidden="true">— : —</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============================================================
+       01 · HERO  — visual fused INTO the background
+            Replace the .hero__media element with <img> or <video>.
+       ============================================================ -->
+      <section class="hero" id="hero">
+        <div class="hero__stage">
+          <!-- hero__frame: 2:1 aspect-ratio wrapper so absolute % positions
+               map 1-to-1 onto the illustration's coordinate space. -->
+          <div class="hero__frame">
+            <!-- Hero illustration -->
+            <picture>
+              <source srcset="assets/hero/hero-clarity.webp" type="image/webp" />
+              <img
+                class="hero__illus"
+                src="assets/hero/hero-clarity.png"
+                alt="From clutter to clarity — a designer turning a tangle of input into structured output"
+                decoding="async"
+                fetchpriority="high"
+                width="1280"
+                height="640"
+              />
+            </picture>
+
+            <!-- Caption anchored inside the empty rectangle:
+                 right ~48%–100%, vertical ~56%–83% of image height -->
+            <div class="hero__caption">
+              <p class="hero__kicker" data-i18n="hero.kicker">Designer · 设计师 · Portfolio 2026</p>
+              <h1 class="hero__title" data-i18n="hero.title">
+                From <em>clutter</em> to <em>clarity</em>.
+              </h1>
+              <p class="hero__sub" data-i18n="hero.sub">
+                I help people make sense of complexity — through structure, rhythm and quiet decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal info cards — three-up row, inspired by the reference design -->
+        <ul class="hero__cards" aria-label="About the designer">
+          <li class="hero__card">
+            <div class="hero__card-head">
+              <svg class="hero__card-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M4 20c1.6-3.6 4.5-5.4 8-5.4s6.4 1.8 8 5.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <h3 class="hero__card-title" data-i18n="hero.card.name">Zhao Yuanxuan · 赵元轩</h3>
+            </div>
+            <p class="hero__card-body" data-i18n="hero.card.name.body">
+              Senior product designer working across data, decision systems and AI-native interfaces — 10+ years turning ambiguity into structure.
+            </p>
+          </li>
+          <li class="hero__card">
+            <div class="hero__card-head">
+              <svg class="hero__card-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 4"/>
+              </svg>
+              <h3 class="hero__card-title" data-i18n="hero.card.status">Looking for a Good Product</h3>
+            </div>
+            <p class="hero__card-body" data-i18n="hero.card.status.body">
+              Open to teams building meaningful tools where design judgement and engineering rigor meet on equal terms.
+            </p>
+          </li>
+          <li class="hero__card">
+            <div class="hero__card-head">
+              <svg class="hero__card-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+              <h3 class="hero__card-title">
+                <span data-i18n="hero.card.based">Beijing · 39.9° N</span> · <span id="hero-year">2026</span>
+              </h3>
+            </div>
+            <p class="hero__card-body" data-i18n="hero.card.based.body">
+              Based in Beijing, working with global teams on long-horizon design — calm pace, sharp questions, lasting systems.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Quiet keyword strip -->
+      <section class="strip" aria-hidden="true">
+        <div class="strip__track">
+          <span>Rational</span><span>·</span>
+          <span>Systematic</span><span>·</span>
+          <span>AI Native</span><span>·</span>
+          <span>Minimal</span><span>·</span>
+          <span>Mathematical</span><span>·</span>
+          <span>Quiet Luxury</span><span>·</span>
+          <span>Structured</span><span>·</span>
+          <span>Futuristic</span><span>·</span>
+          <span>Rational</span><span>·</span>
+          <span>Systematic</span><span>·</span>
+          <span>AI Native</span><span>·</span>
+          <span>Minimal</span><span>·</span>
+          <span>Mathematical</span><span>·</span>
+          <span>Quiet Luxury</span><span>·</span>
+          <span>Structured</span><span>·</span>
+          <span>Futuristic</span><span>·</span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       02 · ABOUT  (single bio kept; portrait fused with background)
+       ============================================================ -->
+      <section class="about" id="about">
+        <header class="section__head">
+          <span class="num">02</span>
+          <h2 data-i18n="about.heading">About</h2>
+        </header>
+
+        <div class="about__grid">
+          <!-- Portrait — feathered into background via radial mask -->
+          <figure class="about__portrait placeholder placeholder--feather"
+                  data-ph="portrait"
+                  data-size="1200×1200 · 1:1">
+            <div class="placeholder__crosshair"></div>
+            <figcaption>
+              <span>PORTRAIT</span>
+              <span>1200 × 1200 · 1:1</span>
+            </figcaption>
+          </figure>
+
+          <div class="about__info">
+            <p class="about__bio" data-i18n="about.bio">
+              10+ 年数字产品体验设计经验，横跨大型平台与高速成长型创业公司。
+              致力于设计帮助人们理解复杂性的系统，并探索 AI 时代下的交互设计与体验体系。
+            </p>
+
+            <dl class="about__facts">
+              <div>
+                <dt data-i18n="about.name">Name</dt>
+                <dd data-i18n="about.fact_value.name">赵元轩 · Zhao Yuanxuan</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.title">Title</dt>
+                <dd>Last Stand Designer</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.location">Location</dt>
+                <dd>Beijing, CN</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.years">Years</dt>
+                <dd>10+</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.status2">Status</dt>
+                <dd>Looking for Good Product</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.contact">Contact</dt>
+                <dd>+86 188-1131-4191</dd>
+              </div>
+            </dl>
+
+            <ul class="tags">
+              <li data-i18n="about.tags[0]">音视频</li>
+              <li data-i18n="about.tags[1]">交易与履约</li>
+              <li data-i18n="about.tags[2]">出行服务</li>
+              <li data-i18n="about.tags[3]">体验与体系</li>
+              <li data-i18n="about.tags[4]">解决问题</li>
+              <li data-i18n="about.tags[5]">定义复杂</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       03 · CAREER  (real content · refined timeline)
+       ============================================================ -->
+      <section class="career" id="career">
+        <header class="section__head">
+          <span class="num">03</span>
+          <h2 data-i18n="career.heading">Career</h2>
+        </header>
+
+        <ol class="career__list">
+          <!-- Kuaishou — current -->
+          <li class="career__row career__row--current" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">24.04</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end" data-i18n="career.present">至今</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+              <span class="career__dot-ring"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1"/>
+                <path d="M10 8.5 L15.5 12 L10 15.5 Z" fill="currentColor"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.kuaishou.co">快手</span>
+              <span class="career__role" data-i18n="career.rows.kuaishou.role">交互设计专家</span>
+              <span class="career__chip">E10</span>
+            </div>
+            <ol class="career__bullets">
+              <li>
+                <span class="career__bnum">01</span>
+                <p data-i18n="career.rows.kuaishou.b1">负责人力资源线 — 组织发展 ToB、ToC 相关体验设计，并制定与指导设计规范</p>
+              </li>
+              <li>
+                <span class="career__bnum">02</span>
+                <p data-i18n="career.rows.kuaishou.b2">负责 HR 业务部门的 AI、低代码平台等创新项目的交互体验设计</p>
+              </li>
+            </ol>
+          </li>
+
+          <!-- LingDong -->
+          <li class="career__row" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">23.02</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end">24.04</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1"/>
+                <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1"/>
+                <line x1="12" y1="3" x2="12" y2="8.6" stroke="currentColor" stroke-width="1"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.lingdong.co">零洞科技</span>
+            </div>
+            <ol class="career__bullets">
+              <li>
+                <span class="career__bnum">01</span>
+                <p data-i18n="career.rows.lingdong.b1">负责零洞智慧家（智能家居）相关体验设计</p>
+              </li>
+            </ol>
+          </li>
+
+          <!-- Tencent -->
+          <li class="career__row" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">22.01</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end">23.01</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4 C 7.5 4 4.5 7 4.5 12 C 4.5 15.5 6.4 18.4 9.2 19.4 L14.8 19.4 C 17.6 18.4 19.5 15.5 19.5 12 C 19.5 7 16.5 4 12 4 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+                <line x1="14.8" y1="19.4" x2="17" y2="21.4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <circle cx="10" cy="10.5" r="0.8" fill="currentColor"/>
+                <circle cx="14" cy="10.5" r="0.8" fill="currentColor"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.tencent.co">腾讯</span>
+              <span class="career__role" data-i18n="career.rows.tencent.role">交互设计专家</span>
+              <span class="career__chip">D10</span>
+            </div>
+            <ol class="career__bullets">
+              <li>
+                <span class="career__bnum">01</span>
+                <p data-i18n="career.rows.tencent.b1">负责腾讯地图基线与导航模块交互设计；0–1 搭建并完善组件库相关设计原则并推动落地</p>
+              </li>
+            </ol>
+          </li>
+
+          <!-- iQIYI -->
+          <li class="career__row" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">21.08</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end">21.12</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1"/>
+                <path d="M10.5 11 L15 13.5 L10.5 16 Z" fill="currentColor"/>
+                <circle cx="6" cy="4.2" r="1" fill="currentColor"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.iqiyi.co">爱奇艺</span>
+              <span class="career__role" data-i18n="career.rows.iqiyi.role">设计经理</span>
+              <span class="career__chip" data-i18n="career.rows.iqiyi.chip">8级</span>
+            </div>
+            <ol class="career__bullets">
+              <li>
+                <span class="career__bnum">01</span>
+                <p data-i18n="career.rows.iqiyi.b1">负责海外事业部全端产品（移动端、PC 端、TV 端）与垂直模块的设计优化与设计策略</p>
+              </li>
+            </ol>
+          </li>
+
+          <!-- SF City -->
+          <li class="career__row" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">17.12</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end">21.05</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="9" width="13" height="11" fill="none" stroke="currentColor" stroke-width="1"/>
+                <path d="M13 5 L21 5 L21 13" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="13" y1="13" x2="21" y2="5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.sf.co">顺丰同城</span>
+              <span class="career__role" data-i18n="career.rows.sf.role">交互负责人</span>
+            </div>
+            <ol class="career__bullets">
+              <li>
+                <span class="career__bnum">01</span>
+                <p data-i18n-html="career.rows.sf.b1">负责顺丰同城急送用户侧、商家侧、骑士配送侧、骑士管理侧、业务运维侧等 ToC 和 ToB 业务<span class="career__period">2017 – 2021</span></p>
+              </li>
+              <li>
+                <span class="career__bnum">02</span>
+                <p data-i18n-html="career.rows.sf.b2">0–1–100 搭建与完善交互团队，带领团队赋能业务，创新设计价值<span class="career__period">2017 – 2021</span></p>
+              </li>
+            </ol>
+          </li>
+
+          <!-- Sogou -->
+          <li class="career__row" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">14.12</span>
+              <span class="career__y-sep">—</span>
+              <span class="career__y-end">17.11</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot"></span>
+            </div>
+            <div class="career__head">
+              <svg class="career__co-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1"/>
+                <line x1="15" y1="15" x2="20" y2="20" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <circle cx="10.5" cy="10.5" r="1.4" fill="currentColor"/>
+              </svg>
+              <span class="career__co" data-i18n="career.rows.sogou.co">搜狗搜索</span>
+              <span class="career__role" data-i18n="career.rows.sogou.role">高级交互设计师</span>
+            </div>
+          </li>
+
+          <!-- Education — distinct visual treatment -->
+          <li class="career__row career__row--edu" data-reveal>
+            <div class="career__years">
+              <span class="career__y-start">15.01</span>
+            </div>
+            <div class="career__node" aria-hidden="true">
+              <span class="career__dot career__dot--hollow"></span>
+            </div>
+            <div class="career__head">
+              <span class="career__co" data-i18n="career.rows.edu.co">北京理工大学</span>
+              <span class="career__role career__role--edu" data-i18n="career.rows.edu.role">设计学硕士</span>
+              <svg class="career__edu-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 9 L12 4 L22 9 L12 14 L2 9 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+                <path d="M6 11 L6 16 Q 12 19 18 16 L18 11" fill="none" stroke="currentColor" stroke-width="1"/>
+                <line x1="22" y1="9" x2="22" y2="14" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============================================================
+       BELIEFS  (quieter · refined · single-line typographic style)
+       ============================================================ -->
+      <section class="beliefs" id="beliefs">
+        <header class="section__head section__head--inline">
+          <span class="num">·</span>
+          <h2 class="section__h2-sm" data-i18n="beliefs.heading">Design Beliefs</h2>
+          <span class="beliefs__count" aria-hidden="true">04 / 04</span>
+        </header>
+        <ol class="beliefs__list">
+          <li>
+            <span class="b__ico" aria-hidden="true"><img src="assets/design-belief-icons/01-structured-expression.svg" alt=""></span>
+            <span class="b__num">01</span>
+            <p data-i18n="beliefs.items[0]">复杂系统需要结构化表达</p>
+          </li>
+          <li>
+            <span class="b__ico" aria-hidden="true"><img src="assets/design-belief-icons/02-judgment-taste.svg" alt=""></span>
+            <span class="b__num">02</span>
+            <p data-i18n="beliefs.items[1]">AI 时代，设计的核心是判断力与品味</p>
+          </li>
+          <li>
+            <span class="b__ico" aria-hidden="true"><img src="assets/design-belief-icons/03-cognitive-friction.svg" alt=""></span>
+            <span class="b__num">03</span>
+            <p data-i18n="beliefs.items[2]">好的体验设计，本质是降低认知摩擦</p>
+          </li>
+          <li>
+            <span class="b__ico" aria-hidden="true"><img src="assets/design-belief-icons/04-surface-deep.svg" alt=""></span>
+            <span class="b__num">04</span>
+            <p><em>Design surface, understand the deep.</em></p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============================================================
+       04 · SELECTED WORK  (refined hover details)
+       ============================================================ -->
+      <section class="work" id="work">
+        <header class="section__head">
+          <span class="num">04</span>
+          <h2 data-i18n="work.heading">Selected Work</h2>
+          <p class="section__sub" data-i18n="work.sub">
+            A short list of projects that defined how I think — across AI,
+            data, mobility, and platform systems.
+          </p>
+        </header>
+
+        <ol class="work__list">
+          <!-- ============ P.01 · 快手 · 人才全景评价（原 P.04）============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=1" class="work__link">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.01 cover · thinker with lightbulb">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">01</text>
+                  <image class="illus-img" href="assets/covers/p1-thinker.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">CASE</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open · interactive case</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.01</span>
+                  <span class="src">Kuaishou</span>
+                  <span class="tag">OD · Talent System</span>
+                  <span class="year">2026</span>
+                </div>
+                <h3 data-i18n-html="work.p1.title_html">组织决策系统提效 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p1.line">如何让管理者更高效地判断团队成绩分布、做出公正公平的裁决。</p>
+              </div>
+            </a>
+          </li>
+
+          <!-- ============ P.02 · 快手 · 数据图表选型决策引擎（原 P.03）============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=2" class="work__link">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.02 cover · presenter with flip-chart">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">02</text>
+                  <image class="illus-img" href="assets/covers/p2-presenter.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">CASE</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open case · interactive</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.02</span>
+                  <span class="src">Kuaishou</span>
+                  <span class="tag">Decision Engine</span>
+                  <span class="year">2025</span>
+                </div>
+                <h3 data-i18n-html="work.p2.title_html">图表选型引擎 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p2.line">把"凭感觉选图"抽象为 47 条规则、Top-1 准确率 89%。</p>
+              </div>
+            </a>
+          </li>
+
+          <!-- ============ P.03 · 顺丰同城 · 履约系统体验治理（原 P.01）============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=3" class="work__link" data-pdf="assets/pdf/P3.pdf">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.03 cover · package and coin handoff">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">03</text>
+                  <image class="illus-img" href="assets/covers/p3-handoff.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">PDF</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open case · PDF</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.03</span>
+                  <span class="src">SF · 顺丰同城</span>
+                  <span class="tag">Fulfillment UX</span>
+                  <span class="year">2021</span>
+                </div>
+                <h3 data-i18n-html="work.p3.title_html">履约体验治理 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p3.line">用户 · 骑士 · 平台三方系统的体验与效率重构。</p>
+              </div>
+            </a>
+          </li>
+
+          <!-- ============ P.04 · 腾讯地图 · 组件库（原 P.02）============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=4" class="work__link" data-pdf="assets/pdf/P4.pdf">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.04 cover · assembling puzzle pieces">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">04</text>
+                  <image class="illus-img" href="assets/covers/p4-puzzle.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">PDF</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open case · PDF</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.04</span>
+                  <span class="src">Tencent · 腾讯地图</span>
+                  <span class="tag">Design System</span>
+                  <span class="year">2022</span>
+                </div>
+                <h3 data-i18n-html="work.p4.title_html">地图组件体系 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p4.line">从分散设计资产到可复用 · 可演进的设计基础设施。</p>
+              </div>
+            </a>
+          </li>
+
+          <!-- ============ P.05 · 爱奇艺国际 · 沉浸式观影 + 付费链路 ============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=5" class="work__link" data-pdf="assets/pdf/P5.pdf">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.05 cover · viewer with laptop and play">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">05</text>
+                  <image class="illus-img" href="assets/covers/p5-viewer.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">PDF</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open case · PDF</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.05</span>
+                  <span class="src">iQIYI · 爱奇艺国际</span>
+                  <span class="tag">Immersive UX</span>
+                  <span class="year">2019</span>
+                </div>
+                <h3 data-i18n-html="work.p5.title_html">沉浸式观影体验 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p5.line">从"易用"到"沉浸"：在内容消费节奏与付费链路之间重建感知秩序。</p>
+              </div>
+            </a>
+          </li>
+
+          <!-- ============ P.06 · 长期复杂业务 · 设计体系与度量 ============ -->
+          <li class="work__item" data-reveal>
+            <a href="case.html?p=6" class="work__link" data-pdf="assets/pdf/P6.pdf">
+              <figure class="work__cover placeholder cover-art cover-art--illus" aria-label="P.06 cover · designer drafting a system flow">
+                <svg class="cover-art__svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <text class="lbl-num--left" x="36" y="178">06</text>
+                  <image class="illus-img" href="assets/covers/p6-system.webp" x="180" y="20" width="280" height="230" preserveAspectRatio="xMidYMid meet"/>
+                </svg>
+                <span class="work__badge" aria-hidden="true">PDF</span>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">Open case · PDF</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.06</span>
+                  <span class="src">Long-term · 复杂业务</span>
+                  <span class="tag">Design Operating System</span>
+                  <span class="year">2018–</span>
+                </div>
+                <h3 data-i18n-html="work.p6.title_html">设计工作体系 <span class="work__rule"></span></h3>
+                <p class="work__line" data-i18n="work.p6.line">从"做页面"到"做系统"：让设计资源在复杂业务里持续创造价值。</p>
+              </div>
+            </a>
+          </li>
+        </ol>
+
+        <p class="work__hint" data-i18n="work.hint">
+          More case studies on request.
+        </p>
+      </section>
+
+      <!-- ============================================================
+       05 · CONTACT
+       ============================================================ -->
+      <section class="contact" id="contact">
+        <header class="section__head">
+          <span class="num">05</span>
+          <h2 data-i18n="contact.heading">Contact</h2>
+          <p class="section__sub" data-i18n="contact.sub">
+            For collaborations, work inquiries, or quiet conversations.
+          </p>
+        </header>
+
+        <div class="contact__statement">
+          <p data-i18n="contact.statement">
+            Currently <em>looking for a good product</em> — open to design
+            leadership, founding design, and AI-native product roles.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <a href="mailto:hello@yuanxuan.design" class="contact__card">
+            <span class="kicker">Email</span>
+            <span class="value">hello@yuanxuan.design</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="tel:+8618811314191" class="contact__card">
+            <span class="kicker">Phone</span>
+            <span class="value">+86 188-1131-4191</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" class="contact__card">
+            <span class="kicker">LinkedIn</span>
+            <span class="value">in/zhaoyuanxuan</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" class="contact__card">
+            <span class="kicker">Behance</span>
+            <span class="value">be.net/zhaoyuanxuan</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       06 · LONG-TERM FOCUS  (moved to the very end)
+       ============================================================ -->
+      <section class="focus" id="focus">
+        <header class="section__head">
+          <span class="num">06</span>
+          <h2 data-i18n="focus.heading">Long-term Focus</h2>
+        </header>
+
+        <div class="focus__grid">
+          <div class="focus__item">
+            <span class="num">F.01</span>
+            <h4>Cognitive Design</h4>
+            <p>Designing for how minds make sense of systems.</p>
+          </div>
+          <div class="focus__item">
+            <span class="num">F.02</span>
+            <h4>Human-Centered Design</h4>
+            <p>People before pixels, behavior before opinions.</p>
+          </div>
+          <div class="focus__item">
+            <span class="num">F.03</span>
+            <h4>Efficiency &amp; Emotion</h4>
+            <p>Calm interfaces that respect both intent and feeling.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot__row">
+        <span class="foot__co">© 2025 — Zhao Yuanxuan</span>
+        <span class="foot__quote" data-i18n="foot.quote">
+          I design things that help people understand complexity.
+        </span>
+        <span class="foot__loc">Beijing · Remote</span>
+      </div>
+      <div class="foot__row foot__row--small">
+        <span>Built quietly · Last update 2025</span>
+        <span>v 2.1.0 · perf pass · WebP + slim assets</span>
+      </div>
+    </footer>
+
+    <script src="./i18n-bundle.js"></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./script.js" defer></script>
+  </body>
+</html>

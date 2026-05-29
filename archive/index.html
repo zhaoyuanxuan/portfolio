@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>Zhao Yuanxuan — Last Stand Designer</title>
+    <meta
+      name="description"
+      content="I design things that help people understand complexity. 10+ years of experience designer working across AI, platforms, and complex business systems."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23f5f1ea'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%234a5a8a' stroke-width='1.2'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Ambient light layer -->
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__grid"></div>
+      <div class="ambient__halo ambient__halo--a"></div>
+      <div class="ambient__halo ambient__halo--b"></div>
+      <div class="ambient__grain"></div>
+    </div>
+
+    <!-- Top navigation -->
+    <header class="nav" id="nav">
+      <a href="#top" class="nav__brand" aria-label="Home">
+        <span class="nav__brand-mark">◌</span>
+        <span class="nav__brand-name">Zhao Yuanxuan</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" data-num="02">About</a>
+        <a href="#career" data-num="03">Career</a>
+        <a href="#work" data-num="04">Work</a>
+        <a href="#contact" data-num="05">Contact</a>
+      </nav>
+
+      <div class="nav__meta">
+        <button class="nav__lang" id="lang-toggle" aria-label="Toggle language" type="button">
+          <span data-lang-active="zh">EN</span>
+          <span data-lang-active="en" hidden>中</span>
+        </button>
+        <span class="nav__time" id="nav-time" aria-hidden="true">— : —</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============================================================
+       01 · HERO  — visual fused INTO the background
+            Replace the .hero__media element with <img> or <video>.
+       ============================================================ -->
+      <section class="hero" id="hero">
+        <!-- HERO MEDIA SLOT (replace this whole block with <img>/<video>)
+             data-ph="hero-media"  ·  3840×2160 16:9  ·  put dynamic visual here -->
+        <div class="hero__media" data-ph="hero-media" data-size="3840×2160 · 16:9 · video/img">
+          <!-- Static fallback motif: a soft generative gradient + radial rings
+               will be removed once a real media replaces this slot. -->
+          <div class="hero__motif" aria-hidden="true">
+            <div class="hero__motif-rings"></div>
+            <div class="hero__motif-orb hero__motif-orb--1"></div>
+            <div class="hero__motif-orb hero__motif-orb--2"></div>
+            <div class="hero__motif-orb hero__motif-orb--3"></div>
+          </div>
+          <span class="hero__media-tag">HERO MEDIA · 3840×2160 · replace here</span>
+        </div>
+
+        <!-- Hero content overlays the media -->
+        <div class="hero__inner">
+          <div class="hero__index">
+            <span class="num">01</span>
+            <span class="label" data-i18n="hero.label">Hero</span>
+          </div>
+
+          <h1 class="hero__title">
+            <span class="hero__line" data-i18n="hero.line1">I design things</span>
+            <span class="hero__line hero__line--accent" data-i18n="hero.line2"
+              >that help people</span
+            >
+            <span class="hero__line" data-i18n="hero.line3"
+              >understand <em>complexity.</em></span
+            >
+          </h1>
+
+          <div class="hero__meta">
+            <div class="hero__meta-col">
+              <span class="kicker" data-i18n="hero.role">Designer · 设计师</span>
+              <span class="value">Zhao Yuanxuan / 赵元轩</span>
+            </div>
+            <div class="hero__meta-col">
+              <span class="kicker" data-i18n="hero.status">Status</span>
+              <span class="value">
+                <span class="dot"></span>
+                <span data-i18n="hero.status.text">Looking for Good Product</span>
+              </span>
+            </div>
+            <div class="hero__meta-col">
+              <span class="kicker" data-i18n="hero.based">Based</span>
+              <span class="value">Beijing · 39.9° N</span>
+            </div>
+            <div class="hero__meta-col">
+              <span class="kicker" data-i18n="hero.year">Year</span>
+              <span class="value" id="hero-year">2025</span>
+            </div>
+          </div>
+
+          <a href="#about" class="hero__scroll" aria-label="Scroll">
+            <span data-i18n="hero.scroll">Scroll</span>
+            <span class="hero__scroll-line"></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Quiet keyword strip -->
+      <section class="strip" aria-hidden="true">
+        <div class="strip__track">
+          <span>Rational</span><span>·</span>
+          <span>Systematic</span><span>·</span>
+          <span>AI Native</span><span>·</span>
+          <span>Minimal</span><span>·</span>
+          <span>Mathematical</span><span>·</span>
+          <span>Quiet Luxury</span><span>·</span>
+          <span>Structured</span><span>·</span>
+          <span>Futuristic</span><span>·</span>
+          <span>Rational</span><span>·</span>
+          <span>Systematic</span><span>·</span>
+          <span>AI Native</span><span>·</span>
+          <span>Minimal</span><span>·</span>
+          <span>Mathematical</span><span>·</span>
+          <span>Quiet Luxury</span><span>·</span>
+          <span>Structured</span><span>·</span>
+          <span>Futuristic</span><span>·</span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       02 · ABOUT  (single bio kept; portrait fused with background)
+       ============================================================ -->
+      <section class="about" id="about">
+        <header class="section__head">
+          <span class="num">02</span>
+          <h2 data-i18n="about.heading">About</h2>
+        </header>
+
+        <div class="about__grid">
+          <!-- Portrait — feathered into background via radial mask -->
+          <figure class="about__portrait placeholder placeholder--feather"
+                  data-ph="portrait"
+                  data-size="1200×1200 · 1:1">
+            <div class="placeholder__crosshair"></div>
+            <figcaption>
+              <span>PORTRAIT</span>
+              <span>1200 × 1200 · 1:1</span>
+            </figcaption>
+          </figure>
+
+          <div class="about__info">
+            <p class="about__bio" data-i18n="about.bio">
+              10+ 年数字产品体验设计经验，横跨大型平台与高速成长型创业公司。
+              致力于设计帮助人们理解复杂性的系统，并探索 AI 时代下的交互设计与体验体系。
+            </p>
+
+            <dl class="about__facts">
+              <div>
+                <dt data-i18n="about.name">Name</dt>
+                <dd>赵元轩 · Zhao Yuanxuan</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.title">Title</dt>
+                <dd>Last Stand Designer</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.location">Location</dt>
+                <dd>Beijing, CN</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.years">Years</dt>
+                <dd>10+</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.status2">Status</dt>
+                <dd>Looking for Good Product</dd>
+              </div>
+              <div>
+                <dt data-i18n="about.contact">Contact</dt>
+                <dd>+86 188-1131-4191</dd>
+              </div>
+            </dl>
+
+            <ul class="tags">
+              <li>音视频</li>
+              <li>交易与履约</li>
+              <li>出行服务</li>
+              <li>体验与体系</li>
+              <li>解决问题</li>
+              <li>定义复杂</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       03 · CAREER  (moved under About; each item reserves ~100 字)
+       ============================================================ -->
+      <section class="career" id="career">
+        <header class="section__head">
+          <span class="num">03</span>
+          <h2 data-i18n="career.heading">Career</h2>
+        </header>
+
+        <ol class="career__list">
+          <li class="career__row" data-reveal>
+            <div class="career__years">2024 — Now</div>
+            <div class="career__co">Kuaishou · 快手</div>
+            <div class="career__role">Experience Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+          <li class="career__row" data-reveal>
+            <div class="career__years">2023 — 2024</div>
+            <div class="career__co">LingDong · 零洞</div>
+            <div class="career__role">Experience Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+          <li class="career__row" data-reveal>
+            <div class="career__years">2022 — 2023</div>
+            <div class="career__co">Tencent · 腾讯</div>
+            <div class="career__role">Experience Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+          <li class="career__row" data-reveal>
+            <div class="career__years">2021 — 2022</div>
+            <div class="career__co">iQIYI · 爱奇艺</div>
+            <div class="career__role">Experience Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+          <li class="career__row" data-reveal>
+            <div class="career__years">2018 — 2021</div>
+            <div class="career__co">SF City · 顺丰同城</div>
+            <div class="career__role">Interaction Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+          <li class="career__row" data-reveal>
+            <div class="career__years">2015 — 2018</div>
+            <div class="career__co">Sogou · 搜狗</div>
+            <div class="career__role">Interaction Design</div>
+            <p class="career__desc" data-placeholder="约 100 字 · 主要负责的项目 / 关键成果 / 业务方向">
+              // 约 100 字 · 主要负责的项目、关键成果与业务方向，可在此补全。
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============================================================
+       BELIEFS  (only 4 retained · constrained to ≤ half viewport)
+       ============================================================ -->
+      <section class="beliefs" id="beliefs">
+        <header class="section__head section__head--inline">
+          <span class="num">·</span>
+          <h2 class="section__h2-sm" data-i18n="beliefs.heading">Design Beliefs</h2>
+        </header>
+        <ol class="beliefs__grid">
+          <li>
+            <span class="b__num">02</span>
+            <svg class="b__ico" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1"/>
+              <circle cx="16" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="1"/>
+              <line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" stroke-width="0.5"/>
+              <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="0.5"/>
+            </svg>
+            <p>复杂系统需要结构化表达</p>
+          </li>
+          <li>
+            <span class="b__num">03</span>
+            <svg class="b__ico" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M4 24 L12 12 L20 18 L28 6" fill="none" stroke="currentColor" stroke-width="1"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              <circle cx="20" cy="18" r="1.5" fill="currentColor"/>
+              <circle cx="28" cy="6" r="1.5" fill="currentColor"/>
+            </svg>
+            <p>AI 时代，设计的核心是判断力与品味</p>
+          </li>
+          <li>
+            <span class="b__num">04</span>
+            <svg class="b__ico" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M4 16 Q 16 4 28 16 Q 16 28 4 16 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+              <circle cx="16" cy="16" r="2" fill="currentColor"/>
+            </svg>
+            <p>好的体验设计，本质是降低认知摩擦</p>
+          </li>
+          <li>
+            <span class="b__num">07</span>
+            <svg class="b__ico" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="4" y="4" width="24" height="10" fill="none" stroke="currentColor" stroke-width="1"/>
+              <line x1="4" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="0.5"/>
+              <line x1="4" y1="24" x2="28" y2="24" stroke="currentColor" stroke-width="0.5"/>
+              <line x1="4" y1="28" x2="28" y2="28" stroke="currentColor" stroke-width="0.5"/>
+            </svg>
+            <p>Design surface, understand the deep</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============================================================
+       04 · SELECTED WORK  (refined hover details)
+       ============================================================ -->
+      <section class="work" id="work">
+        <header class="section__head">
+          <span class="num">04</span>
+          <h2 data-i18n="work.heading">Selected Work</h2>
+          <p class="section__sub" data-i18n="work.sub">
+            A short list of projects that defined how I think — across AI,
+            data, mobility, and platform systems.
+          </p>
+        </header>
+
+        <ol class="work__list">
+          <!-- 6 work cards -->
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-01" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_01</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.01</span>
+                  <span class="tag">AI · System</span>
+                  <span class="year">2024</span>
+                </div>
+                <h3>Project Aurora <span class="work__rule"></span></h3>
+                <p class="work__line">AI-native workspace for design systems.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-02" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_02</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.02</span>
+                  <span class="tag">BI · Data</span>
+                  <span class="year">2024</span>
+                </div>
+                <h3>Lattice BI <span class="work__rule"></span></h3>
+                <p class="work__line">A calmer way to read business signals.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-03" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_03</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.03</span>
+                  <span class="tag">Mobility · Ops</span>
+                  <span class="year">2023</span>
+                </div>
+                <h3>City Flow <span class="work__rule"></span></h3>
+                <p class="work__line">Operating system for last-mile delivery.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-04" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_04</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.04</span>
+                  <span class="tag">Media · Video</span>
+                  <span class="year">2022</span>
+                </div>
+                <h3>Quiet Player <span class="work__rule"></span></h3>
+                <p class="work__line">A reading-room for moving pictures.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-05" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_05</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.05</span>
+                  <span class="tag">Design System</span>
+                  <span class="year">2022</span>
+                </div>
+                <h3>Atlas DS <span class="work__rule"></span></h3>
+                <p class="work__line">A design system built like an atlas.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="work__item" data-reveal>
+            <a href="#" class="work__link">
+              <figure class="work__cover placeholder" data-ph="work-06" data-size="1920×1080 · 16:9">
+                <div class="placeholder__crosshair"></div>
+                <figcaption><span>WORK_06</span><span>1920 × 1080 · 16:9</span></figcaption>
+                <div class="work__overlay" aria-hidden="true">
+                  <span class="work__overlay-cta">View case study</span>
+                  <span class="work__overlay-arrow">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="work__bottom">
+                <div class="work__meta">
+                  <span class="num">P.06</span>
+                  <span class="tag">Search · AI</span>
+                  <span class="year">2018</span>
+                </div>
+                <h3>Index Engine <span class="work__rule"></span></h3>
+                <p class="work__line">Search that anticipates the question.</p>
+              </div>
+            </a>
+          </li>
+        </ol>
+
+        <p class="work__hint" data-i18n="work.hint">
+          More case studies on request.
+        </p>
+      </section>
+
+      <!-- ============================================================
+       05 · CONTACT
+       ============================================================ -->
+      <section class="contact" id="contact">
+        <header class="section__head">
+          <span class="num">05</span>
+          <h2 data-i18n="contact.heading">Contact</h2>
+          <p class="section__sub" data-i18n="contact.sub">
+            For collaborations, work inquiries, or quiet conversations.
+          </p>
+        </header>
+
+        <div class="contact__statement">
+          <p data-i18n="contact.statement">
+            Currently <em>looking for a good product</em> — open to design
+            leadership, founding design, and AI-native product roles.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <a href="mailto:hello@yuanxuan.design" class="contact__card">
+            <span class="kicker">Email</span>
+            <span class="value">hello@yuanxuan.design</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="tel:+8618811314191" class="contact__card">
+            <span class="kicker">Phone</span>
+            <span class="value">+86 188-1131-4191</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" class="contact__card">
+            <span class="kicker">LinkedIn</span>
+            <span class="value">in/zhaoyuanxuan</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" class="contact__card">
+            <span class="kicker">Behance</span>
+            <span class="value">be.net/zhaoyuanxuan</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       06 · LONG-TERM FOCUS  (moved to the very end)
+       ============================================================ -->
+      <section class="focus" id="focus">
+        <header class="section__head">
+          <span class="num">06</span>
+          <h2 data-i18n="focus.heading">Long-term Focus</h2>
+        </header>
+
+        <div class="focus__grid">
+          <div class="focus__item">
+            <span class="num">F.01</span>
+            <h4>Cognitive Design</h4>
+            <p>Designing for how minds make sense of systems.</p>
+          </div>
+          <div class="focus__item">
+            <span class="num">F.02</span>
+            <h4>Human-Centered Design</h4>
+            <p>People before pixels, behavior before opinions.</p>
+          </div>
+          <div class="focus__item">
+            <span class="num">F.03</span>
+            <h4>Efficiency &amp; Emotion</h4>
+            <p>Calm interfaces that respect both intent and feeling.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot__row">
+        <span class="foot__co">© 2025 — Zhao Yuanxuan</span>
+        <span class="foot__quote" data-i18n="foot.quote">
+          I design things that help people understand complexity.
+        </span>
+        <span class="foot__loc">Beijing · Remote</span>
+      </div>
+      <div class="foot__row foot__row--small">
+        <span>Built quietly · Last update 2025</span>
+        <span>v 1.1.0</span>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

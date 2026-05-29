@@ -1,0 +1,3414 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Case Study · Zhao Yuanxuan</title>
+  <meta name="description" content="Case study viewer · Zhao Yuanxuan portfolio" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='6' fill='%231a1916'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="./i18n-bundle.js"></script>
+  <script src="./i18n.js" defer></script>
+  <style>
+    /* ---------- case page · scoped ---------- */
+    body.case { background: var(--bg); }
+    .case-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    /* Top bar — minimal, mirrors site nav */
+    .case-bar {
+      position: sticky; top: 0; z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px var(--gutter);
+      background: rgba(245, 241, 234, 0.78);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .case-back {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+      padding: 8px 12px 8px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: border-color 0.4s var(--ease), background 0.4s var(--ease), padding 0.4s var(--ease);
+    }
+    .case-back:hover {
+      border-color: var(--line-strong);
+      background: rgba(255,255,255,0.55);
+      padding-left: 6px;
+    }
+    .case-back svg { width: 14px; height: 14px; transition: transform 0.4s var(--ease-out); }
+    .case-back:hover svg { transform: translateX(-3px); }
+
+    .case-id {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+    .case-id b {
+      color: var(--text);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+    .case-id .case-id__dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      margin-bottom: 1px;
+    }
+
+    .case-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .case-tools a, .case-tools button {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+    }
+    .case-tools a:hover, .case-tools button:hover {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.6);
+    }
+    .case-tools svg { width: 13px; height: 13px; }
+
+    /* Title strip */
+    .case-title {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      width: 100%;
+      padding: 56px var(--gutter) 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .case-title h1 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .case-title h1 em {
+      font-style: italic;
+      color: var(--text-dim);
+    }
+    .case-title__meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+    .case-title__meta b {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Viewer surface */
+    .case-viewer {
+      max-width: var(--maxw);
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px var(--gutter) 96px;
+    }
+    .case-viewer__frame {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45)),
+        var(--bg-soft, #efe9df);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 24px 60px -32px rgba(40,36,32,0.18);
+      overflow: hidden;
+    }
+    /* Crop marks — same vocabulary as work cards */
+    .case-viewer__frame::before,
+    .case-viewer__frame::after {
+      content: "";
+      position: absolute;
+      width: 14px; height: 14px;
+      border: 1px solid var(--text-dim);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .case-viewer__frame::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .case-viewer__frame::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+    .case-viewer__inner {
+      position: relative;
+      width: 100%;
+      /* keep PDF tall; A4-ish portrait but flexible */
+      height: calc(100vh - 220px);
+      min-height: 560px;
+    }
+    .case-viewer__pdf {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+
+    /* Loader / fallback */
+    .case-loader {
+      position: absolute; inset: 0;
+      display: grid; place-items: center;
+      gap: 14px;
+      pointer-events: none;
+      transition: opacity 0.6s var(--ease);
+    }
+    .case-loader[hidden] { display: none; }
+    .case-loader__bar {
+      width: 120px; height: 1px;
+      background: var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .case-loader__bar::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: var(--text);
+      transform: translateX(-100%);
+      animation: caseLoad 1.6s var(--ease) infinite;
+    }
+    @keyframes caseLoad {
+      0%        { transform: translateX(-100%); }
+      60%, 100% { transform: translateX(100%); }
+    }
+    .case-loader__hint {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+
+    .case-fallback {
+      position: absolute; inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 32px;
+      text-align: center;
+    }
+    .case-fallback[data-show="1"] { display: flex; }
+    .case-fallback p { color: var(--text-dim); max-width: 48ch; }
+
+    /* Footer strip */
+    .case-foot {
+      padding: 28px var(--gutter) 40px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+    .case-foot a { color: var(--text); border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; }
+    .case-foot a:hover { border-color: var(--text); }
+
+    @media (max-width: 720px) {
+      .case-bar { padding: 14px var(--gutter); gap: 12px; }
+      .case-id { display: none; }
+      .case-title { grid-template-columns: 1fr; padding-top: 36px; }
+      .case-title__meta { align-items: flex-start; }
+      .case-viewer__inner { height: calc(100vh - 280px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .case-loader__bar::after { animation: none; }
+    }
+
+    /* =================================================================
+       Thinking module (only rendered for p=1, p=2)
+       Visual language: same warm bone bg, 1px hairlines, italic serif,
+       mono captions, deep blue accent, gentle reveal animations.
+       ================================================================= */
+    .think {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      width: 100%;
+      padding: 56px var(--gutter) 24px;
+    }
+    .think[hidden] { display: none; }
+
+    .think__head {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: end;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .think__kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .think__kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--text-dim);
+      display: inline-block;
+    }
+    .think__title {
+      grid-column: 1 / -1;
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(28px, 4.6vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.018em;
+      margin: 16px 0 0;
+      max-width: 22ch;
+    }
+    .think__title em { font-style: italic; color: var(--text-dim); }
+    .think__caption {
+      grid-column: 1 / -1;
+      max-width: 64ch;
+      color: var(--text-dim);
+      font-size: 14.5px;
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    /* Layout v2:
+         row 1 — horizontal Tabs (axes)
+         row 2 — left graph + right reading panel
+    */
+    .think__body {
+      padding-top: 28px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 24px;
+    }
+
+    /* === Tabs row === */
+    .think__tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.45);
+      overflow: hidden;
+    }
+    .axis {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--line);
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      transition: background 0.4s var(--ease), color 0.4s var(--ease);
+    }
+    .axis:last-child { border-right: 0; }
+    .axis::before {
+      /* underline indicator */
+      content: "";
+      position: absolute;
+      left: 18px; right: 18px;
+      bottom: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-out);
+    }
+    .axis[aria-pressed="true"]::before { transform: scaleX(1); }
+    .axis:hover { background: rgba(255,255,255,0.78); }
+    .axis[aria-pressed="true"] { background: rgba(255,255,255,0.92); }
+    .axis__num {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      color: var(--text-mute);
+      font-variant-numeric: tabular-nums;
+    }
+    .axis[aria-pressed="true"] .axis__num { color: var(--accent); }
+    .axis__name {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.005em;
+    }
+    .axis__sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+
+    /* === Detail row: graph (left) + panel (right) === */
+    .think__detail {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .think__canvas {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.4)),
+        var(--bg);
+      overflow: hidden;
+      min-height: 480px;
+      max-height: 560px;
+      align-self: start;
+      padding: 0 12px 24px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 24px 60px -32px rgba(40,36,32,0.12);
+    }
+    .think__canvas::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(40,36,32,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40,36,32,0.045) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 88%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 88%);
+      pointer-events: none;
+    }
+    /* Decorative concentric ring (geometry · static) */
+    .think__canvas::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 32%;
+      width: 280px;
+      height: 280px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px dashed rgba(40,36,32,0.10);
+      pointer-events: none;
+    }
+    .think__canvas-cnr {
+      position: absolute;
+      width: 14px; height: 14px;
+      border: 1px solid var(--text-dim);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .think__canvas-cnr--tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .think__canvas-cnr--br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+    .think__svg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .think__svg .edge {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.2;
+      stroke-dasharray: 4 4;
+      opacity: 0;
+      transition: stroke-dashoffset 0.6s var(--ease-out), opacity 0.5s var(--ease);
+    }
+    .think__svg .edge--in { opacity: 1; }
+
+    /* Axis caption inside canvas (top) */
+    .think__canvas-caption {
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .think__canvas-caption b {
+      color: var(--accent);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* === Node === */
+    .node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: grid;
+      gap: 5px;
+      padding: 11px 14px;
+      min-width: 140px;
+      max-width: 200px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: default;
+      transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease),
+                  background 0.4s var(--ease), transform 0.5s var(--ease-out),
+                  opacity 0.5s var(--ease);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset,
+                  0 6px 18px -10px rgba(40,36,32,0.14);
+      z-index: 2;
+    }
+    .node--center {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      min-width: 168px;
+      max-width: 240px;
+      padding: 13px 16px;
+      z-index: 3;
+    }
+    .node--center .node__name { color: var(--bg); font-style: italic; font-size: 16px; }
+    .node--center .node__kind { color: rgba(245,241,234,0.6); }
+    .node--center .node__kind .dot { background: var(--accent-warm); }
+    .node--axis {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 0 0 4px rgba(43,58,106,0.06), 0 12px 28px -10px rgba(43,58,106,0.22);
+      z-index: 3;
+    }
+    .node--axis .node__kind { color: var(--accent); }
+    .node--leaf {
+      min-width: 110px;
+      max-width: 170px;
+      padding: 8px 11px;
+      background: rgba(255,255,255,0.78);
+      cursor: pointer;
+    }
+    .node--leaf:hover {
+      border-color: var(--text);
+      background: rgba(255,255,255,1);
+      transform: translate(-50%, calc(-50% - 1px));
+    }
+    .node--enter { opacity: 0; transform: translate(-50%, calc(-50% + 6px)); }
+    .node__kind {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .node__kind .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .node__name {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 14.5px;
+      line-height: 1.25;
+      color: var(--text);
+      letter-spacing: -0.005em;
+    }
+    .node__name em { font-style: italic; color: var(--text-dim); }
+    .node--center .node__name em { color: rgba(245,241,234,0.78); }
+    .node--leaf .node__name { font-size: 13px; line-height: 1.3; }
+    .node__hint {
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* === Reading panel (right column, same row as canvas) === */
+    .think__panel {
+      position: relative;
+      padding: 24px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .think__panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .think__panel-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+    }
+    .think__panel-sub {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+    .think__panel-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 26px);
+      line-height: 1.18;
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+    .think__panel-body {
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.75;
+    }
+    .think__panel-body p + p { margin-top: 10px; }
+
+    /* === v1.2.1 · structured numbered panel body === */
+    .think__panel-body--list {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 0;
+      counter-reset: panelitem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .think__panel-body--list > li {
+      counter-increment: panelitem;
+      position: relative;
+      padding: 16px 0 16px 56px;
+      border-bottom: 1px dashed rgba(26,25,22,0.10);
+    }
+    .think__panel-body--list > li:first-child { padding-top: 4px; }
+    .think__panel-body--list > li:last-child { border-bottom: 0; padding-bottom: 4px; }
+    .think__panel-body--list > li::before {
+      content: counter(panelitem, decimal-leading-zero);
+      position: absolute;
+      left: 0; top: 16px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      width: 42px;
+    }
+    .think__panel-body--list > li:first-child::before { top: 4px; }
+    .think__panel-body--list > li::after {
+      content: "";
+      position: absolute;
+      left: 0; top: 42px;
+      width: 32px; height: 1px;
+      background: var(--accent-warm);
+      opacity: 0.45;
+    }
+    .think__panel-body--list > li:first-child::after { top: 30px; }
+    .think__panel-body--list .lede {
+      display: block;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 5px;
+      letter-spacing: -0.005em;
+    }
+    .think__panel-body--list .lede em {
+      font-style: italic;
+      color: var(--accent);
+      background: linear-gradient(180deg, transparent 70%, rgba(184,138,90,0.18) 70%);
+      padding: 0 2px;
+    }
+    .think__panel-body--list .rest {
+      display: block;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+    .think__panel-body--list .rest em {
+      font-style: italic;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .think__panel-body--list .rest b {
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0;
+    }
+
+    .think__panel-keywords-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-top: auto;
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .think__panel-keywords-label::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .think__panel-keywords-label::after {
+      content: "";
+      flex: 12;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .think__panel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 8px;
+      margin-top: 10px;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .think__panel-tags span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      padding: 4px 9px 4px 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.6);
+      transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+      position: relative;
+      counter-increment: panelchip;
+    }
+    .think__panel-tags { counter-reset: panelchip; }
+    .think__panel-tags span::before {
+      content: counter(panelchip, decimal-leading-zero);
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8.5px;
+      letter-spacing: 0.08em;
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+    .think__panel-tags span:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(43,58,106,0.04);
+    }
+
+    /* Crossfade between axes */
+    .think__panel.is-leaving,
+    .think__canvas.is-leaving { opacity: 0.55; transform: translateY(2px); transition: opacity 0.25s, transform 0.25s; }
+    .think__panel, .think__canvas { transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); }
+
+    .think__divider {
+      max-width: var(--maxw);
+      margin: 56px auto 0;
+      padding: 0 var(--gutter);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+    }
+    .think__divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    @media (max-width: 980px) {
+      .think__detail { grid-template-columns: 1fr; }
+      .think__canvas { min-height: 440px; }
+    }
+    @media (max-width: 720px) {
+      .think__tabs { grid-template-columns: repeat(2, 1fr); }
+      .axis { padding: 12px 14px; gap: 8px; }
+      .axis:nth-child(2) { border-right: 0; }
+      .axis:nth-child(1), .axis:nth-child(2) { border-bottom: 1px solid var(--line); }
+      .axis__name { font-size: 14.5px; }
+      .axis__sub { display: none; }
+      .think__canvas { min-height: 360px; }
+      .node { min-width: 96px; max-width: 150px; padding: 7px 9px; }
+      .node--center { min-width: 130px; padding: 9px 12px; }
+      .node__name { font-size: 12.5px; }
+      .node--center .node__name { font-size: 13.5px; }
+      .node__hint { display: none; }
+      .think__canvas-caption { font-size: 9.5px; }
+    }
+
+    /* =================================================================
+       Decision Engine (only for p=3) — pipeline / sandbox / atlas / rules
+       Reuses tokens: --bg, --text, --accent, --line, --font-serif…
+       ================================================================= */
+    .engine {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 8px var(--gutter) 80px;
+      display: grid;
+      gap: 64px;
+    }
+    .engine[hidden] { display: none; }
+    .engine__block {
+      display: grid;
+      gap: 22px;
+    }
+    .engine__head { display: grid; gap: 10px; }
+    .engine__kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .engine__kicker::before {
+      content: ""; width: 24px; height: 1px; background: var(--text-dim);
+    }
+    .engine__title {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(24px, 3.4vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.018em;
+      margin: 0;
+    }
+    .engine__title em { font-style: italic; color: var(--text-dim); }
+    .engine__caption { color: var(--text-dim); font-size: 14.5px; line-height: 1.65; max-width: 70ch; margin: 0; }
+
+    /* === Block A · Pipeline === */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.5);
+      overflow: hidden;
+    }
+    .pipeline__stage {
+      position: relative;
+      display: grid;
+      gap: 6px;
+      padding: 18px 16px;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      border-top: 0; border-bottom: 0; border-left: 0;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      transition: background 0.4s var(--ease);
+    }
+    .pipeline__stage:last-child { border-right: 0; }
+    .pipeline__stage::after {
+      /* arrow between stages */
+      content: "→";
+      position: absolute;
+      right: -7px; top: 50%;
+      transform: translateY(-50%);
+      width: 14px; height: 14px;
+      background: var(--bg);
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-mute);
+      display: grid; place-items: center;
+      z-index: 2;
+    }
+    .pipeline__stage:last-child::after { display: none; }
+    .pipeline__stage:hover { background: rgba(255,255,255,0.85); }
+    .pipeline__stage[aria-pressed="true"] {
+      background: rgba(255,255,255,0.95);
+    }
+    .pipeline__stage[aria-pressed="true"]::before {
+      content: "";
+      position: absolute; left: 16px; right: 16px; bottom: 0;
+      height: 2px; background: var(--accent);
+    }
+    .pipeline__stage-num {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+    }
+    .pipeline__stage[aria-pressed="true"] .pipeline__stage-num { color: var(--accent); }
+    .pipeline__stage-name {
+      font-family: var(--font-serif); font-style: italic; font-size: 16px;
+      line-height: 1.2; color: var(--text);
+    }
+    .pipeline__stage-tag {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .pipeline__detail {
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.6);
+      display: grid; gap: 10px;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+    }
+    .pipeline__detail-num {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+      color: var(--accent); text-transform: uppercase;
+      grid-row: 1; padding-top: 4px;
+    }
+    .pipeline__detail-title {
+      grid-column: 2; grid-row: 1;
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 22px; line-height: 1.2; margin: 0; letter-spacing: -0.005em;
+    }
+    .pipeline__detail-body {
+      grid-column: 2; grid-row: 2;
+      color: var(--text); font-size: 14.5px; line-height: 1.75; margin: 0;
+    }
+    .pipeline__detail-list {
+      grid-column: 2; grid-row: 3;
+      list-style: none; padding: 0; margin: 4px 0 0;
+      display: flex; flex-wrap: wrap; gap: 6px 8px;
+    }
+    .pipeline__detail-list li {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      color: var(--text-dim);
+      padding: 4px 9px; border: 1px solid var(--line);
+      border-radius: 999px; background: rgba(255,255,255,0.6);
+    }
+
+    /* === Block B · Sandbox === */
+    .sandbox {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.4fr;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.35)),
+        var(--bg);
+    }
+    .sandbox__col { display: flex; flex-direction: column; gap: 10px; }
+    .sandbox__col-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .sandbox__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      color: var(--text);
+      cursor: pointer; transition: all 0.3s var(--ease);
+    }
+    .chip:hover { border-color: var(--text-dim); background: #fff; }
+    .chip[aria-pressed="true"] {
+      border-color: var(--accent); color: var(--accent);
+      background: rgba(43,58,106,0.05);
+    }
+    .sandbox__out {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .sandbox__out-head { display: flex; justify-content: space-between; align-items: baseline; }
+    .sandbox__out-tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .sandbox__out-path {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+      color: var(--text-mute); text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+    }
+    .sandbox__out-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .sandbox__pick {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.92);
+      display: grid; gap: 8px;
+      transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+    }
+    .sandbox__pick:not(.sandbox__pick--alt) {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(43,58,106,0.05);
+    }
+    .sandbox__pick--alt { background: rgba(255,255,255,0.6); }
+    .sandbox__pick-kind {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .sandbox__pick:not(.sandbox__pick--alt) .sandbox__pick-kind { color: var(--accent); }
+    .sandbox__pick-name {
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 18px; line-height: 1.2; color: var(--text);
+    }
+    .sandbox__pick-glyph {
+      width: 100%; height: 56px;
+      display: block;
+    }
+    .sandbox__pick-glyph svg { width: 100%; height: 100%; }
+    .sandbox__reason {
+      font-size: 13.5px; line-height: 1.7; color: var(--text-dim); margin: 0;
+      padding-top: 6px; border-top: 1px dashed var(--line);
+    }
+    .sandbox__reason b { color: var(--text); font-weight: 500; }
+
+    /* === Block D · Atlas === */
+    .atlas__filters {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .atlas__grid {
+      list-style: none; padding: 0; margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .atlas__cell {
+      position: relative;
+      padding: 14px 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.7);
+      display: grid; gap: 8px;
+      transition: border-color 0.4s var(--ease), background 0.4s var(--ease), transform 0.4s var(--ease-out);
+      cursor: default;
+      animation: cellIn 0.5s var(--ease-out) both;
+    }
+    @keyframes cellIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .atlas__cell:hover {
+      border-color: var(--text);
+      background: #fff;
+      transform: translateY(-1px);
+    }
+    .atlas__cell-glyph {
+      height: 44px;
+      display: flex; align-items: end; gap: 3px;
+    }
+    .atlas__cell-glyph svg { width: 100%; height: 100%; }
+    .atlas__cell-name {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 14.5px; line-height: 1.2; color: var(--text);
+    }
+    .atlas__cell-fam {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+
+    /* === Block A · Accuracy benchmark (HERO · placed first) === */
+    .engine__block--hero {
+      padding: 32px 36px 36px;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(43,58,106,0.06), transparent 70%),
+        rgba(255,255,255,0.65);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .engine__kicker--accent {
+      color: var(--accent) !important;
+    }
+    .engine__kicker--accent::before {
+      content: "★";
+      width: auto !important;
+      height: auto !important;
+      background: transparent !important;
+      color: var(--accent-warm);
+      font-size: 13px;
+      letter-spacing: 0;
+      margin-right: 2px;
+    }
+
+    /* HERO · Before vs After split */
+    .versus {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 80px 1fr;
+      gap: 0;
+      margin: 28px 0 32px;
+      align-items: stretch;
+    }
+    .versus__side {
+      padding: 28px 30px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.85);
+      display: grid; gap: 12px;
+      align-content: start;
+      transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    }
+    .versus__side--before {
+      background: rgba(184,138,90,0.05);
+      border-color: rgba(184,138,90,0.35);
+    }
+    .versus__side--before:hover { transform: translateY(-1px); }
+    .versus__side--after {
+      background: linear-gradient(180deg, rgba(43,58,106,0.06) 0%, rgba(43,58,106,0.02) 100%);
+      border-color: var(--accent);
+      box-shadow: 0 16px 48px -22px rgba(43,58,106,0.35);
+    }
+    .versus__side--after:hover { transform: translateY(-2px); box-shadow: 0 22px 60px -22px rgba(43,58,106,0.45); }
+
+    .versus__head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line);
+      flex-wrap: wrap; gap: 6px;
+    }
+    .versus__tag {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent-warm); font-weight: 500;
+    }
+    .versus__tag--accent { color: var(--accent); }
+    .versus__meta {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+
+    .versus__big {
+      display: flex; align-items: baseline; gap: 4px;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent-warm);
+      font-feature-settings: "ss01";
+    }
+    .versus__big--accent { color: var(--accent); }
+    .versus__big-num {
+      font-family: var(--font-serif); font-style: italic; font-weight: 300;
+      font-size: 96px; line-height: 0.95; letter-spacing: -0.03em;
+    }
+    .versus__big-unit {
+      font-family: var(--font-serif); font-style: italic; font-size: 38px;
+      font-weight: 300; opacity: 0.7;
+    }
+    .versus__big-label {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em;
+      color: var(--text-mute); text-transform: uppercase; margin-top: -4px;
+    }
+    .versus__bar {
+      height: 8px;
+      background: rgba(40,36,32,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 4px;
+      position: relative;
+    }
+    .versus__bar::before {
+      /* faint quartile ticks */
+      content: "";
+      position: absolute; inset: 0;
+      background-image: linear-gradient(90deg, transparent 0 24.7%, rgba(40,36,32,0.10) 24.7% 25.3%, transparent 25.3% 49.7%, rgba(40,36,32,0.10) 49.7% 50.3%, transparent 50.3% 74.7%, rgba(40,36,32,0.10) 74.7% 75.3%, transparent 75.3%);
+      pointer-events: none;
+    }
+    .versus__bar-fill {
+      display: block; height: 100%; width: 0;
+      background: var(--accent-warm);
+      border-radius: 999px;
+      transition: width 1.6s var(--ease-out);
+    }
+    .versus__bar-fill--accent { background: var(--accent); }
+    .versus__notes {
+      list-style: none; padding: 0; margin: 8px 0 0;
+      display: grid; gap: 6px;
+      font-size: 13px; line-height: 1.5; color: var(--text-dim);
+    }
+    .versus__notes li {
+      position: relative; padding-left: 16px;
+    }
+    .versus__notes li::before {
+      content: "—"; position: absolute; left: 0; top: 0;
+      color: var(--text-mute);
+      font-family: var(--font-mono);
+    }
+    .versus__notes li b { color: var(--text); font-weight: 500; }
+    .versus__side--before .versus__notes li::before { color: var(--accent-warm); content: "✗"; font-weight: 700; }
+    .versus__side--after  .versus__notes li::before { color: var(--accent);      content: "✓"; font-weight: 700; }
+
+    /* Center divider with VS + diff badge */
+    .versus__divider {
+      position: relative;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+    }
+    .versus__divider-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent 0%, var(--line-strong) 18%, var(--line-strong) 82%, transparent 100%);
+    }
+    .versus__divider-vs {
+      position: relative;
+      z-index: 2;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--line-strong);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 18px; letter-spacing: 0.06em;
+      color: var(--text-mute);
+      box-shadow: 0 8px 24px -10px rgba(40,36,32,0.18);
+    }
+
+    /* Diff floating badge */
+    .versus__diff {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 10px 22px;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 999px;
+      box-shadow: 0 14px 32px -10px rgba(40,36,32,0.45);
+      z-index: 3;
+      animation: diffPulse 2.4s var(--ease) 1.4s 1;
+    }
+    .versus__diff-arrow {
+      font-family: var(--font-mono); font-size: 15px; opacity: 0.6;
+    }
+    .versus__diff-num {
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 22px; color: var(--bg); letter-spacing: -0.01em;
+    }
+    .versus__diff-num i { font-size: 11px; opacity: 0.7; margin-left: 1px; font-style: normal; }
+    .versus__diff-pct {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+      color: rgba(245,241,234,0.65); text-transform: uppercase;
+    }
+    @keyframes diffPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      40% { transform: translateX(-50%) scale(1.06); box-shadow: 0 18px 40px -10px rgba(43,58,106,0.55); }
+    }
+
+    /* KPI strip · Top-3 + Specialty */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+    .kpi-strip__cell {
+      padding: 16px 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.7);
+      display: grid; gap: 10px;
+    }
+    .kpi-strip__label {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .kpi-strip__bar {
+      position: relative;
+      height: 30px;
+      background: rgba(40,36,32,0.04);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .kpi-strip__bar-base, .kpi-strip__bar-now {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding: 0 9px;
+      font-family: var(--font-mono); font-size: 11px;
+      color: rgba(245,241,234,0.92); letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+      transition: width 1.4s var(--ease-out);
+      border-radius: 4px 0 0 4px;
+    }
+    .kpi-strip__bar-base { background: rgba(184,138,90,0.6); z-index: 1; }
+    .kpi-strip__bar-now  { background: var(--accent); z-index: 2; width: 0 !important; }
+    .kpi-strip__bar-now b { color: #fff; font-weight: 500; }
+    .kpi-strip__bar-base b { color: #fff; font-weight: 500; opacity: 0.9; }
+    .kpi-strip__bar-now::after {
+      content: "";
+      position: absolute; right: -1px; top: -2px; bottom: -2px;
+      width: 2px;
+      background: var(--text);
+    }
+    .kpi-strip__delta {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+      color: var(--accent-warm);
+    }
+    .kpi-strip__delta i { font-style: normal; font-size: 9px; color: var(--text-mute); margin-left: 1px; }
+
+    /* === Block C · Accuracy benchmark === */
+    .acc { display: grid; gap: 22px; }
+    .acc__kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.6);
+      overflow: hidden;
+    }
+    .acc__kpi {
+      position: relative;
+      padding: 22px 22px 20px;
+      border-right: 1px solid var(--line);
+      display: grid; gap: 10px;
+      align-content: start;
+    }
+    .acc__kpi:last-child { border-right: 0; }
+    .acc__kpi-label {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .acc__kpi-bar {
+      position: relative;
+      display: block;
+      height: 4px;
+      background: var(--line);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .acc__kpi-bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--accent);
+      width: 0%;
+      transition: width 1.4s var(--ease-out);
+    }
+    .acc__kpi-bar-fill::before {
+      /* base (gray) marker for the "before" value, drawn on top of fill via background */
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 0;
+      width: 0;
+    }
+    .acc__kpi-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .acc__kpi-base {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+      color: var(--text-mute); font-variant-numeric: tabular-nums;
+    }
+    .acc__kpi-now {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em;
+      color: var(--text); font-variant-numeric: tabular-nums;
+    }
+    .acc__kpi-now b {
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 32px; color: var(--accent); margin-right: 2px;
+      letter-spacing: -0.01em;
+    }
+    .acc__kpi-delta {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+      color: var(--accent-warm);
+      padding-top: 8px;
+      border-top: 1px dashed var(--line);
+    }
+    .acc__kpi-delta i { font-style: normal; font-size: 9px; color: var(--text-mute); margin-left: 1px; }
+    .acc__kpi-delta b { color: var(--text); font-weight: 500; }
+
+    .acc__panel {
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.55);
+      display: grid; gap: 14px;
+    }
+    .acc__panel-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .acc__panel-tag {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .acc__panel-meta {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em;
+      color: var(--text-mute); text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+    }
+    .acc__panel-foot {
+      margin: 6px 0 0;
+      color: var(--text-dim); font-size: 13.5px; line-height: 1.7;
+    }
+    .acc__panel-foot b { color: var(--text); font-weight: 500; }
+
+    .acc__rows { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .acc__row {
+      display: grid;
+      grid-template-columns: 130px 1fr 88px;
+      align-items: center;
+      gap: 14px;
+    }
+    .acc__row-name {
+      font-family: var(--font-serif); font-style: italic; font-size: 14.5px;
+      color: var(--text); line-height: 1.2;
+    }
+    .acc__row-name b {
+      display: block; font-style: normal; font-family: var(--font-mono);
+      font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-mute);
+      text-transform: uppercase; font-weight: 400; margin-top: 2px;
+    }
+    .acc__row-track {
+      position: relative; height: 22px;
+      background: rgba(40,36,32,0.04);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .acc__row-track::before {
+      /* faint baseline ticks */
+      content: "";
+      position: absolute; inset: 0;
+      background-image: linear-gradient(90deg, transparent 0 24%, rgba(40,36,32,0.06) 24% 25%, transparent 25% 49%, rgba(40,36,32,0.08) 49% 50%, transparent 50% 74%, rgba(40,36,32,0.06) 74% 75%, transparent 75%);
+      pointer-events: none;
+    }
+    .acc__row-base, .acc__row-now {
+      position: absolute; top: 0; bottom: 0; left: 0;
+      transition: width 1.4s var(--ease-out);
+      border-radius: 4px 0 0 4px;
+    }
+    .acc__row-base { background: rgba(184,138,90,0.55); width: 0; height: 100%; z-index: 1; }
+    .acc__row-now  { background: var(--accent);          width: 0; height: 100%; z-index: 2; }
+    .acc__row-now::after {
+      content: "";
+      position: absolute; right: -1px; top: -3px; bottom: -3px;
+      width: 2px;
+      background: var(--text);
+    }
+    .acc__row-num {
+      font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.04em;
+      color: var(--text); font-variant-numeric: tabular-nums;
+      display: flex; justify-content: flex-end; align-items: baseline; gap: 6px;
+    }
+    .acc__row-num s {
+      text-decoration: line-through;
+      color: var(--text-mute); font-size: 10px;
+    }
+    .acc__row-num b {
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+      font-size: 17px; color: var(--accent); letter-spacing: -0.01em;
+    }
+    .acc__legend {
+      display: flex; gap: 16px; padding-top: 6px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .acc__legend i {
+      width: 12px; height: 4px; border-radius: 2px;
+      display: inline-block; vertical-align: middle; margin-right: 6px;
+    }
+    .acc__legend i.is-base { background: rgba(184,138,90,0.55); }
+    .acc__legend i.is-now { background: var(--accent); }
+
+    /* Timeline svg */
+    .acc__timeline {
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .acc__svg {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 600 / 200;
+      display: block;
+      overflow: visible;
+    }
+    .acc__svg .gridline {
+      stroke: rgba(40,36,32,0.07);
+      stroke-width: 1;
+      stroke-dasharray: 2 4;
+    }
+    .acc__svg .grid-label {
+      font-family: var(--font-mono); font-size: 10px; fill: var(--text-mute);
+      letter-spacing: 0.06em;
+    }
+    .acc__svg .dot {
+      fill: var(--bg);
+      stroke: var(--accent);
+      stroke-width: 1.6;
+      transition: r 0.3s var(--ease), stroke-width 0.3s var(--ease);
+    }
+    .acc__svg .dot:hover { stroke-width: 2.4; }
+    .acc__svg .dot.is-current { fill: var(--accent); }
+    .acc__svg .dot-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+      fill: var(--text-mute);
+    }
+    .acc__svg .dot-label.is-current { fill: var(--accent); font-size: 11px; font-weight: 500; }
+    .acc__ticks {
+      list-style: none; padding: 0; margin: 6px 0 0;
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      gap: 0;
+    }
+    .acc__ticks li {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em;
+      color: var(--text-mute); text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .pipeline { grid-template-columns: repeat(3, 1fr); }
+      .pipeline__stage:nth-child(3)::after { display: none; }
+      .pipeline__stage:nth-child(3), .pipeline__stage:nth-child(6) { border-right: 0; }
+      .pipeline__stage:nth-child(1), .pipeline__stage:nth-child(2), .pipeline__stage:nth-child(3) {
+        border-bottom: 1px solid var(--line);
+      }
+      .sandbox { grid-template-columns: 1fr; }
+      .sandbox__out { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+      .acc__kpis { grid-template-columns: 1fr; }
+      .acc__kpi { border-right: 0; border-bottom: 1px solid var(--line); }
+      .acc__kpi:last-child { border-bottom: 0; }
+      .acc__row { grid-template-columns: 110px 1fr 80px; }
+      .acc__ticks { grid-template-columns: repeat(7, 1fr); }
+      .acc__ticks li:nth-child(2n) { display: none; }
+      /* Versus stack vertically */
+      .versus { grid-template-columns: 1fr; gap: 18px; }
+      .versus__divider { height: 50px; }
+      .versus__divider-line { width: 100%; height: 1px; top: 50%; bottom: auto; left: 0; right: 0; background: linear-gradient(90deg, transparent 0%, var(--line-strong) 18%, var(--line-strong) 82%, transparent 100%); }
+      .versus__diff { position: relative; left: auto; bottom: auto; transform: none; justify-self: center; margin-top: -8px; }
+      .versus__big-num { font-size: 76px; }
+      .engine__block--hero { padding: 24px 22px 28px; }
+      .kpi-strip { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .pipeline { grid-template-columns: repeat(2, 1fr); }
+      .pipeline__stage:nth-child(2n)::after { display: none; }
+      .pipeline__stage { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .pipeline__stage:nth-child(2n) { border-right: 0; }
+      .pipeline__stage:nth-last-child(-n+2) { border-bottom: 0; }
+      .acc__row { grid-template-columns: 90px 1fr 70px; gap: 8px; }
+      .acc__row-name { font-size: 13px; }
+      .versus__big-num { font-size: 64px; }
+      .versus__side { padding: 22px 20px; }
+    }
+
+    /* =================================================================
+       Talent System (only for p=4) — OD reframe / before-after / boards / principles
+       Same warm bone bg, 1px hairlines, italic Fraunces, accent deep-blue + warm bronze.
+       ================================================================= */
+    .talent { display: block; padding: 0 64px 96px; max-width: 1320px; margin: 0 auto 24px; }
+    .talent[hidden] { display: none; }
+    .talent__block {
+      border-top: 1px solid var(--line);
+      padding: 56px 0 8px;
+    }
+    .talent__block + .talent__block { padding-top: 64px; }
+    .talent__block--hero {
+      border-top: 0;
+      background:
+        radial-gradient(ellipse 800px 320px at 12% -10%, rgba(43,58,106,0.06), transparent 70%),
+        radial-gradient(ellipse 700px 280px at 110% -10%, rgba(184,138,90,0.05), transparent 70%);
+      padding: 64px 28px 52px;
+      border-radius: 4px;
+      margin-top: 12px;
+    }
+    .talent__head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .talent__kicker {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-mute);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .talent__kicker::before {
+      content: ""; display: inline-block; width: 24px; height: 1px; background: var(--text-dim);
+    }
+    .talent__kicker--accent { color: var(--accent); }
+    .talent__kicker--accent::before {
+      content: "★"; width: auto !important; height: auto !important;
+      background: transparent !important;
+      color: var(--accent-warm); font-size: 13px; letter-spacing: 0; margin-right: 2px;
+    }
+    .talent__title {
+      font-family: var(--font-serif); font-weight: 400; line-height: 1.18;
+      font-size: clamp(28px, 4vw, 44px); color: var(--text); margin: 0; letter-spacing: -0.01em;
+    }
+    .talent__title em { font-style: italic; color: var(--accent); }
+    .talent__caption { font-size: 15px; color: var(--text-mute); max-width: 780px; margin: 0; line-height: 1.7; }
+
+    /* ---- A · Diagnosis trio ---- */
+    .diag {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+    .diag__cell {
+      background: var(--bg);
+      padding: 28px 24px 26px;
+      display: flex; flex-direction: column; gap: 14px; min-height: 240px;
+      position: relative; cursor: default;
+      transition: background-color 0.4s ease;
+    }
+    .diag__cell:hover { background: rgba(184,138,90,0.04); }
+    .diag__num {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+      color: var(--accent-warm);
+    }
+    .diag__head {
+      font-family: var(--font-serif); font-size: 20px; line-height: 1.3;
+      color: var(--text); font-style: italic; font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .diag__head em { color: var(--accent); font-style: italic; }
+    .diag__body { font-size: 13.5px; color: var(--text-dim); line-height: 1.7; flex: 1; }
+    .diag__sym {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+      color: var(--accent-warm); margin-top: auto;
+      padding-top: 8px; border-top: 1px dashed var(--line);
+    }
+    .diag__sym::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent-warm); display: inline-block;
+    }
+
+    /* ---- B · Reframe (target reroute) ---- */
+    .reframe {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+    .reframe__col {
+      border: 1px solid var(--line);
+      padding: 24px 22px;
+      background: var(--bg);
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative;
+    }
+    .reframe__col--from {
+      background: linear-gradient(180deg, rgba(184,138,90,0.05), transparent 60%);
+    }
+    .reframe__col--to {
+      background: linear-gradient(180deg, rgba(43,58,106,0.06), transparent 70%);
+      box-shadow: 0 12px 32px -22px rgba(43,58,106,0.4);
+      border-color: rgba(43,58,106,0.25);
+    }
+    .reframe__tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .reframe__col--from .reframe__tag { color: var(--accent-warm); }
+    .reframe__col--to .reframe__tag { color: var(--accent); }
+    .reframe__hd {
+      font-family: var(--font-serif); font-style: italic; font-size: 22px;
+      line-height: 1.3; color: var(--text); margin: 0;
+    }
+    .reframe__col--to .reframe__hd em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .reframe__list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .reframe__list li {
+      font-size: 13px; color: var(--text-dim); line-height: 1.55;
+      padding-left: 18px; position: relative;
+    }
+    .reframe__col--from .reframe__list li::before {
+      content: "✗"; position: absolute; left: 0; top: 0;
+      color: var(--accent-warm); font-weight: 600; font-size: 12px;
+    }
+    .reframe__col--to .reframe__list li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      color: var(--accent); font-weight: 600; font-size: 12px;
+    }
+    .reframe__arrow {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px;
+    }
+    .reframe__arrow-line {
+      flex: 1; width: 1px; background: linear-gradient(180deg, var(--accent-warm), var(--accent));
+      min-height: 40px;
+    }
+    .reframe__arrow-pill {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--text); color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-style: italic; font-size: 22px;
+      box-shadow: 0 8px 20px -8px rgba(26,25,22,0.5);
+    }
+
+    /* ---- C · Workflow (5 phases linear flow) ---- */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 8px;
+      position: relative;
+    }
+    .flow__phase {
+      background: var(--bg);
+      padding: 22px 18px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative;
+      min-height: 200px;
+      cursor: default;
+      transition: background-color 0.4s ease;
+    }
+    .flow__phase[data-active="1"] { background: rgba(43,58,106,0.04); }
+    .flow__phase:hover { background: rgba(184,138,90,0.05); }
+    .flow__phase::after {
+      content: ""; position: absolute; right: -7px; top: 50%; transform: translateY(-50%);
+      width: 12px; height: 12px;
+      background: var(--bg);
+      border-top: 1px solid var(--line); border-right: 1px solid var(--line);
+      transform-origin: center;
+      transform: translateY(-50%) rotate(45deg);
+      z-index: 2;
+    }
+    .flow__phase:last-child::after { display: none; }
+    .flow__num {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+      color: var(--text-mute); display: flex; align-items: center; gap: 8px;
+    }
+    .flow__num::before {
+      content: ""; width: 6px; height: 6px; background: var(--accent);
+      border-radius: 50%; display: inline-block;
+    }
+    .flow__phase[data-active="1"] .flow__num { color: var(--accent); }
+    .flow__name {
+      font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1.3;
+      color: var(--text); margin: 0;
+    }
+    .flow__list { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 6px; }
+    .flow__list li {
+      font-size: 12px; color: var(--text-dim); line-height: 1.5;
+      padding-left: 10px; position: relative;
+    }
+    .flow__list li::before {
+      content: "—"; position: absolute; left: 0; top: 0; color: var(--text-mute);
+    }
+
+    /* ---- D · Boards (page-level before/after design boards) ---- */
+    .boards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+    .board {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      transition: box-shadow 0.4s ease;
+    }
+    .board:hover { box-shadow: 0 16px 40px -22px rgba(26,25,22,0.25); }
+    .board__head {
+      padding: 18px 22px 14px;
+      display: flex; flex-direction: column; gap: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .board__tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .board__name {
+      font-family: var(--font-serif); font-style: italic; font-size: 19px; color: var(--text); margin: 0;
+    }
+    .board__sub { font-size: 12.5px; color: var(--text-mute); margin: 0; line-height: 1.5; }
+    .board__media {
+      position: relative; aspect-ratio: 11 / 9;
+      background: var(--bg-soft, #ece6dc);
+      overflow: hidden;
+    }
+    .board__media img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center;
+      display: block; transition: transform 0.6s ease;
+    }
+    .board:hover .board__media img { transform: scale(1.02); }
+    .board__media-overlay {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 14px 22px;
+      background: linear-gradient(180deg, transparent, rgba(245,241,234,0.95) 60%);
+      display: flex; justify-content: space-between; align-items: end;
+      gap: 12px;
+    }
+    .board__media-tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .board__media-link {
+      font-family: var(--font-mono); font-size: 11px; color: var(--text);
+      text-decoration: none; border-bottom: 1px solid var(--text-dim);
+      padding-bottom: 1px; display: inline-flex; align-items: center; gap: 4px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .board__media-link:hover { color: var(--accent); border-color: var(--accent); }
+    .board__notes {
+      list-style: none; padding: 16px 22px 18px; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+      border-top: 1px solid var(--line);
+      background: rgba(184,138,90,0.025);
+    }
+    .board__notes li {
+      font-size: 12.5px; color: var(--text-dim); line-height: 1.55;
+      padding-left: 16px; position: relative;
+    }
+    .board__notes li::before {
+      content: "→"; position: absolute; left: 0; top: 0;
+      color: var(--accent); font-family: var(--font-mono); font-weight: 600;
+    }
+
+    /* ---- E · Principles (7 design rules) ---- */
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+    .rules__item {
+      background: var(--bg);
+      padding: 22px 24px 22px 64px;
+      display: flex; flex-direction: column; gap: 8px;
+      position: relative;
+      min-height: 110px;
+      transition: background-color 0.3s ease;
+    }
+    .rules__item:hover { background: rgba(43,58,106,0.025); }
+    .rules__num {
+      position: absolute; left: 22px; top: 22px;
+      font-family: var(--font-serif); font-style: italic; font-size: 28px;
+      color: var(--accent); line-height: 1; letter-spacing: -0.02em;
+    }
+    .rules__head {
+      font-family: var(--font-serif); font-style: italic; font-size: 17px;
+      color: var(--text); margin: 0; line-height: 1.3;
+    }
+    .rules__body { font-size: 12.8px; color: var(--text-dim); line-height: 1.6; margin: 0; }
+
+    /* ---- Outcome strip (stat row at bottom) ---- */
+    .outcome {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+    .outcome__cell {
+      background: var(--bg);
+      padding: 24px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+      text-align: left;
+    }
+    .outcome__num {
+      font-family: var(--font-serif); font-style: italic; font-size: 36px;
+      color: var(--accent); line-height: 1; letter-spacing: -0.02em;
+    }
+    .outcome__num em { font-size: 16px; font-style: italic; color: var(--text-mute); margin-left: 2px; }
+    .outcome__lbl {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+      color: var(--text-mute); text-transform: uppercase;
+    }
+    .outcome__sub { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+
+    /* responsive */
+    @media (max-width: 1080px) {
+      .talent { padding: 0 32px 80px; }
+      .diag, .flow { grid-template-columns: repeat(1, 1fr); }
+      .diag__cell::after, .flow__phase::after { display: none; }
+      .reframe { grid-template-columns: 1fr; gap: 16px; }
+      .reframe__arrow { flex-direction: row; padding: 8px 0; }
+      .reframe__arrow-line { width: auto; height: 1px; min-height: 0; min-width: 40px; }
+      .boards { grid-template-columns: 1fr; }
+      .rules { grid-template-columns: 1fr; }
+      .outcome { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .talent { padding: 0 18px 60px; }
+      .talent__block--hero { padding: 36px 16px 36px; }
+      .outcome__num { font-size: 28px; }
+      .rules__item { padding: 20px 18px 20px 56px; }
+      .rules__num { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body class="case">
+  <div class="case-shell">
+
+    <!-- Top bar -->
+    <header class="case-bar">
+      <a class="case-back" href="index.html#work" aria-label="Back to work">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Back · Index</span>
+      </a>
+
+      <div class="case-id" aria-live="polite">
+        <span>Case</span>
+        <b id="caseNum">P.01</b>
+        <span class="case-id__dot" aria-hidden="true"></span>
+        <span>Zhao Yuanxuan · <span id="caseYear">2025</span></span>
+      </div>
+
+      <div class="case-tools">
+        <button class="nav__lang" id="lang-toggle" aria-label="Toggle language" type="button" style="background:none;border:1px solid currentColor;color:inherit;padding:6px 12px;font:inherit;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-right:8px;opacity:.7;transition:opacity .2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7">
+          <span data-lang-active="zh">EN</span>
+          <span data-lang-active="en" hidden>中</span>
+        </button>
+        <a id="caseOpen" href="#" target="_blank" rel="noopener" title="Open PDF in new tab">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Open</span>
+        </a>
+        <a id="caseDownload" href="#" download title="Download PDF">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 12l6 6 6-6M5 20h14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Download</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Title -->
+    <section class="case-title">
+      <h1>
+        Project <em id="caseTitleNum">01</em>
+        <span id="caseTitleSub" style="display:block; font-size:0.42em; letter-spacing:0.08em; color:var(--text-mute); font-family:var(--font-mono); text-transform:uppercase; margin-top:14px;">
+          —
+        </span>
+      </h1>
+      <div class="case-title__meta">
+        <span><b id="caseFile">P1.pdf</b></span>
+        <span id="caseFileMeta">Native preview · embedded</span>
+      </div>
+    </section>
+
+    <!-- Thinking module (only for p=1, p=2 — populated by JS) -->
+    <section class="think" id="think" hidden aria-labelledby="thinkTitle">
+      <div class="think__head">
+        <span class="think__kicker"><span id="thinkKicker">Thinking · 01</span></span>
+        <h2 id="thinkTitle" class="think__title"></h2>
+        <p class="think__caption" id="thinkCaption"></p>
+      </div>
+
+      <div class="think__body">
+        <!-- Row 1 · Tabs (axes horizontally) -->
+        <nav class="think__tabs" id="axesList" aria-label="Dimensions">
+          <!-- buttons injected -->
+        </nav>
+
+        <!-- Row 2 · Detail (graph + panel side-by-side) -->
+        <div class="think__detail">
+          <div class="think__canvas" id="thinkCanvas">
+            <span class="think__canvas-cnr think__canvas-cnr--tl" aria-hidden="true"></span>
+            <span class="think__canvas-cnr think__canvas-cnr--br" aria-hidden="true"></span>
+            <div class="think__canvas-caption">
+              <span id="thinkCanvasCenterLabel" data-i18n="case.shared.center_label">Center · 项目主张</span>
+              <b id="thinkCanvasAxisLabel">01 · Axis</b>
+            </div>
+            <svg class="think__svg" id="thinkSvg" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <!-- nodes injected -->
+          </div>
+
+          <aside class="think__panel" id="thinkPanel" aria-live="polite">
+            <div class="think__panel-head">
+              <span class="think__panel-num" id="thinkPanelNum">01 / 04</span>
+              <span class="think__panel-sub" id="thinkPanelSub">Dimension</span>
+            </div>
+            <h3 class="think__panel-title" id="thinkPanelTitle">—</h3>
+            <div class="think__panel-body" id="thinkPanelBody"></div>
+            <span class="think__panel-keywords-label" id="thinkPanelKeywordsLabel">Keywords</span>
+            <div class="think__panel-tags" id="thinkPanelTags"></div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="think__divider">
+        <span id="thinkDivider" data-i18n="case.shared.pdf_doc_full">PDF Document · 完整作品文档</span>
+      </div>
+    </section>
+
+    <!-- Viewer (PDF) -->
+    <main class="case-viewer" id="casePdfBlock">
+      <div class="case-viewer__frame">
+        <div class="case-viewer__inner">
+          <div class="case-loader" id="caseLoader">
+            <div class="case-loader__bar"></div>
+            <div class="case-loader__hint">Loading document…</div>
+          </div>
+
+          <iframe
+            id="casePdf"
+            class="case-viewer__pdf"
+            src=""
+            title="Case study PDF preview"
+            allow="fullscreen"
+          ></iframe>
+
+          <div class="case-fallback" id="caseFallback">
+            <div class="case-loader__hint" data-i18n="case.shared.preview_unavailable">Preview unavailable</div>
+            <p data-i18n="case.shared.pdf_unavailable">当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> / <b>Download</b> 查看。</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Decision Engine · interactive (only for p=3) -->
+    <section class="engine" id="caseEngine" hidden aria-labelledby="engineTitle">
+
+      <!-- Block A · Accuracy (KEY CONCLUSION — placed first) -->
+      <div class="engine__block engine__block--hero">
+        <header class="engine__head">
+          <span class="engine__kicker engine__kicker--accent">A · Key Result</span>
+          <h2 id="engineTitle" class="engine__title" data-i18n="case.p2_engine.key_result.title">选图准确性 <em>89%</em> · 比通用 AI 提升 <em>74%</em></h2>
+          <p class="engine__caption" data-i18n="case.p2_engine.key_result.caption">在 200 条真实数据请求 (n = 200) 的盲测集合上，对比通用 AI 与本决策引擎的 Top-1 选图命中率。每条样本由 3 名设计师匿名标注一组合理图表，命中其一即视为正确。</p>
+        </header>
+
+        <!-- HERO · Before vs After split -->
+        <div class="versus" aria-label="Before vs After comparison">
+          <div class="versus__side versus__side--before">
+            <div class="versus__head">
+              <span class="versus__tag" data-i18n="case.p2_engine.versus.before_tag">Before · 通用 AI</span>
+              <span class="versus__meta" data-i18n="case.p2_engine.versus.before_meta">baseline · GPT / Gemini 通用问答</span>
+            </div>
+            <div class="versus__big">
+              <span class="versus__big-num" data-num="51">51</span>
+              <span class="versus__big-unit">%</span>
+            </div>
+            <div class="versus__big-label" data-i18n="case.p2_engine.versus.top1_label">Top-1 命中率</div>
+            <div class="versus__bar"><span class="versus__bar-fill" data-pct="51"></span></div>
+            <ul class="versus__notes">
+              <li data-i18n-html="case.p2_engine.versus.before_notes[0]">边界场景常用<b>饼/柱凑合</b></li>
+              <li data-i18n="case.p2_engine.versus.before_notes[1]">不区分"展示"与"分析"意图</li>
+              <li data-i18n="case.p2_engine.versus.before_notes[2]">忽略量纲一致性 / 标签长度</li>
+            </ul>
+          </div>
+
+          <div class="versus__divider" aria-hidden="true">
+            <span class="versus__divider-vs">VS</span>
+            <span class="versus__divider-line"></span>
+          </div>
+
+          <div class="versus__side versus__side--after">
+            <div class="versus__head">
+              <span class="versus__tag versus__tag--accent" data-i18n="case.p2_engine.versus.after_tag">After · Decision Engine</span>
+              <span class="versus__meta" data-i18n="case.p2_engine.versus.after_meta">v3.23 · 6 层管线 · 47 charts</span>
+            </div>
+            <div class="versus__big versus__big--accent">
+              <span class="versus__big-num" data-num="89">89</span>
+              <span class="versus__big-unit">%</span>
+            </div>
+            <div class="versus__big-label" data-i18n="case.p2_engine.versus.top1_label">Top-1 命中率</div>
+            <div class="versus__bar"><span class="versus__bar-fill versus__bar-fill--accent" data-pct="89"></span></div>
+            <ul class="versus__notes">
+              <li data-i18n-html="case.p2_engine.versus.after_notes[0]">意图前置 → <b>蝴蝶 ↔ 哑铃</b>不再混用</li>
+              <li data-i18n="case.p2_engine.versus.after_notes[1]">STEP1 命中漏斗 / 桑基 / 甘特 / 弦图</li>
+              <li data-i18n="case.p2_engine.versus.after_notes[2]">量纲、标签、行业信号全部规则化</li>
+            </ul>
+          </div>
+
+          <!-- Diff badges floating between -->
+          <div class="versus__diff" aria-hidden="true">
+            <span class="versus__diff-arrow">→</span>
+            <span class="versus__diff-num">+ 38<i>pp</i></span>
+            <span class="versus__diff-pct" data-i18n="case.p2_engine.versus.diff_pct">相对 + 74%</span>
+          </div>
+        </div>
+
+        <!-- Secondary KPIs · Top-3 + Specialty -->
+        <div class="kpi-strip">
+          <div class="kpi-strip__cell">
+            <span class="kpi-strip__label" data-i18n="case.p2_engine.kpi_strip.top3_label">Top-3 命中率</span>
+            <div class="kpi-strip__bar">
+              <span class="kpi-strip__bar-base" style="width:78%"><b>78%</b></span>
+              <span class="kpi-strip__bar-now" style="width:97%" data-w="97"><b>97%</b></span>
+            </div>
+            <span class="kpi-strip__delta" data-i18n="case.p2_engine.kpi_strip.top3_delta">+ 19<i>pp</i> · 主推 + 备选几乎不漏</span>
+          </div>
+          <div class="kpi-strip__cell">
+            <span class="kpi-strip__label" data-i18n="case.p2_engine.kpi_strip.specialty_label">Specialty 边界场景</span>
+            <div class="kpi-strip__bar">
+              <span class="kpi-strip__bar-base" style="width:32%"><b>32%</b></span>
+              <span class="kpi-strip__bar-now" style="width:86%" data-w="86"><b>86%</b></span>
+            </div>
+            <span class="kpi-strip__delta" data-i18n="case.p2_engine.kpi_strip.specialty_delta">+ 54<i>pp</i> · 漏斗 / 桑基 / 甘特 / 弦图</span>
+          </div>
+        </div>
+
+        <!-- Per family breakdown -->
+        <div class="acc__panel">
+          <div class="acc__panel-head">
+            <span class="acc__panel-tag" data-i18n="case.p2_engine.panel.family_tag">By family · 按家族对比 Top-1</span>
+            <span class="acc__panel-meta" data-i18n="case.p2_engine.panel.family_meta">n = 200 · 盲测样本</span>
+          </div>
+          <ul class="acc__rows" id="accRows"></ul>
+          <p class="acc__panel-foot" data-i18n-html="case.p2_engine.panel.family_foot">
+            在「<b>Flow 流程</b>」类（漏斗 / 桑基 / 甘特 / 弦图）上提升最显著（<b>+ 55pp</b>），
+            这正是通用 AI 最容易"用饼/柱凑合"的边界类。
+          </p>
+        </div>
+
+        <!-- Version timeline -->
+        <div class="acc__panel">
+          <div class="acc__panel-head">
+            <span class="acc__panel-tag" data-i18n="case.p2_engine.panel.version_tag">Version timeline · 13 个版本的迭代曲线</span>
+            <span class="acc__panel-meta" data-i18n="case.p2_engine.panel.version_meta">v3.10 → v3.23</span>
+          </div>
+          <div class="acc__timeline" id="accTimeline">
+            <svg class="acc__svg" viewBox="0 0 600 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="accLineGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"  stop-color="var(--accent)" stop-opacity="0.0"/>
+                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="1.0"/>
+                </linearGradient>
+              </defs>
+              <g id="accGrid"></g>
+              <path id="accArea" fill="rgba(43,58,106,0.08)"></path>
+              <path id="accLine" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"></path>
+              <g id="accDots"></g>
+            </svg>
+            <ul class="acc__ticks" id="accTicks"></ul>
+          </div>
+          <p class="acc__panel-foot" data-i18n-html="case.p2_engine.panel.version_foot">
+            覆盖图表数 <b>31 → 47</b>（+ 16），整体 Top-1 命中率 <b>71% → 89%</b>（+ 18pp）。每个版本对边界场景做一次精修，曲线呈"稳定爬坡"而非阶跃式跳跃 — 一种刻意的工程化节奏。
+          </p>
+        </div>
+      </div>
+
+      <!-- Block B · Pipeline -->
+      <div class="engine__block">
+        <header class="engine__head">
+          <span class="engine__kicker">B · Pipeline</span>
+          <h2 class="engine__title" data-i18n="case.p2_engine.pipeline.title">六层判断管线 · <em>从意图到渲染</em></h2>
+          <p class="engine__caption" data-i18n="case.p2_engine.pipeline.caption">点击任意一层，展开它在决策链路中的职责与产出。这是支撑上方 89% 命中率的核心管线。</p>
+        </header>
+        <div class="pipeline" id="pipeline" role="list">
+          <!-- 6 stages injected -->
+        </div>
+        <article class="pipeline__detail" id="pipelineDetail" aria-live="polite">
+          <span class="pipeline__detail-num" id="pipelineDetailNum">·</span>
+          <h3 class="pipeline__detail-title" id="pipelineDetailTitle">—</h3>
+          <p class="pipeline__detail-body" id="pipelineDetailBody">—</p>
+          <ul class="pipeline__detail-list" id="pipelineDetailList"></ul>
+        </article>
+      </div>
+
+      <!-- Block B · Sandbox -->
+      <div class="engine__block">
+        <header class="engine__head">
+          <span class="engine__kicker">C · Sandbox</span>
+          <h2 class="engine__title" data-i18n="case.p2_engine.sandbox.title">选图沙盘 · <em>跑一遍决策</em></h2>
+          <p class="engine__caption" data-i18n="case.p2_engine.sandbox.caption">挑一个意图与一种数据结构，引擎给出主推与备选，并解释推理。</p>
+        </header>
+        <div class="sandbox">
+          <div class="sandbox__col">
+            <span class="sandbox__col-label" data-i18n="case.p2_engine.sandbox.intent_label">① 分析意图 · Intent</span>
+            <div class="sandbox__chips" id="sbIntent" role="radiogroup"></div>
+          </div>
+          <div class="sandbox__col">
+            <span class="sandbox__col-label" data-i18n="case.p2_engine.sandbox.shape_label">② 数据结构 · Shape</span>
+            <div class="sandbox__chips" id="sbShape" role="radiogroup"></div>
+          </div>
+          <div class="sandbox__out" id="sandboxOut">
+            <div class="sandbox__out-head">
+              <span class="sandbox__out-tag">Recommendation</span>
+              <span class="sandbox__out-path" id="sbPath">INTENT → STEP — → RENDER</span>
+            </div>
+            <div class="sandbox__out-pick">
+              <div class="sandbox__pick">
+                <span class="sandbox__pick-kind" data-i18n="case.p2_engine.sandbox.primary_kind">主推 · Primary</span>
+                <strong class="sandbox__pick-name" id="sbPrimary">—</strong>
+                <span class="sandbox__pick-glyph" id="sbPrimaryGlyph"></span>
+              </div>
+              <div class="sandbox__pick sandbox__pick--alt">
+                <span class="sandbox__pick-kind" data-i18n="case.p2_engine.sandbox.alt_kind">备选 · Alt</span>
+                <strong class="sandbox__pick-name" id="sbAlt">—</strong>
+                <span class="sandbox__pick-glyph" id="sbAltGlyph"></span>
+              </div>
+            </div>
+            <p class="sandbox__reason" id="sbReason" data-i18n="case.p2_engine.sandbox.default_reason">先选一个意图与数据结构。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block D · Atlas -->
+      <div class="engine__block">
+        <header class="engine__head">
+          <span class="engine__kicker">D · Atlas</span>
+          <h2 class="engine__title" data-i18n="case.p2_engine.atlas.title">47 图表图鉴 · <em>按意图分类</em></h2>
+          <p class="engine__caption" data-i18n="case.p2_engine.atlas.caption">点击家族切换；图鉴里的每一格是一个图表的最简记号。</p>
+        </header>
+        <nav class="atlas__filters" id="atlasFilters" aria-label="Chart families"></nav>
+        <ul class="atlas__grid" id="atlasGrid"></ul>
+      </div>
+
+    </section>
+
+    <!-- Talent System · interactive (only for p=4) -->
+    <section class="talent" id="caseTalent" hidden aria-labelledby="talentTitle">
+
+      <!-- A · Hero · 一句话总结主张 -->
+      <div class="talent__block talent__block--hero">
+        <header class="talent__head">
+          <span class="talent__kicker talent__kicker--accent" data-i18n="case.p1_talent.thesis.kicker">A · Thesis</span>
+          <h2 id="talentTitle" class="talent__title" data-i18n-html="case.p1_talent.thesis.title">不是页面优化 · 而是<em>组织决策系统</em>的重构</h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.thesis.caption">面对一套随业务规模化逐渐失效的人才管理系统，我把切入点从 UI 抛光重新放回信息流与决策流：管理者真正需要看到什么、理解什么、决策什么。覆盖绩效 / 盘点 / 晋升等核心 OD 场景，把"功能集合"重塑为"统一决策平台"。</p>
+        </header>
+
+        <div class="outcome">
+          <div class="outcome__cell">
+            <span class="outcome__num" data-i18n-html="case.p1_talent.outcome.scenarios_num_html">3<em> 类</em></span>
+            <span class="outcome__lbl" data-i18n="case.p1_talent.outcome.scenarios_lbl">Core scenarios</span>
+            <span class="outcome__sub" data-i18n="case.p1_talent.outcome.scenarios_sub">绩效评价 · 人才盘点 · 晋升校准</span>
+          </div>
+          <div class="outcome__cell">
+            <span class="outcome__num" data-i18n-html="case.p1_talent.outcome.stakeholders_num_html">4<em> 角色</em></span>
+            <span class="outcome__lbl" data-i18n="case.p1_talent.outcome.stakeholders_lbl">Stakeholders</span>
+            <span class="outcome__sub" data-i18n="case.p1_talent.outcome.stakeholders_sub">普通员工 · 线上管理者 · BP / OD · 高管</span>
+          </div>
+          <div class="outcome__cell">
+            <span class="outcome__num" data-i18n="case.p1_talent.outcome.iterations_num_html">v.4</span>
+            <span class="outcome__lbl" data-i18n="case.p1_talent.outcome.iterations_lbl">Iterations</span>
+            <span class="outcome__sub" data-i18n="case.p1_talent.outcome.iterations_sub">第四版评价流程 · 完整端到端</span>
+          </div>
+          <div class="outcome__cell">
+            <span class="outcome__num" data-i18n-html="case.p1_talent.outcome.ia_num_html">1<em> 套</em></span>
+            <span class="outcome__lbl" data-i18n="case.p1_talent.outcome.ia_lbl">Unified IA</span>
+            <span class="outcome__sub" data-i18n="case.p1_talent.outcome.ia_sub">跨场景共享层级 · 状态语言 · 反馈规则</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- B · Diagnosis · 流程驱动型系统的三重病 -->
+      <div class="talent__block">
+        <header class="talent__head">
+          <span class="talent__kicker" data-i18n="case.p1_talent.diagnosis.kicker">B · Diagnosis</span>
+          <h2 class="talent__title" data-i18n-html="case.p1_talent.diagnosis.title">流程驱动型系统的<em>三重病</em></h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.diagnosis.caption">界面复杂只是表象。真正的问题是组织在规模化后，信息流和决策流开始失效。</p>
+        </header>
+        <div class="diag">
+          <div class="diag__cell">
+            <span class="diag__num" data-i18n="case.p1_talent.diagnosis.cells[0].num">P · 01 · 信息散落</span>
+            <h3 class="diag__head" data-i18n-html="case.p1_talent.diagnosis.cells[0].head">关键决策信息<em>淹没</em>在低价值内容中</h3>
+            <p class="diag__body" data-i18n="case.p1_talent.diagnosis.cells[0].body">页面结构不一致，信息分散在不同模块与表格里，相似场景缺乏统一表达——管理者完成一次绩效判断，需要跨页面切换、比对、记忆。</p>
+            <span class="diag__sym" data-i18n="case.p1_talent.diagnosis.cells[0].sym">Symptom · 跨页比对 · 高记忆负载</span>
+          </div>
+          <div class="diag__cell">
+            <span class="diag__num" data-i18n="case.p1_talent.diagnosis.cells[1].num">P · 02 · 流失</span>
+            <h3 class="diag__head" data-i18n-html="case.p1_talent.diagnosis.cells[1].head">组织的<em>信息流 / 决策流</em>开始失效</h3>
+            <p class="diag__body" data-i18n="case.p1_talent.diagnosis.cells[1].body">表面是操作成本高，本质是系统缺少面向"组织决策"的信息架构与行为逻辑——继续做 UI 抛光只能延缓崩坏，不能解决系统命题。</p>
+            <span class="diag__sym" data-i18n="case.p1_talent.diagnosis.cells[1].sym">Symptom · 决策无依据 · 偏差不可见</span>
+          </div>
+          <div class="diag__cell">
+            <span class="diag__num" data-i18n="case.p1_talent.diagnosis.cells[2].num">P · 03 · 不确定</span>
+            <h3 class="diag__head" data-i18n-html="case.p1_talent.diagnosis.cells[2].head">复杂系统下的<em>行为不确定性</em></h3>
+            <p class="diag__body" data-i18n="case.p1_talent.diagnosis.cells[2].body">"筛选会影响哪些区域？""当前状态意味着什么？""下一步该做什么？"——这些过去高度模糊的问题，让管理者在高密度信息里反复迷失方向。</p>
+            <span class="diag__sym" data-i18n="case.p1_talent.diagnosis.cells[2].sym">Symptom · 反馈缺失 · 路径模糊</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- C · Reframe · 从流程驱动 → 组织决策驱动 -->
+      <div class="talent__block">
+        <header class="talent__head">
+          <span class="talent__kicker" data-i18n="case.p1_talent.reframe.kicker">C · Reframe</span>
+          <h2 class="talent__title" data-i18n-html="case.p1_talent.reframe.title">从<em>流程驱动型系统</em> → <em>组织决策平台</em></h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.reframe.caption">不再继续堆叠历史流程；而是从业务目标重新反推系统结构。</p>
+        </header>
+        <div class="reframe">
+          <div class="reframe__col reframe__col--from">
+            <span class="reframe__tag" data-i18n="case.p1_talent.reframe.before_tag">Before · 流程驱动</span>
+            <h3 class="reframe__hd" data-i18n-html="case.p1_talent.reframe.before_head">系统是<em>功能的集合</em></h3>
+            <ul class="reframe__list">
+              <li data-i18n="case.p1_talent.reframe.before_list[0]">页面 / 表格按历史功能堆叠</li>
+              <li data-i18n="case.p1_talent.reframe.before_list[1]">同一类信息在多处重复、口径不一</li>
+              <li data-i18n="case.p1_talent.reframe.before_list[2]">状态语言、操作规则散落在每个模块各自定义</li>
+              <li data-i18n="case.p1_talent.reframe.before_list[3]">关键信息埋在二级 / 三级页面</li>
+              <li data-i18n="case.p1_talent.reframe.before_list[4]">无法横向支撑"组织级"判断</li>
+            </ul>
+          </div>
+          <div class="reframe__arrow" aria-hidden="true">
+            <span class="reframe__arrow-line"></span>
+            <span class="reframe__arrow-pill">→</span>
+            <span class="reframe__arrow-line"></span>
+          </div>
+          <div class="reframe__col reframe__col--to">
+            <span class="reframe__tag" data-i18n="case.p1_talent.reframe.after_tag">After · 决策驱动</span>
+            <h3 class="reframe__hd" data-i18n-html="case.p1_talent.reframe.after_head">系统承载<em>组织认知 · 标准 · 决策逻辑</em></h3>
+            <ul class="reframe__list">
+              <li data-i18n="case.p1_talent.reframe.after_list[0]">以「组织校准 / 风险识别 / 绩效判断 / 人才发展」为信息组织依据</li>
+              <li data-i18n="case.p1_talent.reframe.after_list[1]">统一的信息层级、状态语言、交互规则</li>
+              <li data-i18n="case.p1_talent.reframe.after_list[2]">围绕"人"与"组织"重组视图，而非围绕"表单"</li>
+              <li data-i18n="case.p1_talent.reframe.after_list[3]">结果分布、风险提示、历史趋势、评价偏差前置</li>
+              <li data-i18n="case.p1_talent.reframe.after_list[4]">跨绩效 / 盘点 / 晋升场景共享同一套设计基础</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- D · Workflow · 第四版评价流程：5 阶段 -->
+      <div class="talent__block">
+        <header class="talent__head">
+          <span class="talent__kicker" data-i18n="case.p1_talent.workflow.kicker">D · Workflow</span>
+          <h2 class="talent__title" data-i18n-html="case.p1_talent.workflow.title">第四版评价流程 · <em>5 个阶段 · 端到端</em></h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.workflow.caption">把绩效评价从"任务列表 + 表格"重构为"准备 → 评价 → 提交校对 → 完成"的清晰节奏；每个阶段都有明确的角色 · 信息密度 · 关键决策。</p>
+        </header>
+        <div class="flow">
+          <div class="flow__phase" data-active="1">
+            <span class="flow__num">PHASE · 01</span>
+            <h3 class="flow__name" data-i18n="case.p1_talent.workflow.phases[0].name">准备工作</h3>
+            <ul class="flow__list">
+              <li data-i18n="case.p1_talent.workflow.phases[0].list[0]">结果要求 / 待评人员 / 员工差距</li>
+              <li data-i18n="case.p1_talent.workflow.phases[0].list[1]">BP 视角：流程预热与共识同步</li>
+              <li data-i18n="case.p1_talent.workflow.phases[0].list[2]">统一入口 · 一次性看清范围</li>
+            </ul>
+          </div>
+          <div class="flow__phase" data-active="1">
+            <span class="flow__num">PHASE · 02</span>
+            <h3 class="flow__name" data-i18n="case.p1_talent.workflow.phases[1].name">评价过程</h3>
+            <ul class="flow__list">
+              <li data-i18n="case.p1_talent.workflow.phases[1].list[0]">普通员工：自评 / 他评 / 已评</li>
+              <li data-i18n="case.p1_talent.workflow.phases[1].list[1]">管理者：他评 / 结果分布 / 异常 / 校准</li>
+              <li data-i18n="case.p1_talent.workflow.phases[1].list[2]">同一界面内完成判断 · 不再跨页</li>
+            </ul>
+          </div>
+          <div class="flow__phase" data-active="1">
+            <span class="flow__num">PHASE · 03</span>
+            <h3 class="flow__name" data-i18n="case.p1_talent.workflow.phases[2].name">校准</h3>
+            <ul class="flow__list">
+              <li data-i18n="case.p1_talent.workflow.phases[2].list[0]">群体分布与对应分布结果</li>
+              <li data-i18n="case.p1_talent.workflow.phases[2].list[1]">对齐口径 · 暴露偏差</li>
+              <li data-i18n="case.p1_talent.workflow.phases[2].list[2]">从个体打分 → 组织级校准</li>
+            </ul>
+          </div>
+          <div class="flow__phase" data-active="1">
+            <span class="flow__num">PHASE · 04</span>
+            <h3 class="flow__name" data-i18n="case.p1_talent.workflow.phases[3].name">提交校对</h3>
+            <ul class="flow__list">
+              <li data-i18n="case.p1_talent.workflow.phases[3].list[0]">异常筛选 · 人群圈选</li>
+              <li data-i18n="case.p1_talent.workflow.phases[3].list[1]">结果调整 · 异常处理</li>
+              <li data-i18n="case.p1_talent.workflow.phases[3].list[2]">渐进披露 · 优先处理关键</li>
+            </ul>
+          </div>
+          <div class="flow__phase">
+            <span class="flow__num">PHASE · 05</span>
+            <h3 class="flow__name" data-i18n="case.p1_talent.workflow.phases[4].name">完成</h3>
+            <ul class="flow__list">
+              <li data-i18n="case.p1_talent.workflow.phases[4].list[0]">沉淀为"档案页"</li>
+              <li data-i18n="case.p1_talent.workflow.phases[4].list[1]">历史评价可追溯</li>
+              <li data-i18n="case.p1_talent.workflow.phases[4].list[2]">为下一轮盘点 · 晋升复用</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- E · Boards · 双方案设计板（Before / After 真实截图） -->
+      <div class="talent__block">
+        <header class="talent__head">
+          <span class="talent__kicker" data-i18n="case.p1_talent.boards.kicker">E · Design Boards</span>
+          <h2 class="talent__title" data-i18n-html="case.p1_talent.boards.title">双方案设计板 · <em>结构 / 表格</em>同步重构</h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.boards.caption">两张设计板分别处理"页面结构"与"核心表格"的前后对比——前者解决"看哪里"、后者解决"看什么"。</p>
+        </header>
+        <div class="boards">
+          <a class="board" href="assets/p4/design-board-structure.pdf" target="_blank" rel="noopener">
+            <div class="board__head">
+              <span class="board__tag" data-i18n="case.p1_talent.boards.boards[0].tag">Board · 01 · Page Structure</span>
+              <h3 class="board__name" data-i18n="case.p1_talent.boards.boards[0].name">整体页面结构 · 前后变化</h3>
+              <p class="board__sub" data-i18n="case.p1_talent.boards.boards[0].sub">改变了什么 / 可能风险——围绕"项目进度、群体筛选、异常优先级"三组关键决策点重组页面骨架。</p>
+            </div>
+            <div class="board__media">
+              <img src="assets/p4/board-structure-1400.jpg" alt="页面结构前后对比设计板" data-i18n-attr="alt:case.p1_talent.boards.boards[0].alt" loading="lazy" />
+              <div class="board__media-overlay">
+                <span class="board__media-tag">PDF · 高清原图 · 单击展开</span>
+                <span class="board__media-link">View board <svg width="10" height="10" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M10 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </div>
+            </div>
+            <ul class="board__notes">
+              <li data-i18n="case.p1_talent.boards.boards[0].notes[0]">顶通真体进度 · 抬高异常提醒优先级与相关性</li>
+              <li data-i18n="case.p1_talent.boards.boards[0].notes[1]">整合群体筛选与对应分布结果</li>
+              <li data-i18n="case.p1_talent.boards.boards[0].notes[2]">详细表格被收起、可见性减弱——评估是否影响决策判断</li>
+              <li data-i18n="case.p1_talent.boards.boards[0].notes[3]">人群筛选是否过于隐蔽 · 部分字段整合后是否影响排序</li>
+            </ul>
+          </a>
+          <a class="board" href="assets/p4/design-board-flow.pdf" target="_blank" rel="noopener">
+            <div class="board__head">
+              <span class="board__tag" data-i18n="case.p1_talent.boards.boards[1].tag">Board · 02 · Table Restructure</span>
+              <h3 class="board__name" data-i18n="case.p1_talent.boards.boards[1].name">核心表格 · 前后变化</h3>
+              <p class="board__sub" data-i18n="case.p1_talent.boards.boards[1].sub">精简字段 · 档案页内容外显 · 打分操作外显 · hover 展示更多丰富信息。让"档案"承接明细，让"主表"承担群体判断。</p>
+            </div>
+            <div class="board__media">
+              <img src="assets/p4/board-flow-1400.jpg" alt="表格重构与档案页设计板" data-i18n-attr="alt:case.p1_talent.boards.boards[1].alt" loading="lazy" />
+              <div class="board__media-overlay">
+                <span class="board__media-tag">PDF · 高清原图 · 单击展开</span>
+                <span class="board__media-link">View board <svg width="10" height="10" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M10 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </div>
+            </div>
+            <ul class="board__notes">
+              <li data-i18n="case.p1_talent.boards.boards[1].notes[0]">1 · 精简字段 · 合并与删减——只留下决策真正需要的列</li>
+              <li data-i18n="case.p1_talent.boards.boards[1].notes[1]">2 · 档案页内容外显——主表扫读 · 档案承接明细</li>
+              <li data-i18n="case.p1_talent.boards.boards[1].notes[2]">3 · 打分操作外显 · 合并异常信息——同一行内完成判断</li>
+              <li data-i18n="case.p1_talent.boards.boards[1].notes[3]">4 · hover 展示更多丰富信息——延迟加载 · 控制信噪比</li>
+            </ul>
+          </a>
+        </div>
+      </div>
+
+      <!-- F · Principles · 7 条贯穿全局的设计原则 -->
+      <div class="talent__block">
+        <header class="talent__head">
+          <span class="talent__kicker" data-i18n="case.p1_talent.principles.kicker">F · Principles</span>
+          <h2 class="talent__title" data-i18n-html="case.p1_talent.principles.title">7 条贯穿全局的<em>设计原则</em></h2>
+          <p class="talent__caption" data-i18n="case.p1_talent.principles.caption">不是局部体验优化的细则，而是跨绩效 / 盘点 / 晋升场景的系统性约束——后续业务扩展时仍然有效。</p>
+        </header>
+        <div class="rules">
+          <div class="rules__item">
+            <span class="rules__num">01</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[0].head">围绕「人」与「组织」重组信息</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[0].body">不是围绕表单和模块。同一个人 / 同一个组织在哪个流程里，看到的都是统一视图。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">02</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[1].head">提升信噪比 · 不是展示更多</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[1].body">设计目标从"补全字段"转为"前置关键信息"——结果分布、风险提示、历史趋势、评价偏差。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">03</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[2].head">渐进披露 · 优先处理关键任务</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[2].body">主表负责扫读群体异常 / 档案承接明细查询 / hover 提供轻量增量信息。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">04</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[3].head">一致性反馈机制</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[3].body">筛选影响哪些区域、当前状态是什么、下一步是什么——全场景使用同一套反馈语言。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">05</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[4].head">异常前置 · 决策导向排序</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[4].body">把"需要被处理的差异"从表格中段拉到顶部，让管理者第一眼看到风险。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">06</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[5].head">从个体打分 → 组织级校准</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[5].body">校准不是结果展示，而是组织层面对齐口径、暴露偏差的核心动作——单独建模为流程节点。</p>
+          </div>
+          <div class="rules__item">
+            <span class="rules__num">07</span>
+            <h3 class="rules__head" data-i18n="case.p1_talent.principles.items[6].head">为可持续演进而设计</h3>
+            <p class="rules__body" data-i18n="case.p1_talent.principles.items[6].body">同一套层级 · 状态 · 反馈规则跨绩效 / 盘点 / 晋升复用，业务扩张时不需要从零再设计一次。</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="case-foot">
+      <span>© Zhao Yuanxuan · Last Stand Designer</span>
+      <span>v 1.5.0 · case viewer · 6 projects · P5 / P6 thinking modules</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var n = parseInt(params.get('p'), 10);
+      if (!(n >= 1 && n <= 6)) n = 1;
+      var pad = String(n).padStart(2, '0');
+
+      // ===== Project mapping (v1.6) =====
+      // n=1 → Kuaishou · Talent System (interactive · IS_OD)        — was old p=4
+      // n=2 → Kuaishou · Decision Engine (interactive · IS_ENGINE)  — was old p=3
+      // n=3 → SF 同城 · Fulfillment UX (PDF, file = P1.pdf)         — was old p=1
+      // n=4 → Tencent 地图 · Design System (PDF, file = P2.pdf)      — was old p=2
+      // n=5 → iQIYI · Immersive Viewing + VIP payment (PDF, P5.pdf)
+      // n=6 → Long-term · Design Operating System (PDF, P6.pdf)
+      var pdfFileMap = {
+        3: 'assets/pdf/P1.pdf',
+        4: 'assets/pdf/P2.pdf',
+        5: 'assets/pdf/P5.pdf',
+        6: 'assets/pdf/P6.pdf'
+      };
+      var pdf = pdfFileMap[n] || ('assets/pdf/P' + n + '.pdf');
+      var pdfBaseName = pdf.split('/').pop();
+
+      // Update labels
+      document.getElementById('caseNum').textContent = 'P.' + pad;
+      document.getElementById('caseTitleNum').textContent = pad;
+      document.getElementById('caseFile').textContent = pdfBaseName;
+      document.title = 'P.' + pad + ' · Case Study · Zhao Yuanxuan';
+
+      // Per-project subtitle — sourced from i18n bundle
+      var subEl = document.getElementById('caseTitleSub');
+      function applySubtitle() {
+        if (!subEl) return;
+        var s = (window.i18n && window.i18n.t) ? window.i18n.t('case.subtitle.' + n) : '';
+        subEl.textContent = s || '—';
+      }
+      applySubtitle();
+      document.addEventListener('langchanged', applySubtitle);
+
+      // Per-project year shown in the top-bar Case strip
+      var caseYears = { 1: '2026', 2: '2025', 3: '2021', 4: '2022', 5: '2019', 6: '2018–' };
+      var yearEl = document.getElementById('caseYear');
+      if (yearEl && caseYears[n]) yearEl.textContent = caseYears[n];
+
+      var open = document.getElementById('caseOpen');
+      var dl = document.getElementById('caseDownload');
+      open.href = pdf;
+      dl.href = pdf;
+      dl.setAttribute('download', pdfBaseName);
+
+      // Interactive cases: n=1 → Talent (IS_OD), n=2 → Decision Engine (IS_ENGINE)
+      var IS_ENGINE = (n === 2);
+      var IS_OD = (n === 1);
+      if (IS_ENGINE) {
+        document.getElementById('casePdfBlock').setAttribute('hidden', '');
+        document.getElementById('caseEngine').removeAttribute('hidden');
+        // hide PDF tools in top bar
+        open.style.display = 'none';
+        dl.style.display = 'none';
+        // change file label
+        document.getElementById('caseFile').textContent = 'Decision Engine';
+        document.getElementById('caseFileMeta').textContent = 'Interactive · explore by click';
+      }
+      if (IS_OD) {
+        document.getElementById('casePdfBlock').setAttribute('hidden', '');
+        document.getElementById('caseTalent').removeAttribute('hidden');
+        // top tools point to the structure board PDF (the more representative one)
+        var pdfA = 'assets/p4/design-board-structure.pdf';
+        open.href = pdfA;
+        dl.href = pdfA;
+        dl.setAttribute('download', 'P1-design-board-structure.pdf');
+        // change file label
+        document.getElementById('caseFile').textContent = 'Talent System';
+        document.getElementById('caseFileMeta').textContent = 'Interactive · OD reframe · 2 design boards';
+      }
+
+      // Load iframe with the PDF (use #toolbar=1&view=FitH for cleaner default)
+      var iframe = document.getElementById('casePdf');
+      var loader = document.getElementById('caseLoader');
+      var fallback = document.getElementById('caseFallback');
+
+      if (!IS_ENGINE && !IS_OD) {
+        iframe.addEventListener('load', function () {
+          loader.setAttribute('hidden', '');
+        });
+        iframe.addEventListener('error', function () {
+          loader.setAttribute('hidden', '');
+          fallback.setAttribute('data-show', '1');
+        });
+
+        // Add bookmark hash for nicer default rendering in chromium
+        iframe.src = pdf + '#view=FitH&pagemode=none';
+
+        // Hide loader after 6s as a hard fallback
+        setTimeout(function () { loader.setAttribute('hidden', ''); }, 6000);
+      } else {
+        // ensure loader removed instantly for engine / OD view
+        loader.setAttribute('hidden', '');
+      }
+
+      /* ===========================================================
+         Thinking module · data now sourced from window.__I18N_BUNDLE__
+         Adapts the bundle shape ({center_name, center_hint, axes:[{name,sub,title,body,tags,leaves}]})
+         to the internal {kicker, title, caption, divider, center:{name,hint}, axes:[{num,name,sub,detail:{title,body,tags,leaves}}]}
+         shape consumed by the renderer below. Re-runs whenever the language changes.
+         =========================================================== */
+      function getThinkData(idx) {
+        var bundle = (window.i18n && window.i18n.bundle) || window.__I18N_BUNDLE__ || null;
+        if (!bundle) return null;
+        var lang = (window.i18n && window.i18n.lang) || (document.documentElement.getAttribute('data-lang') || 'zh');
+        var langBundle = bundle[lang] || bundle.zh || {};
+        var raw = langBundle.case && langBundle.case.thinkData && langBundle.case.thinkData[String(idx)];
+        if (!raw) {
+          // fallback to zh if current-lang missing
+          var zhBundle = bundle.zh || {};
+          raw = zhBundle.case && zhBundle.case.thinkData && zhBundle.case.thinkData[String(idx)];
+        }
+        if (!raw) return null;
+        // adapter
+        return {
+          kicker: raw.kicker || '',
+          title: raw.title || '',
+          caption: raw.caption || '',
+          divider: raw.divider || '',
+          center: { name: raw.center_name || '', hint: raw.center_hint || '' },
+          axes: (raw.axes || []).map(function (a, i) {
+            return {
+              num: '0' + (i + 1),
+              name: a.name || '',
+              sub: a.sub || '',
+              detail: {
+                title: a.title || '',
+                body: a.body || [],
+                tags: a.tags || [],
+                leaves: (a.leaves || []).map(function (lf) {
+                  return typeof lf === 'string' ? { name: lf } : lf;
+                })
+              }
+            };
+          })
+        };
+      }
+
+      var data = getThinkData(n);
+      if (!data) return;
+
+      var thinkEl = document.getElementById('think');
+      thinkEl.hidden = false;
+
+      function paintThinkHeader() {
+        var d = getThinkData(n) || data;
+        document.getElementById('thinkKicker').textContent = d.kicker;
+        document.getElementById('thinkTitle').innerHTML = d.title;
+        document.getElementById('thinkCaption').textContent = d.caption;
+        document.getElementById('thinkDivider').textContent = d.divider;
+      }
+      paintThinkHeader();
+
+      // ---- Build axes (top tabs) ----
+      var axesList = document.getElementById('axesList');
+      data.axes.forEach(function (ax, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'axis';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.dataset.axis = String(i);
+        btn.innerHTML =
+          '<span class="axis__num">' + ax.num + '</span>' +
+          '<span class="axis__name">' + ax.name + '</span>' +
+          '<span class="axis__sub">' + ax.sub + '</span>';
+        axesList.appendChild(btn);
+      });
+
+      // ---- Canvas references ----
+      var canvas = document.getElementById('thinkCanvas');
+      var svg = document.getElementById('thinkSvg');
+      var captionAxis = document.getElementById('thinkCanvasAxisLabel');
+      var panel = {
+        wrap: document.getElementById('thinkPanel'),
+        num: document.getElementById('thinkPanelNum'),
+        sub: document.getElementById('thinkPanelSub'),
+        title: document.getElementById('thinkPanelTitle'),
+        body: document.getElementById('thinkPanelBody'),
+        tags: document.getElementById('thinkPanelTags')
+      };
+
+      // Center node text — written once with project subject
+      var centerEl = document.createElement('div');
+      centerEl.className = 'node node--center';
+      centerEl.style.left = '50%';
+      centerEl.style.top  = '32%';
+      centerEl.innerHTML =
+        '<span class="node__kind"><span class="dot"></span>Center · 主张</span>' +
+        '<span class="node__name">' + data.center.name + '</span>';
+      canvas.appendChild(centerEl);
+
+      // Layer for transient nodes (axis + 3 leaves) — re-rendered per axis switch
+      var dynLayer = document.createElement('div');
+      dynLayer.style.position = 'absolute';
+      dynLayer.style.inset = '0';
+      canvas.appendChild(dynLayer);
+
+      // ---- Geometry: hub at 50%/32%; axis node sits below at 50%/56%;
+      //               three leaves fan out below axis ----
+      function clearChildren(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+      function nodeCenterPx(el) {
+        var r = el.getBoundingClientRect();
+        var cr = canvas.getBoundingClientRect();
+        return { x: r.left - cr.left + r.width / 2, y: r.top - cr.top + r.height / 2 };
+      }
+
+      function drawEdge(a, b, animateDelay) {
+        var p1 = nodeCenterPx(a);
+        var p2 = nodeCenterPx(b);
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var dx = p2.x - p1.x, dy = p2.y - p1.y;
+        var midX = (p1.x + p2.x) / 2;
+        var midY = (p1.y + p2.y) / 2;
+        var bow = 0.10;
+        var cx = midX - dy * bow;
+        var cy = midY + dx * bow;
+        path.setAttribute('d', 'M ' + p1.x + ' ' + p1.y + ' Q ' + cx + ' ' + cy + ' ' + p2.x + ' ' + p2.y);
+        path.setAttribute('class', 'edge');
+        svg.appendChild(path);
+        // animate stroke length
+        var len = path.getTotalLength ? path.getTotalLength() : 600;
+        path.style.strokeDasharray = len + ' ' + len;
+        path.style.strokeDashoffset = len;
+        // staged reveal
+        setTimeout(function () {
+          path.style.transition = 'stroke-dashoffset 0.7s var(--ease-out), opacity 0.5s var(--ease)';
+          path.classList.add('edge--in');
+          path.style.strokeDashoffset = '0';
+        }, animateDelay || 30);
+        return path;
+      }
+
+      // Renders the active axis: builds axis node + 3 leaves + connecting edges
+      function renderAxis(axisIdx) {
+        var ax = data.axes[axisIdx];
+        // sync svg viewport
+        var w = canvas.clientWidth, h = canvas.clientHeight;
+        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+        svg.setAttribute('width', w);
+        svg.setAttribute('height', h);
+
+        // clear dynamic layer + svg edges
+        clearChildren(dynLayer);
+        clearChildren(svg);
+
+        // Axis node — directly under the center
+        var axisEl = document.createElement('div');
+        axisEl.className = 'node node--axis node--enter';
+        axisEl.style.left = '50%';
+        axisEl.style.top  = '58%';
+        axisEl.innerHTML =
+          '<span class="node__kind"><span class="dot"></span>' + ax.num + ' · ' + ax.sub + '</span>' +
+          '<span class="node__name">' + ax.name + '</span>';
+        dynLayer.appendChild(axisEl);
+
+        // Three leaves below, fanned out
+        var lvs = (ax.detail.leaves || []).slice(0, 3);
+        var leafPositions = [
+          { x: 22, y: 80 },
+          { x: 50, y: 84 },
+          { x: 78, y: 80 }
+        ];
+        var leafEls = [];
+        lvs.forEach(function (lf, j) {
+          var pos = leafPositions[j] || leafPositions[1];
+          var ln = document.createElement('div');
+          ln.className = 'node node--leaf node--enter';
+          ln.style.left = pos.x + '%';
+          ln.style.top  = pos.y + '%';
+          ln.dataset.leaf = String(j);
+          ln.innerHTML =
+            '<span class="node__kind"><span class="dot"></span>' + ax.num + '.' + (j + 1) + '</span>' +
+            '<span class="node__name">' + lf.name + '</span>';
+          dynLayer.appendChild(ln);
+          leafEls.push(ln);
+        });
+
+        // Force a layout pass, then animate node entrances + draw edges
+        // Use double rAF to guarantee element rect is measurable.
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            axisEl.classList.remove('node--enter');
+            leafEls.forEach(function (ln, j) {
+              setTimeout(function () { ln.classList.remove('node--enter'); }, 80 + j * 80);
+            });
+            // draw edges after axis node settled
+            setTimeout(function () { drawEdge(centerEl, axisEl, 0); }, 60);
+            leafEls.forEach(function (ln, j) {
+              setTimeout(function () { drawEdge(axisEl, ln, 0); }, 200 + j * 90);
+            });
+          });
+        });
+
+        // Update caption
+        captionAxis.textContent = ax.num + ' · ' + ax.name;
+      }
+
+      function renderPanel(axisIdx) {
+        var ax = data.axes[axisIdx];
+        var d = ax.detail;
+        panel.num.textContent = ax.num + ' / 04';
+        panel.sub.textContent = ax.sub;
+        panel.title.innerHTML = d.title; // allow <em>
+        // === v1.2.1 · structured numbered points
+        // split each paragraph into "lede" (first sentence/phrase) + "rest"
+        // Heuristic: cut at the first 「」 closing bracket, full-stop "。", em-dash "——",
+        //            or colon "：". If none found, show the whole text as lede only.
+        function splitLede(p) {
+          // try several cut points; pick the earliest meaningful one
+          var cuts = [];
+          var m;
+          // cut after a 「...」 phrase (keep the full quoted phrase in lede)
+          m = p.match(/^[^「]*「[^」]+」/);
+          if (m) cuts.push(m[0].length);
+          // cut after a colon (Chinese ：or English :)
+          var idxColon = p.search(/[：:]\s*/);
+          if (idxColon > 4 && idxColon < 50) cuts.push(idxColon + 1);
+          // cut after em-dash
+          var idxDash = p.indexOf('——');
+          if (idxDash > 0 && idxDash < 60) cuts.push(idxDash);
+          // cut after first "。" (period)
+          var idxPeriod = p.indexOf('。');
+          if (idxPeriod > 0 && idxPeriod < 80) cuts.push(idxPeriod + 1);
+          // pick the shortest that gives a meaningful lede (>= 8 chars)
+          cuts = cuts.filter(function (c) { return c >= 8; }).sort(function (a, b) { return a - b; });
+          if (cuts.length === 0) {
+            return { lede: p, rest: '' };
+          }
+          var cut = cuts[0];
+          var lede = p.slice(0, cut).replace(/[，,\s]+$/, '');
+          var rest = p.slice(cut).replace(/^[，,。\s—\-]+/, '').trim();
+          // if rest is too short, merge back
+          if (rest.length < 6) return { lede: p, rest: '' };
+          return { lede: lede, rest: rest };
+        }
+        var items = (d.body || []).map(function (p) {
+          var s = splitLede(p);
+          var html = '<span class="lede">' + s.lede + '</span>';
+          if (s.rest) html += '<span class="rest">' + s.rest + '</span>';
+          return '<li>' + html + '</li>';
+        }).join('');
+        panel.body.innerHTML = '<ul class="think__panel-body--list">' + items + '</ul>';
+        panel.tags.innerHTML = (d.tags || []).map(function (t) { return '<span>' + t + '</span>'; }).join('');
+      }
+
+      // ---- Selection (always exactly one axis active) ----
+      var currentAxis = null;
+      function setActiveAxis(axisIdx) {
+        if (axisIdx === currentAxis) return;
+        currentAxis = axisIdx;
+
+        document.querySelectorAll('.axis').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(Number(b.dataset.axis) === axisIdx));
+        });
+
+        // Brief crossfade on canvas + panel
+        canvas.classList.add('is-leaving');
+        panel.wrap.classList.add('is-leaving');
+        setTimeout(function () {
+          renderAxis(axisIdx);
+          renderPanel(axisIdx);
+          canvas.classList.remove('is-leaving');
+          panel.wrap.classList.remove('is-leaving');
+        }, 200);
+      }
+
+      // wire tabs
+      document.querySelectorAll('.axis').forEach(function (b) {
+        b.addEventListener('click', function () {
+          setActiveAxis(Number(b.dataset.axis));
+        });
+        b.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var dir = e.key === 'ArrowRight' ? 1 : -1;
+            var next = (currentAxis + dir + data.axes.length) % data.axes.length;
+            setActiveAxis(next);
+            var btns = document.querySelectorAll('.axis');
+            if (btns[next]) btns[next].focus();
+          }
+        });
+      });
+
+      // resize → just redraw edges for current axis (do NOT re-animate)
+      window.addEventListener('resize', function () {
+        clearTimeout(window.__thinkResizeT);
+        window.__thinkResizeT = setTimeout(function () {
+          if (currentAxis === null) return;
+          var w = canvas.clientWidth, h = canvas.clientHeight;
+          svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+          svg.setAttribute('width', w);
+          svg.setAttribute('height', h);
+          clearChildren(svg);
+          var axisEl = dynLayer.querySelector('.node--axis');
+          var leaves = dynLayer.querySelectorAll('.node--leaf');
+          if (!axisEl) return;
+          drawEdge(centerEl, axisEl, 0);
+          leaves.forEach(function (ln) { drawEdge(axisEl, ln, 0); });
+        }, 120);
+      });
+
+      // initial
+      // Use rAF so canvas has its measured size first
+      requestAnimationFrame(function () {
+        // Render axis 0 immediately (no crossfade on first paint)
+        document.querySelectorAll('.axis').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(Number(b.dataset.axis) === 0));
+        });
+        currentAxis = 0;
+        renderAxis(0);
+        renderPanel(0);
+      });
+
+      // ----- Re-render Thinking module on language change -----
+      document.addEventListener('langchanged', function () {
+        var d = getThinkData(n);
+        if (!d) return;
+        data = d; // rebind closure variable used by renderAxis/renderPanel
+        paintThinkHeader();
+        // rebuild axis tabs
+        var axesListEl = document.getElementById('axesList');
+        while (axesListEl.firstChild) axesListEl.removeChild(axesListEl.firstChild);
+        d.axes.forEach(function (ax, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'axis';
+          btn.setAttribute('aria-pressed', String(i === (currentAxis || 0)));
+          btn.dataset.axis = String(i);
+          btn.innerHTML =
+            '<span class="axis__num">' + ax.num + '</span>' +
+            '<span class="axis__name">' + ax.name + '</span>' +
+            '<span class="axis__sub">' + ax.sub + '</span>';
+          btn.addEventListener('click', function () { setActiveAxis(Number(btn.dataset.axis)); });
+          axesListEl.appendChild(btn);
+        });
+        // refresh center node label
+        if (centerEl) {
+          centerEl.innerHTML =
+            '<span class="node__kind"><span class="dot"></span>Center · 主张</span>' +
+            '<span class="node__name">' + d.center.name + '</span>';
+        }
+        // re-render the active axis (or 0)
+        var cur = currentAxis == null ? 0 : currentAxis;
+        currentAxis = null; // force setActiveAxis to actually re-render
+        setActiveAxis(cur);
+      });
+
+      /* ===========================================================
+         Decision Engine bootstrap (only when p=3)
+         Builds: Pipeline / Sandbox / Atlas / Rules
+         =========================================================== */
+      if (!IS_ENGINE) return;
+
+      // ---- A · Pipeline data ----
+      var pipelineData = [
+        {
+          num: '00', name: 'INTENT',
+          tag: '意图层',
+          title: '意图声明 · Intent Declaration',
+          body: '同一份数据，"展示一下"与"分析变化"应输出完全不同的图表。INTENT 层把这种意图前置为显式选择，避免 AI/工具过度解读、强行给出结论。',
+          list: ['展示 · keep neutral', '分析 · derive insight', '蝴蝶 ↔ 哑铃 (差值)']
+        },
+        {
+          num: '01', name: 'PRE',
+          tag: '预处理层',
+          title: '数据预处理 · Pre-flight Checks',
+          body: '在出图前完成量纲一致性核查、标签长度评估与行业信号识别，把"物理上不能合并"的字段在源头拆开。',
+          list: ['量纲差 ≥ 10 倍', '标签长度', '行业信号']
+        },
+        {
+          num: '02', name: 'STEP1',
+          tag: '特殊结构',
+          title: '特殊结构优先 · Specialty First',
+          body: '漏斗 / 甘特 / 弦图 / 桑基这类结构强烈的图表一旦命中数据形态，直接出图，不再向下走通用逻辑。',
+          list: ['漏斗 funnel', '甘特 gantt', '弦图 chord', '桑基 sankey']
+        },
+        {
+          num: '03', name: 'STEP2',
+          tag: '通用结构',
+          title: '通用结构判断 · General Shape',
+          body: '基于"类别列 × 数值列"的组合做主路径判断：单值看 KPI 卡、多值看条形 / 柱形 / 折线 / 散点 / 堆叠等家族。',
+          list: ['1类×1值', '1类×多值', '2类×1值', '时间×多值']
+        },
+        {
+          num: '04', name: 'STEP3',
+          tag: '边界场景',
+          title: '边界场景细化 · Edge Refinements',
+          body: '对差值图、地图、平行坐标、热力等边界场景做最后一公里精修，确保即使罕见组合也有"次优解"。',
+          list: ['差值图', '地图', '平行坐标', '热力图']
+        },
+        {
+          num: '05', name: 'RENDER',
+          tag: '渲染层',
+          title: '渲染编排 · Render',
+          body: '主推默认可见，备选以 Tab 形式收纳；ECharts / Chart.js / SVG 三套渲染引擎按场景择优，降低切换成本。',
+          list: ['主推 + 备选 Tab', 'ECharts', 'Chart.js', 'SVG']
+        }
+      ];
+
+      var pipeline = document.getElementById('pipeline');
+      var pDetail = {
+        num: document.getElementById('pipelineDetailNum'),
+        title: document.getElementById('pipelineDetailTitle'),
+        body: document.getElementById('pipelineDetailBody'),
+        list: document.getElementById('pipelineDetailList')
+      };
+      function renderPipelineStage(i) {
+        var s = pipelineData[i];
+        pDetail.num.textContent = s.num + ' · ' + s.tag;
+        pDetail.title.textContent = s.title;
+        pDetail.body.textContent = s.body;
+        pDetail.list.innerHTML = s.list.map(function (t) { return '<li>' + t + '</li>'; }).join('');
+        pipeline.querySelectorAll('.pipeline__stage').forEach(function (el, idx) {
+          el.setAttribute('aria-pressed', String(idx === i));
+        });
+      }
+      pipelineData.forEach(function (s, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pipeline__stage';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.dataset.idx = String(i);
+        btn.innerHTML =
+          '<span class="pipeline__stage-num">' + s.num + '</span>' +
+          '<span class="pipeline__stage-name">' + s.name + '</span>' +
+          '<span class="pipeline__stage-tag">' + s.tag + '</span>';
+        btn.addEventListener('click', function () { renderPipelineStage(i); });
+        pipeline.appendChild(btn);
+      });
+      renderPipelineStage(0);
+
+      // ---- B · Sandbox data ----
+      // Inline tiny SVG glyphs for chart types
+      var glyphs = {
+        bar:    '<svg viewBox="0 0 60 24"><rect x="2" y="6" width="6" height="14" fill="currentColor"/><rect x="12" y="2" width="6" height="18" fill="currentColor"/><rect x="22" y="10" width="6" height="10" fill="currentColor"/><rect x="32" y="4" width="6" height="16" fill="currentColor"/><rect x="42" y="12" width="6" height="8" fill="currentColor"/><rect x="52" y="8" width="6" height="12" fill="currentColor"/></svg>',
+        hbar:   '<svg viewBox="0 0 60 24"><rect x="0" y="2"  width="44" height="3" fill="currentColor"/><rect x="0" y="8"  width="56" height="3" fill="currentColor"/><rect x="0" y="14" width="30" height="3" fill="currentColor"/><rect x="0" y="20" width="48" height="3" fill="currentColor"/></svg>',
+        line:   '<svg viewBox="0 0 60 24"><polyline points="2,18 12,10 22,14 32,4 42,12 52,6 58,10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
+        area:   '<svg viewBox="0 0 60 24"><path d="M2 22 L2 18 L12 10 L22 14 L32 4 L42 12 L52 6 L58 10 L58 22 Z" fill="currentColor" opacity="0.25"/><polyline points="2,18 12,10 22,14 32,4 42,12 52,6 58,10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
+        scatter:'<svg viewBox="0 0 60 24"><circle cx="6" cy="18" r="2" fill="currentColor"/><circle cx="14" cy="10" r="2" fill="currentColor"/><circle cx="22" cy="14" r="2" fill="currentColor"/><circle cx="30" cy="6" r="2" fill="currentColor"/><circle cx="40" cy="12" r="2" fill="currentColor"/><circle cx="48" cy="8" r="2" fill="currentColor"/><circle cx="56" cy="14" r="2" fill="currentColor"/></svg>',
+        pie:    '<svg viewBox="0 0 60 24"><g transform="translate(30,12)"><path d="M0 -10 A10 10 0 0 1 9.5 -3.1 L0 0 Z" fill="currentColor"/><path d="M9.5 -3.1 A10 10 0 0 1 0 10 L0 0 Z" fill="currentColor" opacity="0.6"/><path d="M0 10 A10 10 0 0 1 0 -10 L0 0 Z" fill="currentColor" opacity="0.3"/></g></svg>',
+        donut:  '<svg viewBox="0 0 60 24"><g transform="translate(30,12)"><circle r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="40 60" transform="rotate(-90)"/><circle r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="20 80" stroke-dashoffset="-40" transform="rotate(-90)" opacity="0.5"/></g></svg>',
+        stack:  '<svg viewBox="0 0 60 24"><rect x="2"  y="14" width="6" height="8" fill="currentColor"/><rect x="2"  y="6"  width="6" height="6" fill="currentColor" opacity="0.5"/><rect x="12" y="10" width="6" height="12" fill="currentColor"/><rect x="12" y="2"  width="6" height="6" fill="currentColor" opacity="0.5"/><rect x="22" y="12" width="6" height="10" fill="currentColor"/><rect x="22" y="4"  width="6" height="6" fill="currentColor" opacity="0.5"/><rect x="32" y="8" width="6" height="14" fill="currentColor"/><rect x="32" y="2" width="6" height="4" fill="currentColor" opacity="0.5"/><rect x="42" y="14" width="6" height="8" fill="currentColor"/><rect x="42" y="6" width="6" height="6" fill="currentColor" opacity="0.5"/></svg>',
+        kpi:    '<svg viewBox="0 0 60 24"><text x="30" y="18" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="20" fill="currentColor">42%</text></svg>',
+        funnel: '<svg viewBox="0 0 60 24"><polygon points="2,3 58,3 48,11 12,11" fill="currentColor"/><polygon points="12,13 48,13 40,21 20,21" fill="currentColor" opacity="0.6"/></svg>',
+        gantt:  '<svg viewBox="0 0 60 24"><rect x="2"  y="2"  width="22" height="3" fill="currentColor"/><rect x="14" y="8"  width="28" height="3" fill="currentColor"/><rect x="26" y="14" width="24" height="3" fill="currentColor"/><rect x="38" y="20" width="20" height="3" fill="currentColor"/></svg>',
+        chord:  '<svg viewBox="0 0 60 24"><circle cx="30" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1"/><path d="M22 6 Q30 16 38 6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M22 18 Q30 8 38 18" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>',
+        sankey: '<svg viewBox="0 0 60 24"><rect x="2" y="2" width="3" height="9" fill="currentColor"/><rect x="2" y="13" width="3" height="9" fill="currentColor"/><rect x="55" y="2" width="3" height="6" fill="currentColor"/><rect x="55" y="10" width="3" height="6" fill="currentColor"/><rect x="55" y="18" width="3" height="4" fill="currentColor"/><path d="M5 6 C30 6 30 5 55 5" fill="none" stroke="currentColor" stroke-width="6" opacity="0.35"/><path d="M5 17 C30 17 30 12 55 12" fill="none" stroke="currentColor" stroke-width="6" opacity="0.25"/><path d="M5 17 C30 17 30 20 55 20" fill="none" stroke="currentColor" stroke-width="3" opacity="0.4"/></svg>',
+        butterfly: '<svg viewBox="0 0 60 24"><rect x="14" y="3"  width="14" height="3" fill="currentColor"/><rect x="32" y="3"  width="12" height="3" fill="currentColor"/><rect x="10" y="9"  width="18" height="3" fill="currentColor"/><rect x="32" y="9"  width="16" height="3" fill="currentColor"/><rect x="6"  y="15" width="22" height="3" fill="currentColor"/><rect x="32" y="15" width="14" height="3" fill="currentColor"/></svg>',
+        dumbbell:  '<svg viewBox="0 0 60 24"><line x1="12" y1="6" x2="40" y2="6" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="6" r="2.4" fill="currentColor"/><circle cx="40" cy="6" r="2.4" fill="currentColor" opacity="0.5"/><line x1="8" y1="14" x2="48" y2="14" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="14" r="2.4" fill="currentColor"/><circle cx="48" cy="14" r="2.4" fill="currentColor" opacity="0.5"/><line x1="18" y1="22" x2="38" y2="22" stroke="currentColor" stroke-width="1.2"/><circle cx="18" cy="22" r="2.4" fill="currentColor"/><circle cx="38" cy="22" r="2.4" fill="currentColor" opacity="0.5"/></svg>',
+        heatmap:'<svg viewBox="0 0 60 24"><g>' +
+          [0,1,2,3,4].map(function(i){
+            return [0,1,2,3].map(function(j){
+              var op = (0.15 + ((i*7+j*3)%10)/10*0.8).toFixed(2);
+              return '<rect x="'+(2+i*12)+'" y="'+(2+j*5)+'" width="10" height="4" fill="currentColor" opacity="'+op+'"/>';
+            }).join('');
+          }).join('') + '</g></svg>',
+        radar:  '<svg viewBox="0 0 60 24"><g transform="translate(30,12)"><polygon points="0,-10 9,-3 6,8 -6,8 -9,-3" fill="none" stroke="currentColor" opacity="0.4"/><polygon points="0,-7 6,-2 4,5 -4,5 -6,-2" fill="currentColor" opacity="0.35"/></g></svg>',
+        tree:   '<svg viewBox="0 0 60 24"><rect x="2" y="2" width="34" height="20" fill="currentColor" opacity="0.4"/><rect x="38" y="2" width="20" height="11" fill="currentColor" opacity="0.6"/><rect x="38" y="15" width="20" height="7" fill="currentColor" opacity="0.3"/></svg>',
+        map:    '<svg viewBox="0 0 60 24"><path d="M5 6 L20 4 L30 8 L42 5 L55 10 L52 20 L38 18 L26 22 L12 19 L4 14 Z" fill="currentColor" opacity="0.35" stroke="currentColor" stroke-width="0.6"/><circle cx="20" cy="12" r="1.5" fill="currentColor"/><circle cx="38" cy="14" r="1.5" fill="currentColor"/></svg>'
+      };
+
+      // Sandbox: 5 intents × 4 shapes => recommendations
+      var intents = [
+        { id: 'compose', name: '构成 · Compose' },
+        { id: 'trend',   name: '趋势 · Trend' },
+        { id: 'compare', name: '对比 · Compare' },
+        { id: 'distrib', name: '分布 · Distribute' },
+        { id: 'flow',    name: '流程 · Flow' }
+      ];
+      var shapes = [
+        { id: 'cat-val',   name: '类别 × 单值' },
+        { id: 'cat-multi', name: '类别 × 多值' },
+        { id: 'time-val',  name: '时间 × 数值' },
+        { id: 'matrix',    name: '矩阵 · 二维' }
+      ];
+      // map [intent][shape] => { primary, alt, glyphs, reason, path }
+      var recipe = {
+        compose: {
+          'cat-val':   { primary: '环形图 · Donut',     alt: '水平柱 · HBar',    pg: 'donut', ag: 'hbar',  path: 'INTENT → STEP2 → RENDER',
+            reason: '少类别 + 单值占比 → 环形传达"整体的份额"；若标签较长，<b>STEP2b</b> 触发标签长度规则，回退为水平柱。' },
+          'cat-multi': { primary: '堆叠柱图 · Stacked', alt: '百分比堆叠',       pg: 'stack', ag: 'stack', path: 'INTENT → STEP2 → RENDER',
+            reason: '多分项构成同一整体 → 堆叠表达层叠贡献；若意图是百分比对比则用百分比堆叠。' },
+          'time-val':  { primary: '面积图 · Area',     alt: '堆叠面积',         pg: 'area',  ag: 'stack', path: 'INTENT → STEP2 → RENDER',
+            reason: '时间 + 构成意图 → 面积图表达"总量随时间累积"；多系列则切换为堆叠面积。' },
+          'matrix':    { primary: '矩形树图 · Treemap', alt: '旭日图 · Sunburst', pg: 'tree',  ag: 'donut', path: 'INTENT → STEP1 → RENDER',
+            reason: '层级构成 → STEP1 命中 Treemap；若强调上下位关系则切换 Sunburst。' }
+        },
+        trend: {
+          'cat-val':   { primary: 'KPI 卡 · KPI',      alt: '迷你折线 · Sparkline', pg: 'kpi',  ag: 'line', path: 'INTENT → STEP2 → RENDER',
+            reason: '单类别单值看趋势 → 主推 KPI + 同/环比；备选 sparkline 给一眼形状感。' },
+          'cat-multi': { primary: '多系列折线 · Lines', alt: '小倍数图 · Small mult', pg: 'line', ag: 'line', path: 'INTENT → STEP2 → RENDER',
+            reason: '多系列时间趋势 → 折线对比；若系列 ≥ 6 易拥挤，<b>切换 small multiples</b>。' },
+          'time-val':  { primary: '折线图 · Line',     alt: '面积图 · Area',        pg: 'line', ag: 'area', path: 'INTENT → STEP2 → RENDER',
+            reason: '经典 time × value → 折线最直观；强调累计感时切换面积。' },
+          'matrix':    { primary: '热力图 · Heatmap',  alt: '日历热力',             pg: 'heatmap', ag: 'heatmap', path: 'INTENT → STEP3 → RENDER',
+            reason: '二维时间网格 → STEP3 命中热力图；按周期分组用日历热力。' }
+        },
+        compare: {
+          'cat-val':   { primary: '柱图 · Bar',         alt: '水平柱 · HBar',        pg: 'bar',  ag: 'hbar', path: 'INTENT → STEP2 → RENDER',
+            reason: '一组类别比一个度量 → 柱图最稳；标签长 / 类多 → 切换水平柱。' },
+          'cat-multi': { primary: '分组柱图 · Grouped', alt: '哑铃图 · Dumbbell',     pg: 'bar',  ag: 'dumbbell', path: 'INTENT → STEP2 → RENDER',
+            reason: '多类别多度量对比 → 分组柱；只比"前后两点"时哑铃图最干净。' },
+          'time-val':  { primary: '蝴蝶图 · Butterfly', alt: '哑铃图 · Dumbbell',    pg: 'butterfly', ag: 'dumbbell', path: 'INTENT → STEP1 → RENDER',
+            reason: '"展示"两期对比 → 蝴蝶（无标注，保留解读权）；"分析"差值则切换哑铃。' },
+          'matrix':    { primary: '雷达图 · Radar',    alt: '平行坐标 · Parallel',  pg: 'radar', ag: 'line', path: 'INTENT → STEP3 → RENDER',
+            reason: '多维度横向对比 → 雷达对小样本友好；维度 > 6 切换平行坐标。' }
+        },
+        distrib: {
+          'cat-val':   { primary: '直方图 · Histogram', alt: '密度图 · Density',     pg: 'bar',  ag: 'area', path: 'INTENT → STEP2 → RENDER',
+            reason: '单变量分布 → 直方图；样本量大且想看形状用密度图。' },
+          'cat-multi': { primary: '箱线图 · Boxplot',   alt: '小提琴 · Violin',       pg: 'bar',  ag: 'area', path: 'INTENT → STEP2 → RENDER',
+            reason: '多组分布对比 → 箱线最经济；展示形状细节切换小提琴。' },
+          'time-val':  { primary: '散点图 · Scatter',   alt: '气泡图 · Bubble',      pg: 'scatter', ag: 'scatter', path: 'INTENT → STEP3 → RENDER',
+            reason: '看相关与异常 → 散点；引入第三个度量则切换气泡。' },
+          'matrix':    { primary: '热力图 · Heatmap',   alt: '马赛克 · Mosaic',      pg: 'heatmap', ag: 'heatmap', path: 'INTENT → STEP3 → RENDER',
+            reason: '二维分布 → 热力；类别×类别的交叉占比则用马赛克。' }
+        },
+        flow: {
+          'cat-val':   { primary: '漏斗图 · Funnel',    alt: '阶梯柱图 · Step Bar',  pg: 'funnel', ag: 'bar', path: 'INTENT → STEP1 → RENDER',
+            reason: '单条转化 → STEP1 命中漏斗；多漏斗对比时切换阶梯柱图。' },
+          'cat-multi': { primary: '桑基图 · Sankey',    alt: '弦图 · Chord',         pg: 'sankey', ag: 'chord', path: 'INTENT → STEP1 → RENDER',
+            reason: '多源到多终的流转 → 桑基；强调互相流入流出则切换弦图。' },
+          'time-val':  { primary: '甘特图 · Gantt',     alt: '事件流图 · Eventline', pg: 'gantt', ag: 'line', path: 'INTENT → STEP1 → RENDER',
+            reason: '时间区间任务 → 甘特；若是离散事件标注则切换事件流。' },
+          'matrix':    { primary: '弦图 · Chord',       alt: '网络图 · Network',     pg: 'chord', ag: 'chord', path: 'INTENT → STEP1 → RENDER',
+            reason: '矩阵关系 → 弦图；强调拓扑/连通性则切换网络图。' }
+        }
+      };
+
+      var sbState = { intent: 'compare', shape: 'cat-val' };
+      function renderSandbox() {
+        var rec = recipe[sbState.intent][sbState.shape];
+        document.getElementById('sbPath').textContent = rec.path;
+        document.getElementById('sbPrimary').textContent = rec.primary;
+        document.getElementById('sbAlt').textContent = rec.alt;
+        document.getElementById('sbPrimaryGlyph').innerHTML = glyphs[rec.pg] || '';
+        document.getElementById('sbAltGlyph').innerHTML = glyphs[rec.ag] || '';
+        document.getElementById('sbReason').innerHTML = rec.reason;
+      }
+      function renderChips(rootId, items, key) {
+        var root = document.getElementById(rootId);
+        items.forEach(function (it) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'chip';
+          b.dataset.id = it.id;
+          b.textContent = it.name;
+          b.setAttribute('aria-pressed', String(sbState[key] === it.id));
+          b.addEventListener('click', function () {
+            sbState[key] = it.id;
+            root.querySelectorAll('.chip').forEach(function (c) {
+              c.setAttribute('aria-pressed', String(c.dataset.id === it.id));
+            });
+            renderSandbox();
+          });
+          root.appendChild(b);
+        });
+      }
+      renderChips('sbIntent', intents, 'intent');
+      renderChips('sbShape', shapes, 'shape');
+      renderSandbox();
+
+      // ---- C · Atlas ----
+      var atlas = [
+        // compose
+        { fam: 'compose', name: '环形图 · Donut',        g: 'donut' },
+        { fam: 'compose', name: '饼图 · Pie',            g: 'pie' },
+        { fam: 'compose', name: '矩形树图 · Treemap',    g: 'tree' },
+        { fam: 'compose', name: '旭日图 · Sunburst',     g: 'donut' },
+        { fam: 'compose', name: '堆叠柱 · Stacked Bar',  g: 'stack' },
+        { fam: 'compose', name: '百分比堆叠 · 100%',     g: 'stack' },
+        { fam: 'compose', name: '面积图 · Area',         g: 'area' },
+        { fam: 'compose', name: '堆叠面积 · Stacked',    g: 'area' },
+        { fam: 'compose', name: '玫瑰图 · Nightingale',  g: 'donut' },
+        // trend
+        { fam: 'trend', name: '折线图 · Line',           g: 'line' },
+        { fam: 'trend', name: '多系列折线 · Multi-line', g: 'line' },
+        { fam: 'trend', name: '面积图 · Area',           g: 'area' },
+        { fam: 'trend', name: 'KPI 卡 · KPI',            g: 'kpi' },
+        { fam: 'trend', name: '迷你折线 · Sparkline',    g: 'line' },
+        { fam: 'trend', name: '小倍数图 · Small Mult.',  g: 'line' },
+        { fam: 'trend', name: '热力图 · Heatmap',        g: 'heatmap' },
+        { fam: 'trend', name: '日历热力 · Calendar',     g: 'heatmap' },
+        // compare
+        { fam: 'compare', name: '柱图 · Bar',            g: 'bar' },
+        { fam: 'compare', name: '水平柱 · HBar',         g: 'hbar' },
+        { fam: 'compare', name: '分组柱 · Grouped',      g: 'bar' },
+        { fam: 'compare', name: '蝴蝶图 · Butterfly',    g: 'butterfly' },
+        { fam: 'compare', name: '哑铃图 · Dumbbell',     g: 'dumbbell' },
+        { fam: 'compare', name: '雷达图 · Radar',        g: 'radar' },
+        { fam: 'compare', name: '平行坐标 · Parallel',   g: 'line' },
+        { fam: 'compare', name: '差值图 · Diff',         g: 'bar' },
+        // distribute
+        { fam: 'distrib', name: '直方图 · Histogram',    g: 'bar' },
+        { fam: 'distrib', name: '密度图 · Density',      g: 'area' },
+        { fam: 'distrib', name: '箱线图 · Boxplot',      g: 'bar' },
+        { fam: 'distrib', name: '小提琴 · Violin',       g: 'area' },
+        { fam: 'distrib', name: '散点图 · Scatter',      g: 'scatter' },
+        { fam: 'distrib', name: '气泡图 · Bubble',       g: 'scatter' },
+        { fam: 'distrib', name: '六边热力 · Hexbin',     g: 'heatmap' },
+        { fam: 'distrib', name: '马赛克 · Mosaic',       g: 'stack' },
+        { fam: 'distrib', name: '条带图 · Strip',        g: 'scatter' },
+        // flow
+        { fam: 'flow', name: '漏斗图 · Funnel',          g: 'funnel' },
+        { fam: 'flow', name: '阶梯柱 · Step Bar',        g: 'bar' },
+        { fam: 'flow', name: '甘特图 · Gantt',           g: 'gantt' },
+        { fam: 'flow', name: '事件流 · Eventline',       g: 'line' },
+        { fam: 'flow', name: '桑基图 · Sankey',          g: 'sankey' },
+        { fam: 'flow', name: '弦图 · Chord',             g: 'chord' },
+        { fam: 'flow', name: '网络图 · Network',         g: 'chord' },
+        { fam: 'flow', name: '决策树 · Decision Tree',   g: 'tree' },
+        // geo / misc
+        { fam: 'geo', name: '地图 · Choropleth',         g: 'map' },
+        { fam: 'geo', name: '点地图 · Dot Map',          g: 'map' },
+        { fam: 'geo', name: '热力地图 · Heat Map',       g: 'map' },
+        { fam: 'geo', name: '气泡地图 · Bubble Map',     g: 'map' },
+        { fam: 'geo', name: '流向地图 · Flow Map',       g: 'map' },
+        { fam: 'geo', name: '蜂巢地图 · Hex Map',        g: 'map' }
+      ];
+      var families = [
+        { id: 'all',     name: 'All · 47' },
+        { id: 'compose', name: 'Compose · 构成' },
+        { id: 'trend',   name: 'Trend · 趋势' },
+        { id: 'compare', name: 'Compare · 对比' },
+        { id: 'distrib', name: 'Distribute · 分布' },
+        { id: 'flow',    name: 'Flow · 流程' },
+        { id: 'geo',     name: 'Geo · 空间' }
+      ];
+      var atlasFilters = document.getElementById('atlasFilters');
+      var atlasGrid = document.getElementById('atlasGrid');
+      var currentFam = 'all';
+      function renderAtlas() {
+        atlasGrid.innerHTML = '';
+        atlas
+          .filter(function (a) { return currentFam === 'all' || a.fam === currentFam; })
+          .forEach(function (a, i) {
+            var li = document.createElement('li');
+            li.className = 'atlas__cell';
+            li.style.animationDelay = (i * 14) + 'ms';
+            li.innerHTML =
+              '<div class="atlas__cell-glyph">' + (glyphs[a.g] || '') + '</div>' +
+              '<div class="atlas__cell-name">' + a.name + '</div>' +
+              '<div class="atlas__cell-fam">' + a.fam + '</div>';
+            atlasGrid.appendChild(li);
+          });
+      }
+      families.forEach(function (f) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'chip';
+        b.dataset.id = f.id;
+        b.textContent = f.name;
+        b.setAttribute('aria-pressed', String(currentFam === f.id));
+        b.addEventListener('click', function () {
+          currentFam = f.id;
+          atlasFilters.querySelectorAll('.chip').forEach(function (c) {
+            c.setAttribute('aria-pressed', String(c.dataset.id === f.id));
+          });
+          renderAtlas();
+        });
+        atlasFilters.appendChild(b);
+      });
+      renderAtlas();
+
+      // ---- A · Accuracy benchmark (HERO) ----
+      // 1) Versus hero — animate the two big numbers + bar fills
+      requestAnimationFrame(function () {
+        // Big number countup (51 / 89)
+        document.querySelectorAll('.versus__big-num').forEach(function (el) {
+          var target = parseInt(el.getAttribute('data-num'), 10);
+          var start = 0;
+          var dur = 1400, t0 = performance.now();
+          function tick(now) {
+            var p = Math.min(1, (now - t0) / dur);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(start + (target - start) * eased);
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        // Bar fills
+        document.querySelectorAll('.versus__bar-fill').forEach(function (el) {
+          var pct = parseFloat(el.getAttribute('data-pct')) || 0;
+          setTimeout(function () { el.style.width = pct + '%'; }, 240);
+        });
+        // KPI strip bars
+        document.querySelectorAll('.kpi-strip__bar-now').forEach(function (el) {
+          var w = parseFloat(el.getAttribute('data-w')) || 0;
+          setTimeout(function () { el.style.width = w + '%'; }, 320);
+        });
+      });
+
+      // Family rows
+      var accRowsData = [
+        { name: 'Compose · 构成',   base: 64, now: 92 },
+        { name: 'Trend · 趋势',     base: 71, now: 95 },
+        { name: 'Compare · 对比',   base: 58, now: 91 },
+        { name: 'Distribute · 分布', base: 47, now: 86 },
+        { name: 'Flow · 流程',      base: 29, now: 84 },
+        { name: 'Geo · 空间',       base: 36, now: 79 }
+      ];
+      var accRowsEl = document.getElementById('accRows');
+      accRowsData.forEach(function (r, i) {
+        var li = document.createElement('li');
+        li.className = 'acc__row';
+        var delta = r.now - r.base;
+        li.innerHTML =
+          '<div class="acc__row-name">' + r.name + '<b>' + (delta >= 0 ? '+ ' + delta + 'pp' : delta + 'pp') + '</b></div>' +
+          '<div class="acc__row-track">' +
+            '<span class="acc__row-base"></span>' +
+            '<span class="acc__row-now"></span>' +
+          '</div>' +
+          '<div class="acc__row-num"><s>' + r.base + '%</s><b>' + r.now + '</b>%</div>';
+        accRowsEl.appendChild(li);
+        // Animate
+        var baseEl = li.querySelector('.acc__row-base');
+        var nowEl  = li.querySelector('.acc__row-now');
+        setTimeout(function () {
+          baseEl.style.width = r.base + '%';
+          nowEl.style.width = r.now + '%';
+        }, 280 + i * 80);
+      });
+      // append legend after rows
+      var legend = document.createElement('div');
+      legend.className = 'acc__legend';
+      legend.innerHTML = '<span><i class="is-base"></i>通用 AI · baseline</span><span><i class="is-now"></i>Decision Engine v3.23</span>';
+      accRowsEl.parentNode.insertBefore(legend, accRowsEl.nextSibling);
+
+      // Timeline · 13 versions
+      var versions = [
+        { v: 'v3.10', acc: 71, charts: 31 },
+        { v: 'v3.12', acc: 73, charts: 33 },
+        { v: 'v3.13', acc: 75, charts: 35 },
+        { v: 'v3.14', acc: 77, charts: 37 },
+        { v: 'v3.15', acc: 78, charts: 38 },
+        { v: 'v3.16', acc: 80, charts: 39 },
+        { v: 'v3.17', acc: 82, charts: 41 },
+        { v: 'v3.18', acc: 83, charts: 42 },
+        { v: 'v3.19', acc: 84, charts: 43 },
+        { v: 'v3.20', acc: 86, charts: 44 },
+        { v: 'v3.21', acc: 87, charts: 45 },
+        { v: 'v3.22', acc: 88, charts: 46 },
+        { v: 'v3.23', acc: 89, charts: 47 }
+      ];
+      var W = 600, H = 200, padL = 36, padR = 36, padT = 30, padB = 24;
+      var minA = 60, maxA = 100;
+      function vx(i) { return padL + (W - padL - padR) * (i / (versions.length - 1)); }
+      function vy(a) { return padT + (H - padT - padB) * (1 - (a - minA) / (maxA - minA)); }
+
+      // Grid lines + labels at 70/80/90/100
+      var gridG = document.getElementById('accGrid');
+      [70, 80, 90, 100].forEach(function (val) {
+        var y = vy(val);
+        var ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        ln.setAttribute('x1', padL); ln.setAttribute('x2', W - padR);
+        ln.setAttribute('y1', y); ln.setAttribute('y2', y);
+        ln.setAttribute('class', 'gridline');
+        gridG.appendChild(ln);
+        var tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        tx.setAttribute('x', 4); tx.setAttribute('y', y + 3);
+        tx.setAttribute('class', 'grid-label');
+        tx.textContent = val + '%';
+        gridG.appendChild(tx);
+      });
+
+      // Build line + area path
+      var d = '', dArea = '';
+      versions.forEach(function (p, i) {
+        var x = vx(i), y = vy(p.acc);
+        d += (i === 0 ? 'M' : ' L') + x.toFixed(1) + ' ' + y.toFixed(1);
+      });
+      dArea = d + ' L' + vx(versions.length - 1).toFixed(1) + ' ' + (H - padB) + ' L' + vx(0).toFixed(1) + ' ' + (H - padB) + ' Z';
+      var lineEl = document.getElementById('accLine');
+      var areaEl = document.getElementById('accArea');
+      lineEl.setAttribute('d', d);
+      areaEl.setAttribute('d', dArea);
+      // stroke-dasharray growth animation
+      var len = lineEl.getTotalLength();
+      lineEl.style.strokeDasharray = len + ' ' + len;
+      lineEl.style.strokeDashoffset = len;
+      lineEl.style.transition = 'stroke-dashoffset 1.6s var(--ease-out)';
+      requestAnimationFrame(function () {
+        setTimeout(function () { lineEl.style.strokeDashoffset = '0'; }, 280);
+      });
+
+      // Dots
+      var dotsG = document.getElementById('accDots');
+      versions.forEach(function (p, i) {
+        var x = vx(i), y = vy(p.acc);
+        var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', x); c.setAttribute('cy', y);
+        c.setAttribute('r', i === versions.length - 1 ? 4.5 : 2.6);
+        c.setAttribute('class', 'dot' + (i === versions.length - 1 ? ' is-current' : ''));
+        c.style.opacity = '0';
+        c.style.transition = 'opacity 0.35s var(--ease-out)';
+        setTimeout(function () { c.style.opacity = '1'; }, 600 + i * 80);
+        dotsG.appendChild(c);
+        // Label only on first / last for cleanliness
+        if (i === 0 || i === versions.length - 1) {
+          var lbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          lbl.setAttribute('x', x); lbl.setAttribute('y', y - 10);
+          lbl.setAttribute('text-anchor', i === 0 ? 'start' : 'end');
+          lbl.setAttribute('class', 'dot-label' + (i === versions.length - 1 ? ' is-current' : ''));
+          lbl.textContent = p.acc + '% · ' + p.charts + ' charts';
+          lbl.style.opacity = '0';
+          lbl.style.transition = 'opacity 0.4s var(--ease-out)';
+          setTimeout(function () { lbl.style.opacity = '1'; }, 800 + i * 80);
+          dotsG.appendChild(lbl);
+        }
+      });
+
+      // x-axis ticks
+      var ticksEl = document.getElementById('accTicks');
+      versions.forEach(function (p) {
+        var li = document.createElement('li');
+        li.textContent = p.v.replace('v', '');
+        ticksEl.appendChild(li);
+      });
+    })();
+  </script>
+</body>
+</html>

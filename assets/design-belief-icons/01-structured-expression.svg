@@ -1,0 +1,13 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">复杂系统需要结构化表达</title>
+  <desc id="desc">A simple geometric hierarchy icon for structured expression.</desc>
+  <rect width="240" height="240" rx="32" fill="#F4F1EA"/>
+  <path d="M60 60H180M60 120H180M60 180H180M60 60V180M120 60V180M180 60V180" stroke="#DED9CE" stroke-width="1" opacity="0.45"/>
+  <rect x="92" y="54" width="56" height="40" rx="10" fill="#F9F7F1" stroke="#202225" stroke-width="4"/>
+  <rect x="56" y="146" width="56" height="40" rx="10" fill="#F9F7F1" stroke="#202225" stroke-width="4"/>
+  <rect x="128" y="146" width="56" height="40" rx="10" fill="#F9F7F1" stroke="#202225" stroke-width="4"/>
+  <path d="M120 94V120M84 120H156M84 120V146M156 120V146" stroke="#202225" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="120" cy="74" r="7" fill="#3F73F6"/>
+  <circle cx="84" cy="166" r="6" fill="#F6D75C"/>
+  <circle cx="156" cy="166" r="6" fill="#3F73F6"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI 时代，设计的核心是判断力与品味</title>
+  <desc id="desc">A simple geometric eye and sparkle icon for judgment and taste.</desc>
+  <rect width="240" height="240" rx="32" fill="#F4F1EA"/>
+  <path d="M60 60H180M60 120H180M60 180H180M60 60V180M120 60V180M180 60V180" stroke="#DED9CE" stroke-width="1" opacity="0.45"/>
+  <path d="M52 120C68 96 92 84 120 84C148 84 172 96 188 120C172 144 148 156 120 156C92 156 68 144 52 120Z" fill="#F9F7F1" stroke="#202225" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="120" cy="120" r="22" fill="#F9F7F1" stroke="#202225" stroke-width="4"/>
+  <circle cx="120" cy="120" r="8" fill="#3F73F6"/>
+  <path d="M166 58L172 72L186 78L172 84L166 98L160 84L146 78L160 72L166 58Z" fill="#F6D75C" stroke="#202225" stroke-width="3" stroke-linejoin="round"/>
+</svg>

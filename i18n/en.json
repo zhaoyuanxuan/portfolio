@@ -1,0 +1,990 @@
+{
+  "_meta": {
+    "locale": "en",
+    "version": "1.0.0",
+    "updated": "2026-05-29",
+    "description": "English translations. Fill in any empty string values. Keep keys/structure 1-for-1 with zh-CN.json. Preserve <em>...</em>, <b>...</b>, <i>...</i> tags exactly. Do NOT translate proper nouns marked in glossary.md.",
+    "instructions": "Empty string \"\" = needs translation. Pre-filled values came from script.js and can be edited freely if you prefer different wording."
+  },
+  "nav": {
+    "lang_glyph_zh": "EN",
+    "about": "About",
+    "career": "Career",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "meta": {
+    "title_suffix": "Zhao Yuanxuan Portfolio",
+    "author": "Zhao Yuanxuan"
+  },
+  "hero": {
+    "kicker": "Designer · Portfolio 2026",
+    "title": "From <em>clutter</em> to <em>clarity</em>.",
+    "sub": "I help people make sense of complexity — through structure, rhythm and quiet decisions.",
+    "card": {
+      "name": "Zhao Yuanxuan · 赵元轩",
+      "name_body": "Senior product designer working across data, decision systems and AI-native interfaces — 10+ years turning ambiguity into structure.",
+      "status": "Looking for a Good Product",
+      "status_body": "Open to teams building meaningful tools where design judgement and engineering rigor meet on equal terms.",
+      "based": "Beijing · 39.9° N",
+      "based_body": "Based in Beijing, working with global teams on long-horizon design — calm pace, sharp questions, lasting systems."
+    }
+  },
+  "about": {
+    "heading": "About",
+    "sub": "10+ years across platforms and startups — designing systems for complexity, and exploring interaction in the AI era.",
+    "bio": "10+ years of digital product experience design — across large platforms and high-growth startups. I design systems that help people understand complexity, and explore interaction patterns for the AI era.",
+    "fact_label": {
+      "name": "Name",
+      "title": "Title",
+      "location": "Location",
+      "years": "Years",
+      "status": "Status",
+      "contact": "Contact"
+    },
+    "fact_value": {
+      "name": "Zhao Yuanxuan"
+    },
+    "tags": [
+      "Audio & Video",
+      "Transactions & Fulfillment",
+      "Mobility Services",
+      "Experience Systems",
+      "Problem Solving",
+      "Framing Complexity"
+    ]
+  },
+  "career": {
+    "heading": "Career",
+    "now": "Present",
+    "rows": {
+      "kuaishou": {
+        "co": "Kuaishou",
+        "role": "Interaction Design Expert",
+        "b1": "Led UX design for HR and Organizational Development ToB/ToC products, while defining and guiding design standards.",
+        "b2": "Led interaction design for innovative AI and low-code platform projects within the HR business."
+      },
+      "lingdong": {
+        "co": "Lingdong Tech",
+        "b1": "Responsible for UX design of Lingdong Smart Home products."
+      },
+      "tencent": {
+        "co": "Tencent",
+        "role": "Interaction Design Expert",
+        "b1": "Led interaction design for Tencent Maps baseline and navigation modules; built and improved the component-library design principles from 0 to 1."
+      },
+      "iqiyi": {
+        "co": "iQIYI",
+        "role": "Design Manager",
+        "chip": "Level 8",
+        "b1": "Led design optimization and strategy for multi-platform products (mobile, PC, TV) and vertical modules of the overseas business division."
+      },
+      "sf": {
+        "co": "SF Express City",
+        "role": "Head of Interaction Design",
+        "b1": "Responsible for ToC and ToB experiences across users, merchants, riders, rider management, and operations systems.",
+        "b2": "Built and scaled the interaction design team from 0–1–100, empowering business growth through design innovation."
+      },
+      "sogou": {
+        "co": "Sogou Search",
+        "role": "Senior Interaction Designer"
+      },
+      "edu": {
+        "co": "Beijing Institute of Technology",
+        "role": "Master of Design"
+      }
+    },
+    "present": "Present"
+  },
+  "beliefs": {
+    "heading": "Design Beliefs",
+    "items": [
+      "Complex systems demand structured expression.",
+      "In the AI era, the core of design is judgment and taste.",
+      "Great experience design, at its heart, lowers cognitive friction."
+    ]
+  },
+  "work": {
+    "heading": "Selected Work",
+    "sub": "A short list of projects that defined how I think — across AI, data, mobility, and platform systems.",
+    "hint": "More case studies on request.",
+    "p1": {
+      "src": "Kuaishou",
+      "title": "Organizational Decision System Optimization",
+      "line": "Helping managers evaluate team performance distribution and make fairer decisions more efficiently.",
+      "title_html": "Organizational Decision System Optimization <span class=\"work__rule\"></span>"
+    },
+    "p2": {
+      "src": "Kuaishou",
+      "title": "Chart Selection Engine",
+      "line": "Abstracted “choosing charts by intuition” into 47 executable rules with an 89% Top-1 accuracy.",
+      "title_html": "Chart Selection Engine <span class=\"work__rule\"></span>"
+    },
+    "p3": {
+      "src": "SF Express City",
+      "title": "Fulfillment Experience Governance",
+      "line": "Reconstructing experience and efficiency across users, riders, and platform systems.",
+      "title_html": "Fulfillment Experience Governance <span class=\"work__rule\"></span>"
+    },
+    "p4": {
+      "src": "Tencent Maps",
+      "title": "Map Component System",
+      "line": "From scattered design assets to reusable and evolvable design infrastructure.",
+      "title_html": "Map Component System <span class=\"work__rule\"></span>"
+    },
+    "p5": {
+      "src": "iQIYI International",
+      "title": "Immersive Viewing Experience",
+      "line": "From “usable” to “immersive”: rebuilding perceptual order between content consumption and payment flows.",
+      "title_html": "Immersive Viewing Experience <span class=\"work__rule\"></span>"
+    },
+    "p6": {
+      "src": "Long-term · Complex Business",
+      "title": "Design Workflow System",
+      "line": "From “designing pages” to “designing systems”: enabling design resources to create long-term business value.",
+      "title_html": "Design Workflow System <span class=\"work__rule\"></span>"
+    }
+  },
+  "contact": {
+    "heading": "Contact",
+    "sub": "For collaborations, work inquiries, or quiet conversations.",
+    "statement": "Currently <em>looking for a good product</em> — open to design leadership, founding design, and AI-native product roles."
+  },
+  "foot": {
+    "quote": "I design things that help people understand complexity."
+  },
+  "case": {
+    "subtitle": {
+      "1": "Kuaishou · Talent Evaluation · Organizational Decision System Redesign",
+      "2": "Kuaishou · Data Visualization Chart Selection Engine",
+      "3": "SF Express City · Experience Governance for Fulfillment Systems",
+      "4": "Tencent Maps · Component Library & Design Infrastructure",
+      "5": "iQIYI International · Immersive Viewing × VIP Conversion Experience",
+      "6": "Long-term Complex Business · Design Systems & Metrics"
+    },
+    "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> or <b>Download</b> in the upper-right corner.",
+    "thinking": {
+      "center_label_default": "Center · Project Thesis",
+      "divider_default": "PDF Document · Full case file"
+    },
+    "p1_talent": {
+      "thesis": {
+        "title": "Not a UI optimization · but a redesign of the <em>organizational decision system</em>",
+        "caption": "Facing a talent-management system that gradually failed as the business scaled, I shifted the focus from UI polish back to information flow and decision flow: what managers truly need to see, understand, and decide.",
+        "kicker": "A · Thesis"
+      },
+      "outcome": {
+        "scenarios_num": "3",
+        "scenarios_unit": "types",
+        "scenarios_sub": "Performance Review · Talent Calibration · Promotion Review",
+        "stakeholders_num": "4",
+        "stakeholders_unit": "roles",
+        "stakeholders_sub": "Employees · Managers · BP / OD · Executives",
+        "iterations_sub": "4th-generation evaluation workflow · full end-to-end",
+        "ia_num": "1",
+        "ia_unit": "sets",
+        "ia_sub": "Shared hierarchies, status language, and feedback rules across scenarios",
+        "scenarios_num_html": "3<em> types</em>",
+        "scenarios_lbl": "Core scenarios",
+        "stakeholders_num_html": "4<em> roles</em>",
+        "stakeholders_lbl": "Stakeholders",
+        "iterations_num_html": "v.4",
+        "iterations_lbl": "Iterations",
+        "ia_num_html": "1<em> set</em>",
+        "ia_lbl": "Unified IA"
+      },
+      "diagnosis": {
+        "title": "The <em>three major issues</em> of workflow-driven systems",
+        "kicker": "B · Diagnosis",
+        "caption": "Interface complexity is only the surface. The real issue: as the organisation scaled, its information flow and decision flow quietly stopped working.",
+        "cells": [
+          {
+            "num": "P · 01 · Scattered",
+            "head": "Critical signals <em>drowning</em> in low-value content",
+            "body": "Inconsistent page structures; information scattered across modules and tables; similar scenarios expressed differently — completing a single performance call required constant cross-page switching, comparison and memorisation.",
+            "sym": "Symptom · cross-page comparison · high memory load"
+          },
+          {
+            "num": "P · 02 · Breakdown",
+            "head": "The organisation's <em>information flow / decision flow</em> begin to fail",
+            "body": "The visible problem is operational cost; the deeper one is that the system lacks an information architecture and behavioural logic built for organisational decisions. More UI polish only delays the collapse — it doesn't answer the systemic question.",
+            "sym": "Symptom · decisions without basis · invisible bias"
+          },
+          {
+            "num": "P · 03 · Uncertain",
+            "head": "<em>Behavioural uncertainty</em> in complex systems",
+            "body": "\"What does this filter affect?\" \"What does the current state mean?\" \"What should I do next?\" — these once-fuzzy questions kept managers losing their bearings inside dense information.",
+            "sym": "Symptom · missing feedback · unclear path"
+          }
+        ]
+      },
+      "reframe": {
+        "kicker": "C · Reframe",
+        "title": "From a <em>workflow-driven system</em> → an <em>organisational decision platform</em>",
+        "caption": "Stop stacking historical processes on top of each other; reverse-engineer the system from business goals.",
+        "before_tag": "Before · Workflow-driven",
+        "before_head": "The system is a <em>collection of features</em>",
+        "before_list": [
+          "Pages and tables stacked by legacy feature inheritance",
+          "Same information duplicated in many places, with inconsistent definitions",
+          "State vocabulary and rules invented module-by-module",
+          "Critical signals buried two or three pages deep",
+          "No way to support an organisation-wide judgment"
+        ],
+        "after_tag": "After · Decision-driven",
+        "after_head": "The system carries <em>organisational cognition · standards · decision logic</em>",
+        "after_list": [
+          "Information organised around organisational calibration / risk / performance / talent development",
+          "Unified information hierarchy, state vocabulary and interaction grammar",
+          "Views reorganised around \"people\" and \"org\" — not around \"forms\"",
+          "Result distribution, risk flags, historical trends and rater bias surfaced up front",
+          "Performance / inventory / promotion share the same design foundation"
+        ]
+      },
+      "workflow": {
+        "kicker": "D · Workflow",
+        "title": "The fourth-generation evaluation workflow · <em>5 phases · end-to-end</em>",
+        "caption": "Performance review is restructured from a \"task list + table\" into a clear cadence: Preparation → Evaluation → Submit & calibrate → Done. Every phase has a clear role, density level, and key decision.",
+        "phases": [
+          {
+            "num": "PHASE · 01",
+            "name": "Preparation",
+            "list": [
+              "Result requirements / candidate list / employee gaps",
+              "BP view: warm-up and shared-context sync",
+              "A unified entry · see scope in one glance"
+            ]
+          },
+          {
+            "num": "PHASE · 02",
+            "name": "Evaluation",
+            "list": [
+              "Employee view: self / peer / reviewed",
+              "Manager view: peer · distribution · outliers · calibration",
+              "Judgment completed on a single screen — no more page-hopping"
+            ]
+          },
+          {
+            "num": "PHASE · 03",
+            "name": "Calibration",
+            "list": [
+              "Group distribution vs. target distribution",
+              "Align definitions · surface bias",
+              "From individual scoring → organisational calibration"
+            ]
+          },
+          {
+            "num": "PHASE · 04",
+            "name": "Submit & calibrate",
+            "list": [
+              "Filter outliers · scope cohorts",
+              "Adjust results · handle exceptions",
+              "Progressive disclosure · critical items first"
+            ]
+          },
+          {
+            "num": "PHASE · 05",
+            "name": "Done",
+            "list": [
+              "Crystallised into the \"profile page\"",
+              "Historical reviews remain traceable",
+              "Reused for next-round inventory · promotion"
+            ]
+          }
+        ]
+      },
+      "boards": {
+        "kicker": "E · Design Boards",
+        "title": "Two-board redesign · <em>structure / table</em> remade together",
+        "caption": "Two boards capture the before/after of \"page structure\" and \"core table\" — one answers \"where to look\", the other answers \"what to look at\".",
+        "media_tag": "PDF · full-res original · click to open",
+        "media_link": "View board",
+        "boards": [
+          {
+            "tag": "Board · 01 · Page Structure",
+            "name": "Overall page structure · before / after",
+            "sub": "What changed, and at what risk — the skeleton is reorganised around three decision pivots: project progress, cohort filtering, and outlier priority.",
+            "alt": "Page-structure before/after design board",
+            "notes": [
+              "Top-bar promotes real progress · raises priority and relevance of outlier alerts",
+              "Cohort filtering merged with target-distribution results",
+              "Detailed table collapsed and de-emphasised — evaluate whether this hurts decisions",
+              "Is cohort filtering now too hidden? · could merging fields affect sort behaviour?"
+            ]
+          },
+          {
+            "tag": "Board · 02 · Table Restructure",
+            "name": "Core table · before / after",
+            "sub": "Trim columns · surface profile content · expose scoring in-line · hover reveals richer info. Let the \"profile\" absorb the detail; let the \"main table\" carry group-level judgment.",
+            "alt": "Table restructure & profile page design board",
+            "notes": [
+              "1 · Trim columns · merge & delete — keep only what decisions actually need",
+              "2 · Surface profile content — main table scans, profile carries detail",
+              "3 · Expose scoring in-line · merge exception info — judgment completed in one row",
+              "4 · Hover reveals richer info — lazy load · control the signal-to-noise ratio"
+            ]
+          }
+        ]
+      },
+      "principles": {
+        "kicker": "F · Principles",
+        "title": "Seven cross-cutting <em>design principles</em>",
+        "caption": "Not local UX tweaks — system-wide constraints that hold across performance / inventory / promotion, and stay valid as the business expands.",
+        "items": [
+          {
+            "num": "01",
+            "head": "Reorganise information around \"people\" and \"org\"",
+            "body": "Not around forms and modules. Whichever flow they enter, the same person / org always presents the same unified view."
+          },
+          {
+            "num": "02",
+            "head": "Raise signal-to-noise — don't show more",
+            "body": "Shift the design goal from \"complete the field set\" to \"surface what matters\" — distribution, risk flags, history, rater bias."
+          },
+          {
+            "num": "03",
+            "head": "Progressive disclosure · the critical task first",
+            "body": "Main table scans group-level outliers / profile absorbs detail lookup / hover provides light, incremental info."
+          },
+          {
+            "num": "04",
+            "head": "Consistent feedback language",
+            "body": "What does this filter affect, what does the current state mean, what comes next — every scenario speaks the same feedback grammar."
+          },
+          {
+            "num": "05",
+            "head": "Outliers first · sort by decision relevance",
+            "body": "Pull \"differences that need attention\" from the middle of the table to the top — let managers see risk on first glance."
+          },
+          {
+            "num": "06",
+            "head": "From individual scoring → organisational calibration",
+            "body": "Calibration isn't a result view — it's the organisation aligning definitions and surfacing bias. Modelled as its own workflow node."
+          },
+          {
+            "num": "07",
+            "head": "Design for sustainable evolution",
+            "body": "The same hierarchy · state · feedback rules carry across performance / inventory / promotion — no need to redesign from scratch when business expands."
+          }
+        ]
+      }
+    },
+    "p2_engine": {
+      "key_result": {
+        "title": "Chart-selection accuracy <em>89%</em> · <em>74%</em> higher than general AI",
+        "caption": "Blind-test results across 200 real data requests (n = 200), comparing generic AI with this decision engine."
+      },
+      "versus": {
+        "before_tag": "Before · General AI",
+        "before_meta": "baseline · GPT / Gemini generic QA",
+        "after_meta": "v3.23 · 6-layer pipeline · 47 charts",
+        "top1_label": "Top-1 Accuracy",
+        "before_notes": [
+          "Edge cases get <b>shoehorned into a pie or bar</b>.",
+          "No distinction between “show” and “analyze” intents.",
+          "Ignores unit consistency and label length."
+        ],
+        "after_notes": [
+          "Intent-first → <b>butterfly ↔ dumbbell</b> are no longer mixed up.",
+          "STEP 1 catches Funnel / Sankey / Gantt / Chord up front.",
+          "Units, labels and domain signals are all encoded as rules."
+        ],
+        "diff_pct": "Relative +74%",
+        "after_tag": "After · Decision Engine"
+      },
+      "kpi_strip": {
+        "top3_label": "Top-3 Accuracy",
+        "top3_delta": "+19<i>pp</i> · primary + alternatives rarely miss",
+        "specialty_label": "Specialty Edge Cases",
+        "specialty_delta": "+54<i>pp</i> · Funnel / Sankey / Gantt / Chord"
+      },
+      "panel": {
+        "family_tag": "By Family · Top-1 Comparison",
+        "family_meta": "n = 200 · blind-test samples",
+        "family_foot": "The largest gains appeared in the <b>Flow</b> category (Funnel / Sankey / Gantt / Chord), where generic AI often forces pie or bar charts.",
+        "version_tag": "Version Timeline · 13 Iterations",
+        "version_meta": "v3.10 → v3.23",
+        "version_foot": "Chart coverage expanded from <b>31 → 47</b>, while Top-1 accuracy improved from <b>71% → 89%</b>."
+      },
+      "pipeline": {
+        "title": "Six-layer Decision Pipeline · <em>From Intent to Rendering</em>",
+        "caption": "Click any layer to explore its responsibility and output within the decision chain."
+      },
+      "sandbox": {
+        "title": "Chart Sandbox · <em>Run a Decision</em>",
+        "caption": "Choose an intent and data structure; the engine recommends primary and alternative charts with explanations.",
+        "intent_label": "① Analysis Intent",
+        "shape_label": "② Data Structure",
+        "primary_kind": "Primary",
+        "alt_kind": "Alternative",
+        "default_reason": "Select an intent and data structure first."
+      },
+      "atlas": {
+        "title": "47-Chart Atlas · <em>Grouped by Intent</em>",
+        "caption": "Switch between chart families; each tile represents the minimal symbol of a chart."
+      }
+    },
+    "thinkData": {
+      "1": {
+        "kicker": "Thinking · 01 · Talent Evaluation",
+        "title": "From a “workflow system” → to an <em>organizational decision system</em>",
+        "caption": "As the talent-management system became ineffective with scale, I shifted the focus from UI to information and decision flow.",
+        "divider": "P.04 · Design Boards · Talent Evaluation · Dual Proposal Document",
+        "center_name": "From feature collection to a <em>unified decision platform</em>",
+        "center_hint": "Let the system carry not only workflows, but also organizational cognition, management standards, and decision logic.",
+        "axes": [
+          {
+            "name": "Problem",
+            "sub": "Diagnosis",
+            "title": "Three pathologies of a process-driven system",
+            "body": [
+              "Inconsistent page structures, information scattered across modules and tables, similar scenarios expressed in different ways — completing a single performance call required constant cross-page switching, comparison and memorisation.",
+              "Critical decision signals were drowning in a sea of low-value content. The cost wasn't just clicks — it was that the organisation's “information flow” and “decision flow” were quietly breaking down.",
+              "The real issue wasn't interface complexity; it was the absence of an information architecture and behavioural logic built for organisational decisions. More UI polish would only delay the collapse, not address the systemic question."
+            ],
+            "tags": [
+              "Process-driven",
+              "Drowning signals",
+              "Behavioural uncertainty",
+              "Decision flow broken"
+            ],
+            "leaves": [
+              "Scattered pages & tables",
+              "Key signals drowning",
+              "Behavioural uncertainty"
+            ]
+          },
+          {
+            "name": "Reframe",
+            "sub": "Reframe",
+            "title": "Reverse-engineer the system from business goals — stop stacking process on top of process",
+            "body": [
+              "Use the four core OD objectives — organisational calibration, risk identification, performance judgment and talent development — as the basis for organising information, rather than inheriting the legacy process map.",
+              "Re-thread performance review, talent inventory and team calibration into a unified information hierarchy, state vocabulary and interaction grammar.",
+              "Transform a “collection of features” — a fragmented set of SaaS modules — into a “unified decision platform” where performance, inventory and promotion share the same design foundation."
+            ],
+            "tags": [
+              "Goal-driven",
+              "Four OD goals",
+              "Unified language",
+              "Decision platform"
+            ],
+            "leaves": [
+              "Org calibration",
+              "Risk identification",
+              "Performance / talent dev"
+            ]
+          },
+          {
+            "name": "Architecture",
+            "sub": "Architecture",
+            "title": "Lift the signal-to-noise ratio — re-organise information around “people” and “org”",
+            "body": [
+              "The goal isn't to show more information, it's to raise its signal-to-noise ratio: result distribution, risk flags, historical trends and rater bias all surface first.",
+              "Once-fragmented table data is regrouped into unified views centred on “people” and “org” — collapsing the cost of jumping between flows to understand a single case.",
+              "Aggregation, layering and visualisation let managers form judgments fast: profile pages absorb the detail, while the main views surface group distribution and outliers."
+            ],
+            "tags": [
+              "Signal-to-noise",
+              "Aggregation · Layering",
+              "People · Org views",
+              "Profile / Master view"
+            ],
+            "leaves": [
+              "Surface what matters",
+              "Unified people·org view",
+              "Visualised group distribution"
+            ]
+          },
+          {
+            "name": "Behaviour",
+            "sub": "Behaviour",
+            "title": "Cut uncertainty — progressive disclosure and consistent feedback",
+            "body": [
+              "Confront the behavioural uncertainty inherent to complex systems: what does a filter affect, what does the current state mean, what's the right next step — all re-designed as one consistent system-feedback loop.",
+              "Progressive disclosure: let users tackle the critical task first, then descend into detail — so they're never interrupted by information they don't yet need.",
+              "Reduce cognitive load in dense information environments, raise managerial throughput — and provide a stable framework for the talent system's continued evolution."
+            ],
+            "tags": [
+              "Behavioural feedback",
+              "Progressive disclosure",
+              "Cognitive load",
+              "Sustainable evolution"
+            ],
+            "leaves": [
+              "Consistent feedback",
+              "Progressive disclosure",
+              "Sustainable evolution"
+            ]
+          }
+        ]
+      },
+      "2": {
+        "kicker": "Thinking · 02 · Data Visualization Chart System",
+        "title": "Tu·Ze — From <em>intuition</em> → to <em>executable rules</em>",
+        "caption": "When facing a dataset, most designers choose charts by intuition. I spent six months abstracting that intuition into 47 executable rules, eventually building an AI Skill decision engine.",
+        "divider": "P.03 · Decision Engine · Interaction Exploration · 47 Chart Types",
+        "center_name": "A <em>decision engine</em> for chart selection",
+        "center_hint": "Start from the problem · answer with systems · implement with tools · iterate continuously.",
+        "axes": [
+          {
+            "name": "Problem",
+            "sub": "Problem",
+            "title": "A bad decision that keeps recurring — the cost of picking charts on instinct",
+            "body": [
+              "The Bush v. Gore butterfly ballot — a single mis-designed form altered the outcome of a US presidential election. Proof that a visualisation mismatch is a design defect with real-world consequences.",
+              "Designers face three recurring binds every day: pie vs. bar with no standard to lean on, data structure that doesn't match the chart and gets bounced by engineering, and audience cognition that gets ignored — leaving the reader lost.",
+              "Hence the project's intent: not to build another chart catalogue, but a systematic decision framework — one that's reusable, transmissible, and callable by tools."
+            ],
+            "tags": [
+              "Bad-decision case",
+              "Industry pain point",
+              "Quantifying errors",
+              "Framing the intent"
+            ],
+            "leaves": [
+              "Butterfly ballot",
+              "Three recurring binds",
+              "System vs. index"
+            ]
+          },
+          {
+            "name": "Framework",
+            "sub": "Framework",
+            "title": "The optimal intersection of four dimensions — picking a chart isn't picking a shape",
+            "body": [
+              "Picking a chart isn't picking a shape — it's picking the optimal intersection of «analytical intent × data structure × audience × scenario».",
+              "Analytical goals fall into five families — composition, trend, distribution, relation, flow. Data structure (a dimension × measure matrix) decides what's physically drawable. Audience layering (decision-makers / operators / analysts) sets the ceiling on cognitive load. Scenario (describe fact / analyse / argue a point) defines the chart's functional boundary.",
+              "Research benchmarks include John Snow's cholera map, Florence Nightingale's rose chart, McKinsey's static storytelling and OurWorldInData's interactive exploration."
+            ],
+            "tags": [
+              "Analytical intent",
+              "Data structure",
+              "Audience profile",
+              "Use scenario",
+              "McKinsey / OWID"
+            ],
+            "leaves": [
+              "Five analytical intents",
+              "Dimension × measure matrix",
+              "Audience tier × scenario"
+            ]
+          },
+          {
+            "name": "Engine",
+            "sub": "Engine",
+            "title": "Decision tree v3.23.0 — turning expert intuition into reusable rules",
+            "body": [
+              "A six-layer pipeline: INTENT layer → PRE pre-processing → STEP 1 special-structure shortcut → STEP 2 / 2b general structure → STEP 3 / 3b edge cases → render layer (primary + alt tabs).",
+              "Three core insights: ① The «intent declaration layer» makes “just show this” vs. “analyze the change” yield completely different charts (butterfly vs. dumbbell) — principle: under-analyse rather than over-claim. ② «Unit consistency first» — any difference ≥ 10× demands a dual axis or a split, so rate values don't get compressed into nothing. ③ «Label-length rules outrank category-count rules» — 4-6 categories no longer default to a donut, and long labels force a horizontal bar.",
+              "From v3.10.0's 31 charts to v3.23.0's 47, across 13 patch releases that kept sharpening the edge cases."
+            ],
+            "tags": [
+              "INTENT layer",
+              "Unit consistency",
+              "Label priority",
+              "v3.10 → v3.23"
+            ],
+            "leaves": [
+              "INTENT layer",
+              "Unit-consistency rule",
+              "Label-length priority"
+            ]
+          },
+          {
+            "name": "Outcome",
+            "sub": "Output",
+            "title": "From research to tool — validating accuracy with <em>quantitative data</em>",
+            "body": [
+              "Output #1 — a Flourish interactive chart-picking guide that designers and non-experts can both pick up, with the decision path made visible.",
+              "Output #2 — an AI Skill integration that packages the decision tree as a callable module, supporting ECharts / Chart.js / SVG render targets.",
+              "Quantitative validation: on a 200-sample blind set of real data requests, Top-1 accuracy jumps from 51% (general-purpose AI) to 89% (+38pp, +74% relative); Top-3 reaches 97%; edge-case families (Funnel / Sankey / Gantt / Chord) climb from 32% to 86%.",
+              "Iteration curve: 13 versions (v3.10 → v3.23), chart coverage 31 → 47, accuracy 71% → 89% — a steady, gradual climb that demonstrates this is engineered methodology, not lucky intuition."
+            ],
+            "tags": [
+              "Top-1 89%",
+              "+ 38pp vs. general AI",
+              "Edge cases + 54pp",
+              "47 charts · v3.23"
+            ],
+            "leaves": [
+              "Top-1 hit 89%",
+              "Flow edges + 55pp",
+              "13-release curve"
+            ]
+          }
+        ]
+      },
+      "3": {
+        "kicker": "Thinking · 03 · SF Express City",
+        "title": "From “interface optimization” → to <em>experience governance for fulfillment systems</em>",
+        "caption": "I do not see design merely as interface optimization or workflow beautification, but as an operational capability connecting users, riders, and platform efficiency.",
+        "divider": "P.01 · PDF Document · SF Express City Full Project",
+        "center_name": "<em>Experience governance</em> for fulfillment systems",
+        "center_hint": "Use user perception as the entry point and platform efficiency as the core.",
+        "axes": [
+          {
+            "name": "Growth",
+            "sub": "Growth",
+            "title": "Business growth — design as a conversion engine",
+            "body": [
+              "Address reuse, map-based location picking and value-added service recommendation move the needle on user conversion and ordering efficiency.",
+              "Touchpoint packaging, tipping incentives and templated marketing campaigns build a positive feedback loop between user growth and service quality."
+            ],
+            "tags": [
+              "Address reuse",
+              "Map picking",
+              "Add-on recommend.",
+              "Tip incentives",
+              "Ops templates"
+            ],
+            "leaves": [
+              "Address reuse + map picking",
+              "Value-added recommend.",
+              "Touchpoints & campaign templates"
+            ]
+          },
+          {
+            "name": "Efficiency",
+            "sub": "Efficiency",
+            "title": "Fulfillment efficiency — better decisions for riders in messy environments",
+            "body": [
+              "On the rider side, interactions are restructured around three axes: task comprehension, exception handling, route efficiency.",
+              "Order-relationship visualisation, route planning and information tagging help riders make the right call fast — even under multi-task, multi-state pressure."
+            ],
+            "tags": [
+              "Order viz",
+              "Route planning",
+              "Info tagging",
+              "Exceptions"
+            ],
+            "leaves": [
+              "Order-relationship viz",
+              "Route planning",
+              "Info tagging & exceptions"
+            ]
+          },
+          {
+            "name": "Trust",
+            "sub": "Trust",
+            "title": "User trust — faster ordering, transparent delivery, stronger value perception",
+            "body": [
+              "On the user side, experience work centres on three goals: speed up ordering, make delivery transparent, sharpen value perception.",
+              "Lower the cognitive cost and raise the certainty of every step — both an experience goal and a long-term trust asset the platform compounds with its users."
+            ],
+            "tags": [
+              "Faster ordering",
+              "Transparent delivery",
+              "Process certainty",
+              "Value perception"
+            ],
+            "leaves": [
+              "Faster ordering",
+              "Transparent delivery",
+              "Stronger value perception"
+            ]
+          },
+          {
+            "name": "Long-term value",
+            "sub": "Long-term",
+            "title": "Long-term platform value — systemic governance and architectural upgrades",
+            "body": [
+              "Drive design unification and architectural upgrades: a single brand language, codified components, visual expression for complex flows, and targeted remediation of high-frequency complaints.",
+              "Make design capability replicable, extensible and ready to scale across teams — a continuous supply of long-term platform value."
+            ],
+            "tags": [
+              "Brand unity",
+              "Component standards",
+              "Complaint remediation",
+              "Visual expression"
+            ],
+            "leaves": [
+              "Unified brand language",
+              "Codified components",
+              "Complaint remediation"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "kicker": "Thinking · 04 · Tencent Maps",
+        "title": "From “responding to requirements” → to <em>platform capability building</em>",
+        "caption": "Build an experience system with long-term evolution capability within complex business ecosystems and high-frequency scenarios.",
+        "divider": "P.02 · PDF Document · Tencent Maps Full Project",
+        "center_name": "An experience system with <em>long-term evolution capability</em>",
+        "center_hint": "Unify cognition · reduce comprehension cost · improve information trustworthiness · enhance consistency and collaboration.",
+        "axes": [
+          {
+            "name": "Coherence",
+            "sub": "Coherence",
+            "title": "Unified cognition — the foundational methodology of a design system",
+            "body": [
+              "Building the component library from 0 to 1: enumerate business scenarios, abstract design rules, govern component logic, align with engineering on implementation standards.",
+              "Turn fragmented, repeated, weakly-aligned interaction assets into a reusable, extensible, collaborative design infrastructure."
+            ],
+            "tags": [
+              "Enumerate scenarios",
+              "Abstract rules",
+              "Component governance",
+              "Eng. alignment"
+            ],
+            "leaves": [
+              "Enumerate scenarios",
+              "Abstract design rules",
+              "Components / eng. alignment"
+            ]
+          },
+          {
+            "name": "Clarity",
+            "sub": "Clarity",
+            "title": "Lower the cost of understanding — systematic coverage across many scenarios and states",
+            "body": [
+              "Cover every business line, every scenario and every state with an exhaustive experience audit — so any product team can find the “right expression” in any state.",
+              "Raises in-team collaboration efficiency, and lowers design + engineering cost as the business scales."
+            ],
+            "tags": [
+              "Multi-business",
+              "Multi-state",
+              "Collaboration",
+              "Scaling cost"
+            ],
+            "leaves": [
+              "Exhaustive state coverage",
+              "Consistency across lines",
+              "Lower scaling cost"
+            ]
+          },
+          {
+            "name": "Trust",
+            "sub": "Trust",
+            "title": "Boost credibility — handing off from WeChat location, surfacing user feedback",
+            "body": [
+              "Users are naturally sensitive to map accuracy and to how transparently results are processed. Starting from the cognitive path, scenario mental model and information-transfer efficiency, the relationship between user and platform was re-mapped from the ground up.",
+              "Match WeChat's native visual and interaction language, refine loading logic and in-flight feedback — reinforcing the perception of consistency within the Tencent ecosystem."
+            ],
+            "tags": [
+              "WeChat location handoff",
+              "In-flight feedback",
+              "Scenario mental model",
+              "Native consistency"
+            ],
+            "leaves": [
+              "WeChat location handoff",
+              "Loading & process feedback",
+              "Simpler feedback states"
+            ]
+          },
+          {
+            "name": "System",
+            "sub": "System",
+            "title": "Consistency & collaboration — from local experience to platform governance",
+            "body": [
+              "Simplify feedback states, surface the critical result and use scenario-specific expression — reducing the user's understanding burden inside complex flows.",
+              "Push design beyond local optimisation toward systemic governance, platform-wide collaboration and long-term product value."
+            ],
+            "tags": [
+              "Scenario expression",
+              "Systemic governance",
+              "Platform collab",
+              "Long-term value"
+            ],
+            "leaves": [
+              "Surface key results",
+              "Scenario-aware info",
+              "Systemic gov. / collab"
+            ]
+          }
+        ]
+      },
+      "5": {
+        "kicker": "Thinking · 05 · iQIYI International",
+        "title": "From “usability” → to an <em>immersive content-consumption experience</em>",
+        "caption": "In global and high-frequency content-consumption scenarios, design should reconnect user perception, payment decisions, and platform goals into one coherent rhythm.",
+        "divider": "P.05 · PDF Document · iQIYI International Full Project",
+        "center_name": "The <em>perceptual order</em> of immersive content consumption",
+        "center_hint": "Let viewing rhythm, payment decisions, and business goals naturally connect within one journey.",
+        "axes": [
+          {
+            "name": "Frequency",
+            "sub": "Frequency",
+            "title": "High-frequency behaviour — the silent UX of speed-up, fast-forward, and scrubbing",
+            "body": [
+              "The truly high-frequency action while watching isn't “press play” — it's speed-up, fast-forward and scrubbing. These are the gestures that decide whether a piece of content gets finished or abandoned.",
+              "Refine all three layers in parallel: cognition (predictable gestures), interaction (restrained visual feedback), perception (information at the right moment) — so no action breaks immersion."
+            ],
+            "tags": [
+              "×1.5 speed",
+              "Fast-fwd gestures",
+              "Predictable scrub",
+              "Restrained feedback"
+            ],
+            "leaves": [
+              "Speed-up / fast-fwd",
+              "Scrub gestures",
+              "Feedback rhythm"
+            ]
+          },
+          {
+            "name": "Hierarchy",
+            "sub": "Hierarchy",
+            "title": "Information hierarchy — governing the priority of tips and playback feedback",
+            "body": [
+              "Players are loaded with passive information (tips, recommendations, prompts, onboarding) that breaks the viewing experience at the wrong moments. The answer isn't to remove them — it's to layer them, time them, and scope them by scenario.",
+              "Establish a “main-task / supporting / background” three-tier structure: core content is never occluded; supporting info appears only between user actions; background info is deferred or merged."
+            ],
+            "tags": [
+              "Tip priority",
+              "Passive info",
+              "Timing",
+              "Layered structure"
+            ],
+            "leaves": [
+              "Protect main task",
+              "Tip timing",
+              "Merge background info"
+            ]
+          },
+          {
+            "name": "Decision",
+            "sub": "Decision",
+            "title": "Decision psychology — sense of direction and trust cost in the payment journey",
+            "body": [
+              "On the surface, VIP payment looks like “too many steps”. The deeper problem is a lost sense of direction, an opaque process, conflated concepts — after several hops, users no longer know what they're doing or where they are.",
+              "Pivot the framing from “fewer steps” to “less uncertainty”: at every step, the user knows what comes next, what they can return to, and what they will finally walk away with."
+            ],
+            "tags": [
+              "Sense of direction",
+              "Trust cost",
+              "Conceptual clarity",
+              "Uncertainty"
+            ],
+            "leaves": [
+              "Lost direction",
+              "Process transparency",
+              "Disambiguate concepts"
+            ]
+          },
+          {
+            "name": "Flow",
+            "sub": "Flow",
+            "title": "Re-architecting the flow — collapsing fragmented hops into one “become VIP” goal experience",
+            "body": [
+              "Take a serial multi-hop flow once scattered across plan selection, card binding, payment method and risk verification — and reassemble it into a single, unmistakable “become VIP” goal experience.",
+              "Bring in payment memory and state persistence: cards, plan choices and in-progress state are remembered — so leaving and returning feels like “the same path”, not “starting over”.",
+              "Design's value isn't only “usable”. It's the way it builds a natural, low-friction, durable bridge between user expectation, content rhythm and the business goal."
+            ],
+            "tags": [
+              "Become VIP",
+              "Unified goal",
+              "Payment memory",
+              "State persistence"
+            ],
+            "leaves": [
+              "Hops → one goal",
+              "Payment memory",
+              "Persistent state"
+            ]
+          }
+        ]
+      },
+      "6": {
+        "kicker": "Thinking · 06 · Long-term Complex Business",
+        "title": "From “designing pages” → to <em>designing systems</em>",
+        "caption": "As businesses become long-term, complex, and multi-platform, the bottleneck is no longer delivery capability, but how design resources are allocated, reused, and accumulated.",
+        "divider": "P.06 · PDF Document · Design Workflow System Full Project",
+        "center_name": "Make design an <em>operable organizational capability</em>",
+        "center_hint": "From experience-driven work → to a systematic methodology built on data, scenarios, and cognition.",
+        "axes": [
+          {
+            "name": "Priority",
+            "sub": "Priority",
+            "title": "Set priorities — invest where “high-value × shippable” intersect",
+            "body": [
+              "Demand always outnumbers people. Use a value-vs-investment 2×2 (an ROI lens) to evaluate every request: is it worth doing, when, and to what depth.",
+              "Separate “must do”, “should do”, “could do”, “shouldn't do” — keep design capacity from being diluted by low-value work, and let limited investment actually move the business."
+            ],
+            "tags": [
+              "Value 2×2",
+              "ROI lens",
+              "Resource allocation",
+              "Demand throttling"
+            ],
+            "leaves": [
+              "Value × investment",
+              "Resource intake",
+              "Demand throttling"
+            ]
+          },
+          {
+            "name": "Insight",
+            "sub": "Insight",
+            "title": "Surface the real need — find the core problem with the «people · supply · scene» frame",
+            "body": [
+              "Shift from experience-driven to “data + scenario + cognition” as a triad: qualitative work (field visits, user interviews, follow-up calls, usability tests) + quantitative work (event tracking, conversion funnels, user profiles, satisfaction models) jointly drive understanding.",
+              "Audit every request with a “people · supply · scene” lens: why a user reaches for it, in what context, what they walk away with — and how the platform's experience strategy reshapes behaviour and business in turn."
+            ],
+            "tags": [
+              "People · supply · scene",
+              "Qual + Quant",
+              "Tracking / funnels",
+              "Satisfaction model"
+            ],
+            "leaves": [
+              "People · supply · scene",
+              "Qualitative research",
+              "Quantitative validation"
+            ]
+          },
+          {
+            "name": "System",
+            "sub": "System",
+            "title": "Systemic leverage — solve it once, apply it everywhere",
+            "body": [
+              "Make every design delivery reusable: abstract one-off decisions into rules, components, templates and design assets so the next project naturally inherits the gains of the previous one.",
+              "Build differentiated strategies for each business surface — neither reinvent the wheel nor force a single standard. Trade a “system skeleton + differentiated skin” for the balance between efficiency and extensibility."
+            ],
+            "tags": [
+              "Asset accrual",
+              "System skeleton",
+              "Differentiation",
+              "Extensible"
+            ],
+            "leaves": [
+              "Asset accrual",
+              "System skeleton",
+              "Differentiation"
+            ]
+          },
+          {
+            "name": "Measurement",
+            "sub": "Measurement",
+            "title": "Design measurement — making design impact a number you can argue about",
+            "body": [
+              "Build a measurement system for design impact — from usability metrics and task-completion rates, to critical conversions, satisfaction modelling and long-term retention. “Is the design any good?” stops being a subjective question.",
+              "Run a data-driven loop: ship → measure → review → optimise. Every decision has a comparable baseline; long-term value becomes visible inside the numbers.",
+              "A mature design system isn't a short-term efficiency win — it's an organisational capability accumulated over time."
+            ],
+            "tags": [
+              "Usability metrics",
+              "Satisfaction model",
+              "Closed-loop data",
+              "Long-term value"
+            ],
+            "leaves": [
+              "Metric system",
+              "Satisfaction modelling",
+              "Closed-loop data"
+            ]
+          }
+        ]
+      }
+    },
+    "shared": {
+      "pdf_unavailable": "This browser cannot embed the PDF preview — use the Open / Download buttons in the top-right.",
+      "preview_unavailable": "Preview unavailable",
+      "pdf_doc_full": "PDF Document · Full Case Doc",
+      "center_label": "Center · Thesis",
+      "axis_label_default": "01 · Axis"
+    }
+  }
+}
