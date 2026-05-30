@@ -160,41 +160,11 @@
   will-change: transform;
 }
 
-/* -------- 4. Ambient cursor spotlight + breathing -------- */
-.ambient__spot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 65vmin;
-  height: 65vmin;
-  border-radius: 50%;
-  /* warm-cool gradient halo that follows cursor */
-  background:
-    radial-gradient(circle at center,
-      rgba(196, 184, 156, 0.30) 0%,
-      rgba(151, 169, 196, 0.18) 30%,
-      transparent 70%);
-  filter: blur(80px);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  opacity: 0.85;
-  transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%);
-  /* breathing animation overlays the cursor-driven translate */
-  animation: vfx-breathe 6.5s cubic-bezier(.4,0,.2,1) infinite;
-}
+/* -------- 4. (removed) cursor-following spotlight -------- */
+/* The .ambient__spot layer was removed in v1.1 — too subtle / created visual noise.
+   Background "alive" feeling now relies solely on the breathing of halo a/b. */
 
-@keyframes vfx-breathe {
-  0%, 100% {
-    opacity: 0.55;
-    filter: blur(80px) brightness(1);
-  }
-  50% {
-    opacity: 0.95;
-    filter: blur(95px) brightness(1.08);
-  }
-}
-
-/* Make the two existing halos also gently breathe (different rhythm than spotlight) */
+/* Make the two existing halos breathe (different rhythms) */
 .ambient__halo--a {
   animation: vfx-halo-a 11s cubic-bezier(.4,0,.2,1) infinite;
 }
@@ -203,11 +173,11 @@
 }
 @keyframes vfx-halo-a {
   0%, 100% { opacity: 0.18; }
-  50%      { opacity: 0.28; }
+  50%      { opacity: 0.30; }
 }
 @keyframes vfx-halo-b {
   0%, 100% { opacity: 0.22; }
-  50%      { opacity: 0.32; }
+  50%      { opacity: 0.34; }
 }
 
 /* Brand mark gentle pulse */
@@ -225,7 +195,6 @@
 @media (pointer: coarse) {
   .vfx-cursor { display: none; }
   body, a, button, .work__item, .hero__card { cursor: auto; }
-  .ambient__spot { display: none; }
 }
 
 /* -------- Reduced motion override -------- */
@@ -243,7 +212,6 @@
   }
   .vfx-cursor { display: none; }
   body, a, button, .work__item, .hero__card { cursor: auto; }
-  .ambient__spot,
   .ambient__halo--a,
   .ambient__halo--b,
   .nav__brand-mark {

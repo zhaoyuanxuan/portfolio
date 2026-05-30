@@ -141,11 +141,12 @@
     let isDown = false;
 
     const lerp = (a, b, t) => a + (b - a) * t;
+    // Higher t = snappier (closer to 1 = instant). 0.45 ring, 0.95 dot ≈ near-zero perceived lag.
     const tick = () => {
-      cx = lerp(cx, mx, 0.18);
-      cy = lerp(cy, my, 0.18);
-      dx = lerp(dx, mx, 0.5);
-      dy = lerp(dy, my, 0.5);
+      cx = lerp(cx, mx, 0.45);
+      cy = lerp(cy, my, 0.45);
+      dx = lerp(dx, mx, 0.95);
+      dy = lerp(dy, my, 0.95);
       cursor.style.setProperty("--cx", cx + "px");
       cursor.style.setProperty("--cy", cy + "px");
       cursor.style.setProperty("--dx", dx + "px");
@@ -199,29 +200,7 @@
   }
 
   /* -------------------------------------------------------------
-     4) Cursor-following spotlight in ambient layer (breathing bg)
+     4) (removed) cursor-following spotlight — was too subtle / noisy.
+        Ambient halos a/b still breathe via styles-vfx.css for living bg.
      ------------------------------------------------------------- */
-  if (!COARSE) {
-    // Add a third "spotlight" halo that tracks cursor more directly
-    const ambient = $(".ambient");
-    if (ambient) {
-      const spot = document.createElement("div");
-      spot.className = "ambient__spot";
-      ambient.appendChild(spot);
-
-      let sx = window.innerWidth / 2;
-      let sy = window.innerHeight / 2;
-      let tx = sx, ty = sy;
-      const tick = () => {
-        tx += (sx - tx) * 0.08;
-        ty += (sy - ty) * 0.08;
-        spot.style.transform = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
-        requestAnimationFrame(tick);
-      };
-      tick();
-      window.addEventListener("mousemove", (e) => {
-        sx = e.clientX; sy = e.clientY;
-      }, { passive: true });
-    }
-  }
 })();
