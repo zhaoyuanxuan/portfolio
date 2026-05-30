@@ -188,15 +188,17 @@
         </header>
 
         <div class="about__grid">
-          <!-- Portrait — feathered into background via radial mask -->
-          <figure class="about__portrait placeholder placeholder--feather"
-                  data-ph="portrait"
-                  data-size="1200×1200 · 1:1">
-            <div class="placeholder__crosshair"></div>
-            <figcaption>
-              <span>PORTRAIT</span>
-              <span>1200 × 1200 · 1:1</span>
-            </figcaption>
+          <!-- Portrait — drawn (default) ↔ photo (hover), feathered into background -->
+          <figure class="about__portrait portrait-swap" aria-label="Zhao Yuanxuan portrait">
+            <img class="portrait-swap__img portrait-swap__img--default"
+                 src="assets/about/portrait-drawn.jpg"
+                 alt="赵元轩 · 手绘头像"
+                 loading="lazy" />
+            <img class="portrait-swap__img portrait-swap__img--hover"
+                 src="assets/about/portrait-photo.jpg"
+                 alt="赵元轩 · 真人照片"
+                 loading="lazy"
+                 aria-hidden="true" />
           </figure>
 
           <div class="about__info">
