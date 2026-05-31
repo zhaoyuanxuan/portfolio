@@ -313,10 +313,17 @@
       font-family: var(--font-serif);
       font-weight: 300;
       font-size: clamp(28px, 4.6vw, 52px);
-      line-height: 1.05;
+      line-height: 1.15;
       letter-spacing: -0.018em;
       margin: 16px 0 0;
-      max-width: 22ch;
+      /* Keep on a single line; JS auto-shrink handles overflow.
+         The original max-width: 22ch was forcing a wrap on Chinese long titles. */
+      white-space: nowrap;
+      overflow: visible;
+    }
+    @media (max-width: 720px) {
+      /* On very narrow screens, allow wrap as a graceful fallback */
+      .think__title { white-space: normal; }
     }
     .think__title em { font-style: italic; color: var(--text-dim); }
     .think__caption {
@@ -861,6 +868,11 @@
       line-height: 1.1;
       letter-spacing: -0.018em;
       margin: 0;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    @media (max-width: 720px) {
+      .engine__title { white-space: normal; }
     }
     .engine__title em { font-style: italic; color: var(--text-dim); }
     .engine__caption { color: var(--text-dim); font-size: 14.5px; line-height: 1.65; max-width: 70ch; margin: 0; }
@@ -1611,6 +1623,11 @@
     .talent__title {
       font-family: var(--font-serif); font-weight: 400; line-height: 1.18;
       font-size: clamp(28px, 4vw, 44px); color: var(--text); margin: 0; letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    @media (max-width: 720px) {
+      .talent__title { white-space: normal; }
     }
     .talent__title em { font-style: italic; color: var(--accent); }
     .talent__caption { font-size: 15px; color: var(--text-mute); max-width: 780px; margin: 0; line-height: 1.7; }
@@ -1910,6 +1927,7 @@
     }
   </style>
   <script src="./scroll-memory.js"></script>
+  <script src="./case-title-fit.js" defer></script>
 </head>
 
 <body class="case">
