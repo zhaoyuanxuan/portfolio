@@ -154,6 +154,14 @@ window.__I18N_BUNDLE__ = {
       "sub": "合作、招聘、或安静的交流。",
       "statement": "当前正在<em>寻找一个好产品</em> — 接受设计 Leader、Founding Design、AI Native 方向的产品角色。"
     },
+    "focus": {
+      "heading": "长期关注",
+      "items": [
+        { "title": "认知设计",     "desc": "为思维如何理解系统而设计。" },
+        { "title": "以人为本设计", "desc": "在像素之前是人，在意见之前是行为。" },
+        { "title": "效率与情感",   "desc": "平静的界面，同时尊重意图与感受。" }
+      ]
+    },
     "foot": {
       "quote": "我设计的，是帮助人们理解复杂性的东西。"
     },
@@ -1143,6 +1151,14 @@ window.__I18N_BUNDLE__ = {
       "heading": "Contact",
       "sub": "For collaborations, work inquiries, or quiet conversations.",
       "statement": "Currently <em>looking for a good product</em> — open to design leadership, founding design, and AI-native product roles."
+    },
+    "focus": {
+      "heading": "Long-term Focus",
+      "items": [
+        { "title": "Cognitive Design",      "desc": "Designing for how minds make sense of systems." },
+        { "title": "Human-Centered Design", "desc": "People before pixels, behavior before opinions." },
+        { "title": "Efficiency & Emotion",  "desc": "Calm interfaces that respect both intent and feeling." }
+      ]
     },
     "foot": {
       "quote": "I design things that help people understand complexity."

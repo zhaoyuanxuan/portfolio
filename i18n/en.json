@@ -150,6 +150,14 @@
     "sub": "For collaborations, work inquiries, or quiet conversations.",
     "statement": "Currently <em>looking for a good product</em> — open to design leadership, founding design, and AI-native product roles."
   },
+  "focus": {
+    "heading": "Long-term Focus",
+    "items": [
+      { "title": "Cognitive Design",      "desc": "Designing for how minds make sense of systems." },
+      { "title": "Human-Centered Design", "desc": "People before pixels, behavior before opinions." },
+      { "title": "Efficiency & Emotion",  "desc": "Calm interfaces that respect both intent and feeling." }
+    ]
+  },
   "foot": {
     "quote": "I design things that help people understand complexity."
   },
