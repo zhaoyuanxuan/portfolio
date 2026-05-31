@@ -43,6 +43,9 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./styles-vfx.css" />
+    <!-- Scroll memory must run BEFORE first paint to disable
+         scrollRestoration and capture saved Y. No `defer`. -->
+    <script src="./scroll-memory.js"></script>
   </head>
   <body>
     <!-- Ambient light layer -->
