@@ -174,7 +174,7 @@ window.__I18N_BUNDLE__ = {
         "5": "爱奇艺国际 · 沉浸式观影 × VIP 付费链路体验",
         "6": "长期复杂业务 · 设计工作体系与设计度量"
       },
-      "engine_pdf_fallback": "当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> / <b>Download</b> 查看。",
+      "engine_pdf_fallback": "当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> 查看。",
       "thinking": {
         "center_label_default": "Center · 项目主张",
         "divider_default": "PDF Document · 完整作品文档"
@@ -992,7 +992,7 @@ window.__I18N_BUNDLE__ = {
         }
       },
       "shared": {
-        "pdf_unavailable": "当前浏览器无法内嵌预览此 PDF，请使用右上角 Open / Download 查看。",
+        "pdf_unavailable": "当前浏览器无法内嵌预览此 PDF，请使用右上角 Open 查看。",
         "preview_unavailable": "预览不可用",
         "pdf_doc_full": "PDF Document · 完整作品文档",
         "center_label": "Center · 项目主张",
@@ -1172,7 +1172,7 @@ window.__I18N_BUNDLE__ = {
         "5": "iQIYI International · Immersive Viewing × VIP Conversion Experience",
         "6": "Long-term Complex Business · Design Systems & Metrics"
       },
-      "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> or <b>Download</b> in the upper-right corner.",
+      "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> in the upper-right corner.",
       "thinking": {
         "center_label_default": "Center · Project Thesis",
         "divider_default": "PDF Document · Full case file"
@@ -1990,7 +1990,7 @@ window.__I18N_BUNDLE__ = {
         }
       },
       "shared": {
-        "pdf_unavailable": "This browser cannot embed the PDF preview — use the Open / Download buttons in the top-right.",
+        "pdf_unavailable": "This browser cannot embed the PDF preview — use the Open button in the top-right.",
         "preview_unavailable": "Preview unavailable",
         "pdf_doc_full": "PDF Document · Full Case Doc",
         "center_label": "Center · Thesis",

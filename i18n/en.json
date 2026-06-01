@@ -170,7 +170,7 @@
       "5": "iQIYI International · Immersive Viewing × VIP Conversion Experience",
       "6": "Long-term Complex Business · Design Systems & Metrics"
     },
-    "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> or <b>Download</b> in the upper-right corner.",
+    "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> in the upper-right corner.",
     "thinking": {
       "center_label_default": "Center · Project Thesis",
       "divider_default": "PDF Document · Full case file"
@@ -988,7 +988,7 @@
       }
     },
     "shared": {
-      "pdf_unavailable": "This browser cannot embed the PDF preview — use the Open / Download buttons in the top-right.",
+      "pdf_unavailable": "This browser cannot embed the PDF preview — use the Open button in the top-right.",
       "preview_unavailable": "Preview unavailable",
       "pdf_doc_full": "PDF Document · Full Case Doc",
       "center_label": "Center · Thesis",

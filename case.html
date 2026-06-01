@@ -1958,10 +1958,6 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Open</span>
         </a>
-        <a id="caseDownload" href="#" download title="Download PDF">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 12l6 6 6-6M5 20h14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Download</span>
-        </a>
       </div>
     </header>
 
@@ -2043,7 +2039,7 @@
 
           <div class="case-fallback" id="caseFallback">
             <div class="case-loader__hint" data-i18n="case.shared.preview_unavailable">Preview unavailable</div>
-            <p data-i18n="case.shared.pdf_unavailable">当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> / <b>Download</b> 查看。</p>
+            <p data-i18n="case.shared.pdf_unavailable">当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> 查看。</p>
           </div>
         </div>
       </div>
@@ -2548,10 +2544,7 @@
       if (yearEl && caseYears[n]) yearEl.textContent = caseYears[n];
 
       var open = document.getElementById('caseOpen');
-      var dl = document.getElementById('caseDownload');
       open.href = pdf;
-      dl.href = pdf;
-      dl.setAttribute('download', pdfBaseName);
 
       // Interactive cases: n=1 → Talent (IS_OD), n=2 → Decision Engine (IS_ENGINE)
       var IS_ENGINE = (n === 2);
@@ -2561,7 +2554,6 @@
         document.getElementById('caseEngine').removeAttribute('hidden');
         // hide PDF tools in top bar
         open.style.display = 'none';
-        dl.style.display = 'none';
         // change file label
         document.getElementById('caseFile').textContent = 'Decision Engine';
         document.getElementById('caseFileMeta').textContent = 'Interactive · explore by click';
@@ -2572,8 +2564,6 @@
         // top tools point to the structure board PDF (the more representative one)
         var pdfA = 'assets/p4/design-board-structure.pdf';
         open.href = pdfA;
-        dl.href = pdfA;
-        dl.setAttribute('download', 'P1-design-board-structure.pdf');
         // change file label
         document.getElementById('caseFile').textContent = 'Talent System';
         document.getElementById('caseFileMeta').textContent = 'Interactive · OD reframe · 2 design boards';

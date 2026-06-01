@@ -171,7 +171,7 @@
       "5": "爱奇艺国际 · 沉浸式观影 × VIP 付费链路体验",
       "6": "长期复杂业务 · 设计工作体系与设计度量"
     },
-    "engine_pdf_fallback": "当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> / <b>Download</b> 查看。",
+    "engine_pdf_fallback": "当前浏览器无法内嵌预览此 PDF，请使用右上角 <b>Open</b> 查看。",
     "thinking": {
       "center_label_default": "Center · 项目主张",
       "divider_default": "PDF Document · 完整作品文档"
@@ -989,7 +989,7 @@
       }
     },
     "shared": {
-      "pdf_unavailable": "当前浏览器无法内嵌预览此 PDF，请使用右上角 Open / Download 查看。",
+      "pdf_unavailable": "当前浏览器无法内嵌预览此 PDF，请使用右上角 Open 查看。",
       "preview_unavailable": "预览不可用",
       "pdf_doc_full": "PDF Document · 完整作品文档",
       "center_label": "Center · 项目主张",
