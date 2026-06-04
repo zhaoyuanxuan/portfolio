@@ -109,36 +109,42 @@
     "sub": "A short list of projects that defined how I think — across AI, data, mobility, and platform systems.",
     "hint": "More case studies on request.",
     "p1": {
+      "src": "Kuaishou · Luobo Interview",
+      "title": "AI Coding Assessment System",
+      "line": "Redefining “algorithm grinding” as “human–AI collaborative problem solving” — a hiring assessment platform built on an in-house IDE, a four-axis rubric, and multi-perspective replay.",
+      "title_html": "AI Coding Assessment System <span class=\"work__rule\"></span>"
+    },
+    "p2": {
       "src": "Kuaishou",
       "title": "Organizational Decision System Optimization",
       "line": "Helping managers evaluate team performance distribution and make fairer decisions more efficiently.",
       "title_html": "Organizational Decision System Optimization <span class=\"work__rule\"></span>"
     },
-    "p2": {
+    "p3": {
       "src": "Kuaishou",
       "title": "Chart Selection Engine",
       "line": "Abstracted “choosing charts by intuition” into 47 executable rules with an 89% Top-1 accuracy.",
       "title_html": "Chart Selection Engine <span class=\"work__rule\"></span>"
     },
-    "p3": {
+    "p4": {
       "src": "SF Express City",
       "title": "Fulfillment Experience Governance",
       "line": "Reconstructing experience and efficiency across users, riders, and platform systems.",
       "title_html": "Fulfillment Experience Governance <span class=\"work__rule\"></span>"
     },
-    "p4": {
+    "p5": {
       "src": "Tencent Maps",
       "title": "Map Component System",
       "line": "From scattered design assets to reusable and evolvable design infrastructure.",
       "title_html": "Map Component System <span class=\"work__rule\"></span>"
     },
-    "p5": {
+    "p6": {
       "src": "iQIYI International",
       "title": "Immersive Viewing Experience",
       "line": "From “usable” to “immersive”: rebuilding perceptual order between content consumption and payment flows.",
       "title_html": "Immersive Viewing Experience <span class=\"work__rule\"></span>"
     },
-    "p6": {
+    "p7": {
       "src": "Long-term · Complex Business",
       "title": "Design Workflow System",
       "line": "From “designing pages” to “designing systems”: enabling design resources to create long-term business value.",
@@ -163,19 +169,20 @@
   },
   "case": {
     "subtitle": {
-      "1": "Kuaishou · Talent Evaluation · Organizational Decision System Redesign",
-      "2": "Kuaishou · Data Visualization Chart Selection Engine",
-      "3": "SF Express City · Experience Governance for Fulfillment Systems",
-      "4": "Tencent Maps · Component Library & Design Infrastructure",
-      "5": "iQIYI International · Immersive Viewing × VIP Conversion Experience",
-      "6": "Long-term Complex Business · Design Systems & Metrics"
+      "1": "Kuaishou · Luobo · AI Coding Hiring Assessment System",
+      "2": "Kuaishou · Talent Evaluation · Organizational Decision System Redesign",
+      "3": "Kuaishou · Data Visualization Chart Selection Engine",
+      "4": "SF Express City · Experience Governance for Fulfillment Systems",
+      "5": "Tencent Maps · Component Library & Design Infrastructure",
+      "6": "iQIYI International · Immersive Viewing × VIP Conversion Experience",
+      "7": "Long-term Complex Business · Design Systems & Metrics"
     },
     "engine_pdf_fallback": "Your browser cannot preview this PDF inline. Please use <b>Open</b> in the upper-right corner.",
     "thinking": {
       "center_label_default": "Center · Project Thesis",
       "divider_default": "PDF Document · Full case file"
     },
-    "p1_talent": {
+    "p2_talent": {
       "thesis": {
         "title": "Not a UI optimization · but a redesign of the <em>organizational decision system</em>",
         "caption": "Facing a talent-management system that gradually failed as the business scaled, I shifted the focus from UI polish back to information flow and decision flow: what managers truly need to see, understand, and decide.",
@@ -377,7 +384,7 @@
         ]
       }
     },
-    "p2_engine": {
+    "p3_engine": {
       "key_result": {
         "title": "Chart-selection accuracy <em>89%</em> · <em>74%</em> higher than general AI",
         "caption": "Blind-test results across 200 real data requests (n = 200), comparing generic AI with this decision engine."
@@ -433,7 +440,7 @@
       }
     },
     "thinkData": {
-      "1": {
+      "2": {
         "kicker": "Thinking · 01 · Talent Evaluation",
         "title": "From a “workflow system” → to an <em>organizational decision system</em>",
         "caption": "As the talent-management system became ineffective with scale, I shifted the focus from UI to information and decision flow.",
@@ -527,7 +534,7 @@
           }
         ]
       },
-      "2": {
+      "3": {
         "kicker": "Thinking · 02 · Data Visualization Chart System",
         "title": "Tu·Ze — From <em>intuition</em> → to <em>executable rules</em>",
         "caption": "When facing a dataset, most designers choose charts by intuition. I spent six months abstracting that intuition into 47 executable rules, eventually building an AI Skill decision engine.",
@@ -623,7 +630,7 @@
           }
         ]
       },
-      "3": {
+      "4": {
         "kicker": "Thinking · 03 · SF Express City",
         "title": "From “interface optimization” → to <em>experience governance for fulfillment systems</em>",
         "caption": "I do not see design merely as interface optimization or workflow beautification, but as an operational capability connecting users, riders, and platform efficiency.",
@@ -714,7 +721,7 @@
           }
         ]
       },
-      "4": {
+      "5": {
         "kicker": "Thinking · 04 · Tencent Maps",
         "title": "From “responding to requirements” → to <em>platform capability building</em>",
         "caption": "Build an experience system with long-term evolution capability within complex business ecosystems and high-frequency scenarios.",
@@ -804,7 +811,7 @@
           }
         ]
       },
-      "5": {
+      "6": {
         "kicker": "Thinking · 05 · iQIYI International",
         "title": "From “usability” → to an <em>immersive content-consumption experience</em>",
         "caption": "In global and high-frequency content-consumption scenarios, design should reconnect user perception, payment decisions, and platform goals into one coherent rhythm.",
@@ -895,7 +902,7 @@
           }
         ]
       },
-      "6": {
+      "7": {
         "kicker": "Thinking · 06 · Long-term Complex Business",
         "title": "From “designing pages” → to <em>designing systems</em>",
         "caption": "As businesses become long-term, complex, and multi-platform, the bottleneck is no longer delivery capability, but how design resources are allocated, reused, and accumulated.",
@@ -984,6 +991,137 @@
               "Closed-loop data"
             ]
           }
+        ]
+      }
+    },
+    "p1_interview": {
+      "thesis": {
+        "kicker": "A · Thesis",
+        "title": "Not just shipping an interview tool — <em>redefining \"algorithm grinding\"</em> as <em>\"human–AI collaborative problem solving\"</em>",
+        "caption": "As AI tooling becomes table stakes, LeetCode-style interviews drift further from real engineering. Starting from Kuaishou social-hire as the MVP, this project frames \"can the candidate orchestrate AI inside a real codebase\" as an assessable, observable, replayable hiring infrastructure — spanning the ATS, the Luobo interview room, an in-house IDE, and the evaluation & replay surfaces."
+      },
+      "outcome": {
+        "dim_num_html": "4<em> axes</em>",
+        "dim_lbl": "Evaluation axes",
+        "dim_sub": "Decomposition · Orchestration · Verification · Production",
+        "mode_num_html": "2<em> modes</em>",
+        "mode_lbl": "Sync & Async",
+        "mode_sub": "Live in-interview + async pre-interview (60 min)",
+        "role_num_html": "3<em> roles</em>",
+        "role_lbl": "Stakeholders",
+        "role_sub": "Recruiter · Interviewer · Candidate, permissions gated by round",
+        "layer_num_html": "6<em> layers</em>",
+        "layer_lbl": "System layers",
+        "layer_sub": "IDE · AI orchestration · Observability · Eval · Console · Library"
+      },
+      "diagnosis": {
+        "kicker": "B · Diagnosis",
+        "title": "A <em>triple failure mode</em> of technical interviewing in the AI era",
+        "caption": "Benchmarking HackerRank / Codility / Nowcoder / Meta clarified the real problem: adding an AI chat box is not the answer. Failure happens simultaneously at the problem, the signal, and the hiring-flow layers.",
+        "cells": [
+          { "num": "P · 01 · Problems fail", "head": "LeetCode-style and <em>real engineering</em> have diverged", "body": "Single-file, dependency-free, context-free puzzles get one-shotted by AI. They no longer separate candidates by judgement in a real multi-file codebase.", "sym": "Symptom · AI one-shots · signal collapses" },
+          { "num": "P · 02 · Signals fail", "head": "\"Can AI solve it\" ≠ <em>\"can the human steer AI\"</em>", "body": "Looking only at the final diff cannot answer the questions that matter: was the AI output verified before adoption? Were hallucinated APIs caught? Was the prompt structured? Interviewers see code, not decisions.", "sym": "Symptom · invisible process · signal loss" },
+          { "num": "P · 03 · Flow fails", "head": "The hiring loop was never modelled for <em>\"AI assessment\"</em>", "body": "From recruiter scheduling → interviewer setting tasks → candidate async solve → next-round interviewer reading the IDE, the path crosses many roles, states and notifications. A single weak link breaks the assessment.", "sym": "Symptom · multi-actor · state drift" }
+        ]
+      },
+      "reframe": {
+        "kicker": "C · Reframe",
+        "title": "From <em>\"evaluating code\"</em> → <em>\"evaluating human–AI collaboration\"</em>",
+        "caption": "Reframe the unit of evaluation from \"the artefact\" to the temporary collaboration system formed by candidate × AI. The signal we score is process, not answer.",
+        "before_tag": "Before · evaluate the code",
+        "before_head": "Assessment = <em>what was submitted</em>",
+        "before_list": [
+          "Problems: single-file algorithms detached from real work",
+          "Environment: AI banned, assume the candidate codes bare-handed",
+          "Judgement: pass-rate + complexity + style",
+          "Flow: candidate solos · interviewer only sees outcome",
+          "Data: a single score · not replayable"
+        ],
+        "after_tag": "After · evaluate the collaboration",
+        "after_head": "Assessment = <em>how the answer was arrived at, with AI</em>",
+        "after_list": [
+          "Problems: multi-file real engineering with AI-traps",
+          "Environment: AI open · structured prompts enforced",
+          "Judgement: 4 axes · rules + LLM-as-judge · evidence-linked",
+          "Flow: assessment decoupled from interview · next round can read the IDE",
+          "Data: Timeline · Decision Points · fully replayable"
+        ]
+      },
+      "workflow": {
+        "kicker": "D · Workflow",
+        "title": "End-to-end · <em>5 phases · 4 systems</em>",
+        "caption": "From the recruiter scheduling to the next-round interviewer reading the IDE, the path threads through ATS · Luobo · in-house IDE · notification centre. Each phase has explicit owners, triggers and a state machine.",
+        "phases": [
+          { "name": "Schedule", "list": ["Recruiter checks \"AI coding\" while booking", "ATS syncs Luobo · assessment record created", "Default off · required · interviewer gated by rollout"] },
+          { "name": "Pick a task", "list": ["KIM notice → enter library, choose one task", "\"My favourites\" first · README preview", "No rollback after dispatch · two-way nudges if idle"] },
+          { "name": "Candidate solves", "list": ["Brief → enter IDE · 60min countdown", "Dual-camera · ≤2min re-entry · max 2 times", "No forced submit · auto-save and close on timeout"] },
+          { "name": "Wrap-up", "list": ["Active submit / auto-submit · container frozen", "90-day retention · chats · terminal · diffs included", "KIM notifies the next-round interviewer"] },
+          { "name": "Next-round review", "list": ["New \"AI coding\" tab inside the interview room", "Read-only IDE · reference / solution folders visible", "Behaviour summary modal for live follow-up"] }
+        ]
+      },
+      "arch": {
+        "kicker": "E · Architecture",
+        "title": "Six layers · <em>from candidate to decision</em>",
+        "caption": "More than an IDE embedded in Luobo. The system is sliced into 6 layers along \"capture → orchestrate → observe → evaluate → present\". Each layer owns its state machine and data contract.",
+        "items": [
+          { "num": "L · 01", "name": "Candidate Workspace · in-house IDE", "cap": "Open-source IDE embedded in Luobo · file tree / editor / terminal / AI panel · 60min timer · dual-camera monitoring", "tag": "IDE" },
+          { "num": "L · 02", "name": "AI Orchestration · unified gateway", "cap": "All AI calls via one proxy · structured prompt enforcement · model routing · tool calls · context · memory", "tag": "Layer" },
+          { "num": "L · 03", "name": "Observability · behaviour layer ⭐", "cap": "4-lane Timeline · AI Interaction Graph · Decision Points · the single source of truth for evaluation · fully replayable", "tag": "Core" },
+          { "num": "L · 04", "name": "Evaluation Engine", "cap": "Rules + LLM-as-judge dual engines · 4-axis radar · every score links back to a Timeline event", "tag": "Engine" },
+          { "num": "L · 05", "name": "Interviewer Console", "cap": "Multi-perspective replay · AI-drafted follow-ups · behaviour summary modal · next round can read the IDE (with reference folder)", "tag": "Console" },
+          { "num": "L · 06", "name": "Scenario & Task Library", "cap": "Real engineering tasks (multi-file · AI-traps) · AI-Solvability score · maintained in Luobo backend · tagged by team / role / language", "tag": "Library" }
+        ]
+      },
+      "surfaces": {
+        "kicker": "F · Design Surfaces",
+        "title": "7 core surfaces · <em>the full experience from candidate to interviewer</em>",
+        "caption": "The design lands as 7 role-specific surfaces — each screen carries a single intent, and the surfaces are stitched together by a shared visual language and the system state machine. Structural prototypes below.",
+        "items": [
+          { "name": "Candidate Workspace · in-house IDE", "sub": "Open-source IDE embedded in Luobo: file tree on the left, editor in the middle, terminal on the bottom, AI panel on the right. A persistent 60-minute timer and dual-camera preview sit in the top bar." },
+          { "name": "AI Orchestration · unified gateway", "sub": "All AI requests pass through one proxy that enforces structured prompts, routes models and manages context. Shown here from the backend operator's perspective." },
+          { "name": "Observability · 4-lane Timeline", "sub": "Four lanes: Prompt · Code Diff · Terminal · Browser. Decision Points highlight moments of adopt / reject / verify. This is the single source of truth that feeds the evaluation engine." },
+          { "name": "Evaluation · 4-axis Radar", "sub": "Rules and LLM-as-judge jointly produce scores across the four axes. Every score drills down to a concrete event on the Timeline." },
+          { "name": "Interviewer Console · Replay", "sub": "Inside the interview room the next-round interviewer opens the AI Coding tab: behaviour summary card + read-only IDE + Decision Point jumps + AI-drafted follow-up questions." },
+          { "name": "Interviewer Dashboard · cross-candidate", "sub": "Cross-candidate view for interviewers and hiring managers: 4-axis distributions, flagged behaviour, container health and per-task AI-Solvability feedback." },
+          { "name": "Scenario & Tasks · library", "sub": "Interviewers pick a task: filters on the left (team / role / language / difficulty), README preview on the right. Each task is tagged with AI-Solvability and adoption rate." }
+        ]
+      },
+      "dims": {
+        "kicker": "G · Rubric",
+        "title": "4-axis rubric · <em>every signal links back to an event</em>",
+        "caption": "Rule engine handles hard signals (did they run tests, did they leak API keys); LLM-as-judge handles prompt quality and reasoning depth. Every score traces back to a specific timestamp on the Timeline.",
+        "items": [
+          { "name": "Problem Decomposition", "cap": "Can they produce a subtask list within 3 minutes that covers edge cases?", "sig": "Signals: # subtasks / edge coverage / plan-first behaviour" },
+          { "name": "AI Orchestration", "cap": "Are prompts structured? Is the right model routed? How deep do they iterate?", "sig": "Signals: prompt clarity · model choice · avg loop count" },
+          { "name": "Verification", "cap": "Do they run tests before adopting AI output? Do they catch hallucinated APIs?", "sig": "Signals: unverified adoptions · hallucination catch-rate · rollback behaviour" },
+          { "name": "Production Thinking", "cap": "Do they think about idempotency · monitoring · degradation · log redaction?", "sig": "Signals: test coverage delta · engineering defects · production discussion" }
+        ]
+      },
+      "metrics": {
+        "kicker": "H · Metrics",
+        "title": "MVP rollout targets · <span style=\"font-style:italic;\">making results measurable for the business</span>",
+        "caption": "Beyond quantitative targets, the more important question is qualitative: \"did the assessment actually influence hiring decisions?\" — the single anchor of project value.",
+        "items": [
+          { "lbl": "Enablement rate", "num": "> 30", "unit": "%", "def": "Interviews with AI Coding on / all interviews in rollout (the feature is being used)" },
+          { "lbl": "Candidate participation", "num": "> 70", "unit": "%", "def": "Candidates who entered / candidates notified (candidate-side flow is smooth)" },
+          { "lbl": "Completion rate", "num": "> 80", "unit": "%", "def": "Active submits / candidates entered (difficulty and time are calibrated)" },
+          { "lbl": "Interviewer IDE-view rate", "num": "> 60", "unit": "%", "def": "Interviewers opening the AI Coding tab / interviews with AI Coding (the result is trusted)" },
+          { "lbl": "Container start-success", "num": "> 99", "unit": "%", "def": "IDE loaded / total clicks (infrastructure baseline)" },
+          { "lbl": "Decision-influencing rate", "num": "> 50", "unit": "%", "def": "Interviewer survey: did AI Coding influence the hiring decision (qualitative · the single anchor)" }
+        ]
+      },
+      "principles": {
+        "kicker": "I · Principles",
+        "title": "7 <em>system design principles</em>",
+        "caption": "Not local UX rules but the boundaries this system must never trade away as it evolves.",
+        "items": [
+          { "head": "Observe process, not outcome", "body": "Observability is the only source of truth for evaluation; every score must link back to a concrete Timeline event." },
+          { "head": "AI calls must be controllable", "body": "All AI requests pass through a unified proxy · structured prompts enforced · injection detection · hallucinated-API checks." },
+          { "head": "Tasks must resist one-shot solves", "body": "Every task carries an AI-Solvability score; the sweet spot is \"AI can assist but human judgement is required\"." },
+          { "head": "Permissions gated by round", "body": "Only the next-round interviewer sees the IDE · reference folder is interviewer-only · candidate cannot re-enter." },
+          { "head": "Assessment decoupled from interview", "body": "Standalone assessment room · isolated from the interview room · containers and state self-managed · cancel cascades correctly." },
+          { "head": "Infrastructure is first-class", "body": "Container start-success · start-time · interruption-rate are first-class metrics — they decide whether the system can carry hiring trust." },
+          { "head": "Designed to evolve", "body": "MVP covers social-hire with one task, but IDE · evaluation · library protocols leave room for multi-task · campus hiring · auto-scoring from day one." }
         ]
       }
     },
