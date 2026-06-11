@@ -82,9 +82,27 @@
     });
 
     // Show/hide language-specific elements
-    $$("[data-lang-active]").forEach((el) => {
+    $("[data-lang-active]").forEach((el) => {
       el.hidden = el.getAttribute("data-lang-active") !== lang;
     });
+
+    // Sync <meta name="description"> with current locale (SEO + share previews)
+    try {
+      const desc = getByPath(bundle[lang], "meta.description");
+      if (desc && typeof desc === "string") {
+        let m = document.querySelector('meta[name="description"]');
+        if (!m) {
+          m = document.createElement("meta");
+          m.setAttribute("name", "description");
+          document.head.appendChild(m);
+        }
+        m.setAttribute("content", desc);
+
+        // Also keep og:description in sync if present
+        const og = document.querySelector('meta[property="og:description"]');
+        if (og) og.setAttribute("content", desc);
+      }
+    } catch (_) {}
 
     // Stamp year placeholders (innerHTML may have wiped them)
     const yearEl = document.getElementById("hero-year");

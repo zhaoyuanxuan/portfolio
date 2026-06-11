@@ -408,11 +408,11 @@ main, .nav, .foot { position: relative; z-index: 1; }
 .hero__title {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(26px, 3vw, 46px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(36px, 5.4vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   color: var(--text);
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   white-space: nowrap;          /* keep title on a single line */
 }
 .hero__title em {

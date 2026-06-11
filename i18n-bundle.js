@@ -14,12 +14,15 @@ window.__I18N_BUNDLE__ = {
       "lang_glyph_zh": "中",
       "about": "关于",
       "career": "经历",
+      "beliefs": "信念",
       "work": "作品",
-      "contact": "联系"
+      "contact": "联系",
+      "focus": "关注"
     },
     "meta": {
       "title_suffix": "赵元轩 作品集",
-      "author": "赵元轩"
+      "author": "赵元轩",
+      "description": "高级产品设计师 · 10 年+ 跨 AI、数据、履约与平台系统。从混沌到清晰。按项目及设计体系呈现的个人作品集。"
     },
     "hero": {
       "kicker": "Designer · 设计师 · 2026 作品集",
@@ -1327,12 +1330,15 @@ window.__I18N_BUNDLE__ = {
       "lang_glyph_zh": "EN",
       "about": "About",
       "career": "Career",
+      "beliefs": "Beliefs",
       "work": "Work",
-      "contact": "Contact"
+      "contact": "Contact",
+      "focus": "Focus"
     },
     "meta": {
       "title_suffix": "Zhao Yuanxuan Portfolio",
-      "author": "Zhao Yuanxuan"
+      "author": "Zhao Yuanxuan",
+      "description": "Senior product designer · 10+ years across AI, data, mobility and platform systems. Selected work and case studies."
     },
     "hero": {
       "kicker": "Designer · Portfolio 2026",
